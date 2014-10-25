@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="hero-unit">
+
+        <h1>Eventos<br/> <small><?php echo $this->titulo ?></small></h1>
+        <hr/>
+        <div>
+            <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'evento/index'; ?>" role="button">Volver</a>
+        </div>
+        <br>
+        <div class="row">
+            <form name="form1" id="form1" method="post" action="<?php echo BASE_URL . 'evento/encontrar'; ?>">
+            <div class="col-md-6">
+                <label>Nombre</label>
+                <input type="text" name="txtNombre" id="txtNombre" value="">
+                <button type="submit" value="Buscar">Buscar</button>
+                    
+            </div>
+            </form>
+        </div>
+
+    </div>
+</div>

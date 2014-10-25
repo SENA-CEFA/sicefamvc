@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="hero-unit">
+
+        <h1>Eventos<br/> <small><?php echo $this->titulo ?></small></h1>
+        <hr/>
+        <div>
+            <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'evento/index'; ?>" role="button">Volver</a>
+            <button class="btn btn-success" data-toggle="modal" data-target="#miventana1">Guardar</button>
+            <div class="modal fade" id="miventana1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                            <h3>Esta seguro que desea agregar</h3>
+                        </div>
+
+                        <div class="modal-footer discurso-enfatizado">
+                            <a class="btn btn-sm btn-primary " data-dismiss="modal" href="#" role="button">No</a>
+                            <button class="btn btn-sm btn-primary " type="button" onclick="document.form1.submit()"  >Sí</button>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                    <form name="form1" id="form1" action="<?php echo BASE_URL . 'evento/insertar/'?>" method="POST">
+                        <table id="mainTable" class="table table-bordered">
+                            <tbody>      
+                                <tr>
+                                    <th class="label-info">#</th>
+                                    <td class="h6">-Campo Autonumerico-</td>
+                                </tr>
+                                <tr>
+                                    <th class="label-info">Nombre del Evento</th>
+                                    <td><input name="txtNombre" id="txtNombre" type="text" class="col-md-12" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th class="label-info">Tipo de Evento</th>
+                                    <td><select name="cmbTipo" id="cmbTipo" class="col-md-12">
+                                            <option value="">--</option>
+                                            <option value="Competencia">Competencia</option>
+                                            <option value="Exposicion">Exposicion</option>
+                                            <option value="Conferencia">Conferencia</option>
+                                            <option value="Acto Cultural">Acto Cultural</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="label-info">Fecha y Hora de Inicio</th>
+                                    <td>
+                                        <input type='text' name="txtFechaI" id="txtFechaI" class="col-md-8" value=""/>                                
+                                        <script type="text/javascript">
+                                            $(function() {
+                                                $('#txtFechaI').datetimepicker({
+                                                    use24hours: true,
+                                                    format: 'YYYY-MM-DD HH:mm:ss'
+                                                });
+                                            });
+                                        </script>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th class="label-info">Fecha y Hora de Finalización</th>
+                                    <td>
+                                        <input name="txtFechaF" id="txtFechaF" type='text' class="col-md-8" value=""/>                                
+                                        <script type="text/javascript">
+                                            $(function() {
+                                                $('#txtFechaF').datetimepicker({
+                                                    use24hours: true,
+                                                    format: 'YYYY-MM-DD HH:mm:ss'
+                                                });
+                                            });
+                                        </script>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="label-info">Lugar</th>
+                                    <td><input name="txtLugar" id="txtLugar" type="text" class="col-md-12" value=""></td>
+                                </tr>                            
+                                <tr>
+                                    <th class="label-info">Encargado</th>
+                                    <td><select name="cmbAdmin" id="cmbAdmin" class="col-md-12">
+                                            <option value="">--</option>
+                                        <?php if (isset($this->admin) && count($this->admin)): ?>
+                                            <?php for ($i = 0; $i < count($this->admin); $i++): ?>
+                                            <option value="<?php echo $this->admin[$i] ['Documento'] ?>" ><?php echo $this->admin[$i] ['NombreE']; ?></option>
+                                            <?php endfor; ?>
+                                        <?php endif; ?>
+                                        </select>
+                                </tr>
+                                <tr>
+                                    <th class="label-info">Cant Max Participante</th>
+                                    <td><input name="txtMax" id="txtMax" type="number" class="col-md-4" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th class="label-info">Cant Min Participantes</th>
+                                    <td><input name="txtMin" id="txtMin" type="number" class="col-md-4" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th class="label-info">Descripción</th>
+                                    <td><textarea name="txaDescripcion" id="txaDescripcion" class="col-md-12" rows="3"></textarea></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </form>                        
+            </div>
+        </div>
+
+    </div>
+</div>
