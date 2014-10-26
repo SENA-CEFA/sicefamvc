@@ -43,12 +43,12 @@ class View {
             array(
                 'id' => 'ver',
                 'titulo' => 'Ver Empresas',
-                'enlace' => BASE_URL . 'empresas/index',
+                'enlace' => BASE_URL . 'empresa/index',
                 'sub' => '',
             ), array(
                 'id' => 'gestion',
                 'titulo' => 'Gestion',
-                'enlace' => BASE_URL . 'empresas/gestion',
+                'enlace' => BASE_URL . 'empresa/gestion',
                 'sub' => '',
             ),
         );
