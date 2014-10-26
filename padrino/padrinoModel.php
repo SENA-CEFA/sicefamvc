@@ -8,7 +8,7 @@ class padrinoModel extends Model {
 
     function delete($arg = false) {
         if ($arg) {
-            $count = $this->_db->exec("DELETE FROM eventos where IdEvento=" . $arg);
+            $count = $this->_db->exec("DELETE FROM padrino where Documento=" . $arg);
             return $count;
         } else {
             return 0;
@@ -17,7 +17,7 @@ class padrinoModel extends Model {
 
     function edit($arg = false) {
         if ($_POST && $arg) {
-            $count = $this->_db->exec("UPDATE eventos SET Nombre='" . $_POST['txtNombre'] . "', TipoEvento='" . $_POST['cmbTipo'] . "', FInicio='" . $_POST['txtFechaI'] . "', FFin='" . $_POST['txtFechaF'] . "', Lugar='" . $_POST['txtLugar'] . "', IdEncargado='" . $_POST['cmbAdmin'] . "', CantMaxiAsis='" . $_POST['txtMax'] . "',CantMiniAsis='" . $_POST['txtMin'] . "', Descripcion='" . $_POST['txaDescripcion'] . "'   WHERE IdEvento=" . $arg);
+            $count = $this->_db->exec("UPDATE padrino SET Nombre='" . $_POST['txtNombre'] . "', Telefono='" . $_POST['txtTelefono'] . "', Correo='" . $_POST['txtCorreo'] ."' WHERE Documento=" . $arg);
             return $count;
         } else {
             return 0;
@@ -25,16 +25,13 @@ class padrinoModel extends Model {
     }
 
     function get($arg = false) {
-        echo "SELECT IdEvento,Nombre,TipoEvento,DATE_FORMAT(FInicio,'%Y-%m-%d %H:%m:%s') AS FInicio,DATE_FORMAT(FFin,'%Y-%m-%d %H:%m:%s') AS FFin,Lugar,CONCAT(Nombres,' ',Apellidos) AS NombreE,IdEncargado,CantMaxiAsis,CantMiniAsis,Descripcion "
-                . "FROM eventos INNER JOIN encargados ON eventos.IdEncargado=encargados.Documento WHERE IdEvento=" . $arg;
-        $sql = $this->_db->query("SELECT IdEvento,Nombre,TipoEvento,DATE_FORMAT(FInicio,'%Y-%m-%d %H:%m:%s') AS FInicio,DATE_FORMAT(FFin,'%Y-%m-%d %H:%m:%s') AS FFin,Lugar,CONCAT(Nombres,' ',Apellidos) AS NombreE,IdEncargado,CantMaxiAsis,CantMiniAsis,Descripcion "
-                . "FROM eventos INNER JOIN encargados ON eventos.IdEncargado=encargados.Documento WHERE IdEvento=" . $arg);
+        $sql = $this->_db->query("SELECT Documento,Nombre,Telefono,Correo FROM padrino WHERE Documento=" . $arg);
         return $sql->fetchall();
     }
 
     function set() {
         if ($_POST) {
-            $count = $this->_db->exec("INSERT INTO eventos (Nombre, TipoEvento, FInicio, FFin, Lugar, IdEncargado, CantMaxiAsis, CantMiniAsis, Descripcion) VALUES ('" . $_POST['txtNombre'] . "', '" . $_POST['cmbTipo'] . "', '" . $_POST['txtFechaI'] . "', '" . $_POST['txtFechaF'] . "', '" . $_POST['txtLugar'] . "', '" . $_POST['cmbAdmin'] . "', '" . $_POST['txtMax'] . "', '" . $_POST['txtMin'] . "', '" . $_POST['txaDescripcion'] . "')");
+            $count = $this->_db->exec("INSERT INTO padrino (Documento,Nombre,Telefono,Correo) VALUES ('" . $_POST['txtDocumento'] . "', '" . $_POST['txtNombre'] . "', '" . $_POST['txtTelefono'] . "', '" . $_POST['txtCorreo'] . "')");
             return $count;
         } else {
             return 0;
@@ -42,17 +39,13 @@ class padrinoModel extends Model {
     }
 
     function lista() {
-        $data = $this->_db->query("SELECT IdEvento,Nombre,TipoEvento,DATE_FORMAT(FInicio,'%Y-%m-%d %H:%m:%s') AS FInicio,DATE_FORMAT(FFin,'%Y-%m-%d %H:%m:%s') AS FFin,Lugar FROM eventos");
+        $data = $this->_db->query("SELECT Documento,Nombre,Telefono,Correo FROM padrino");
         return $data->fetchall();
     }
 
-    function getadmin() {
-        $sql = $this->_db->query("SELECT Documento,CONCAT(Nombres,' ',Apellidos) AS NombreE FROM encargados");
-        return $sql->fetchall();
-    }
 
-    public function buscarnombre() {
-        $sql = $this->_db->query("SELECT IdEvento from eventos where Nombre like '%".$_POST['txtNombre']."%'");
+    public function buscardocumento() {
+        $sql = $this->_db->query("SELECT Documento from padrino where Documento like '%".$_POST['txtDocumento']."%'");
         return $sql->fetchall();
     }
 

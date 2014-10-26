@@ -9,14 +9,14 @@ class padrinoController extends Controller {
     public function index() {
         $data = $this->loadModel('padrino');
         $this->_view->datos = $data->lista();
-        $this->_view->titulo = 'Listado de Eventos';
+        $this->_view->titulo = 'Lista Padrinos';
         $this->_view->renderizar('padrino', 'default');
     }
 
     public function ver($arg = false) {
         $data = $this->loadModel('padrino');
         $this->_view->datos = $data->get($arg);
-        $this->_view->titulo = 'Detalle Evento';
+        $this->_view->titulo = 'Detalle Padrino';
         $this->_view->renderizar('ver', 'default');
     }
 
@@ -24,7 +24,7 @@ class padrinoController extends Controller {
         $data = $this->loadModel('padrino');
         $this->_view->datos = $data->get($arg);
         $this->_view->id = $arg;
-        $this->_view->titulo = 'Detalle Evento a Borrar';
+        $this->_view->titulo = 'Detalle Padrino a Borrar';
         $this->_view->renderizar('borrar', 'default');
     }
 
@@ -34,13 +34,13 @@ class padrinoController extends Controller {
         if ($cont > 0) {
             echo "<script>alert('Registro Eliminado')</script>";
             $this->_view->datos = $data->lista();
-            $this->_view->titulo = 'Listado de Eventos';
+            $this->_view->titulo = 'Lista Padrinos';
             $this->_view->renderizar('padrino', 'default');
         } else {
             echo "<script>alert('No se puedo eliminar, intentelo de nuevo')</script>";
             $this->_view->datos = $data->get($arg);
             $this->_view->id = $arg;
-            $this->_view->titulo = 'Detalle Evento a Borrar';
+            $this->_view->titulo = 'Detalle Padrino a Borrar';
             $this->_view->renderizar('borrar', 'default');
         }
     }
@@ -48,9 +48,8 @@ class padrinoController extends Controller {
     public function editar($arg = false) {
         $data = $this->loadModel('padrino');
         $this->_view->datos = $data->get($arg);
-        $this->_view->admin = $data->getadmin();
         $this->_view->id = $arg;
-        $this->_view->titulo = 'Editar Evento';
+        $this->_view->titulo = 'Editar Padrino';
         $this->_view->renderizar('editar', 'default');
     }
 
@@ -60,21 +59,20 @@ class padrinoController extends Controller {
         if ($cont > 0) {
             echo "<script>alert('Registro Modificado')</script>";
             $this->_view->datos = $data->lista();
-            $this->_view->titulo = 'Listado de Eventos';
+            $this->_view->titulo = 'Lista Padrinos';
             $this->_view->renderizar('padrino', 'default');
         } else {
             echo "<script>alert('No se puedo modificar, intentelo de nuevo')</script>";
             $this->_view->datos = $data->get($arg);
             $this->_view->id = $arg;
-            $this->_view->titulo = 'Detalle Evento a Editar';
+            $this->_view->titulo = 'Detalle Padrino a Editar';
             $this->_view->renderizar('editar', 'default');
         }
     }
 
     public function nuevo() {
         $data = $this->loadModel('padrino');
-        $this->_view->admin = $data->getadmin();
-        $this->_view->titulo = 'Agregar Evento';
+        $this->_view->titulo = 'Agregar Padrino';
         $this->_view->renderizar('nuevo', 'default');
     }
 
@@ -84,25 +82,25 @@ class padrinoController extends Controller {
         if ($cont > 0) {
             echo "<script>alert('Registro Agregado')</script>";
             $this->_view->datos = $data->lista();
-            $this->_view->titulo = 'Listado de Eventos';
+            $this->_view->titulo = 'Lista Padrino';
             $this->_view->renderizar('padrino', 'default');
         } else {
             echo "<script>alert('No se puedo Agregar, intentelo de nuevo')</script>";
             $this->_view->admin = $data->getadmin();
-            $this->_view->titulo = 'Agregar Evento';
+            $this->_view->titulo = 'Agregar Padrino';
             $this->_view->renderizar('nuevo', 'default');
         }
     }
     public function buscar(){
          $data = $this->loadModel('padrino');
-        $this->_view->titulo = 'Listado de Eventos';
+        $this->_view->titulo = 'Buscar Padrino';
         $this->_view->renderizar('buscar', 'default');       
     }
     
     public function encontrar(){
         $data = $this->loadModel('padrino');
         if($_POST){
-            $id=$data->buscarnombre();
+            $id=$data->buscardocumento();
             if($id)
             {
             $controller = new padrinoController();
@@ -110,7 +108,7 @@ class padrinoController extends Controller {
             }
             else
             {
-        $this->_view->titulo = 'Listado de Eventos';
+        $this->_view->titulo = 'Lista Padrino';
         $this->_view->renderizar('padrino', 'default');       
            
                 

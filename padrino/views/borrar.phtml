@@ -1,87 +1,68 @@
 <div class="container">
-    <div class="hero-unit">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col-sm-10 col-lg-offset-1">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Padrinos</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <h3><?php echo $this->titulo ?></h3>
+                        </div><br>
 
-        <h1>Eventos<br/> <small><?php echo $this->titulo ?></small></h1>
-        <hr/>
-        <div>
-            <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'evento/index'; ?>" role="button">Volver</a>
-
-            <button class="btn btn-danger" data-toggle="modal" data-target="#miventana1">Borrar</button>
-            <div class="modal fade" id="miventana1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
-                            <h3>Esta seguro que desea borrarlo</h3>
+                        <div class="col-sm-12">
+                            <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'padrino/index'; ?>" role="button">Volver</a>            
+                            <div class="modal fade" id="miventana1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                                            <h4>Esta seguro que desea borrarlo</h4>
+                                        </div>
+                                        <div class="modal-footer discurso-enfatizado">
+                                            <a class="btn btn-sm btn-success " data-dismiss="modal" href="#" role="button">No</a>
+                                            <a class="btn btn-sm btn-success " href="<?php echo BASE_URL . 'evento/eliminar/' . $this->id; ?>" role="button">Sí</a>
+                                        </div>
+                                    </div>
+                                </div>          
+                            </div>
                         </div>
+                        <br>
+                        <div class="col-md-8  col-md-offset-2">
+                            <?php if (isset($this->datos) && count($this->datos)): ?>
 
-                        <div class="modal-footer discurso-enfatizado">
-                            <a class="btn btn-sm btn-primary " data-dismiss="modal" href="#" role="button">No</a>
-                            <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'evento/eliminar/' . $this->id; ?>" role="button">Sí</a>
+                                <div class="col-md-12">
+                                    <div class="col-md-4 label-custom">Documento</div>
+                                    <div class="col-md-8"><?php echo $this->datos[0] ['Documento']; ?></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-4 label-custom">Nombre</div>
+                                    <div class="col-md-8"><?php echo $this->datos[0] ['Nombre']; ?></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-4 label-custom">Telefono</div>
+                                    <div class="col-md-8"><?php echo $this->datos[0] ['Telefono']; ?></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-4 label-custom">Correo</div>
+                                    <div class="col-md-8"><?php echo $this->datos[0] ['Correo']; ?></div>
+                                </div>
+
+                                <div class="col-md-12 text-center">
+                                    <br>
+                                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#miventana1">Borrar</button>
+                                </div>
+                            <?php else: ?>
+
+                                <p><strong>No hay Padrino a Eliminar!</strong></p>
+
+                            <?php endif; ?>                             
+
                         </div>
                     </div>
-                </div>          
-            </div>
-        </div>
-<br>
-            <div class="row">
-                <div class="col-md-6">
-                    <?php if (isset($this->datos) && count($this->datos)): ?>
-
-                        <table id="mainTable" class="table table-bordered">
-                            <tbody>      
-                                <tr>
-                                    <th class="label-info">#</th>
-                                    <td class=""><?php echo $this->datos[0] ['IdEvento']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="label-info">Nombre del Evento</th>
-                                    <td><?php echo $this->datos[0] ['Nombre']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="label-info">Tipo de Evento</th>
-                                    <td><?php echo $this->datos[0] ['TipoEvento']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="label-info">Fecha y Hora de Inicio</th>
-                                    <td><?php echo $this->datos[0] ['FInicio']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="label-info">Fecha y Hora de Finalización</th>
-                                    <td><?php echo $this->datos[0] ['FFin']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="label-info">Lugar</th>
-                                    <td><?php echo $this->datos[0] ['Lugar']; ?></td>
-                                </tr>                            
-                                <tr>
-                                    <th class="label-info">Encargado</th>
-                                    <td><?php echo $this->datos[0] ['NombreE']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="label-info">Cant Max Participante</th>
-                                    <td><?php echo $this->datos[0] ['CantMaxiAsis']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="label-info">Cant Min Participantes</th>
-                                    <td><?php echo $this->datos[0] ['CantMiniAsis']; ?></td>
-                                </tr>
-                                <tr>
-                                    <th class="label-info">Descripción</th>
-                                    <td><?php echo $this->datos[0] ['Descripcion']; ?></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-
-                    <?php else: ?>
-
-                        <p><strong>No hay Evento!</strong></p>
-
-                    <?php endif; ?>                             
-
                 </div>
             </div>
-
         </div>
     </div>
+</div>

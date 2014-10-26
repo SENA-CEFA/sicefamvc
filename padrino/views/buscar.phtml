@@ -1,22 +1,35 @@
 <div class="container">
-    <div class="hero-unit">
-
-        <h1>Eventos<br/> <small><?php echo $this->titulo ?></small></h1>
-        <hr/>
-        <div>
-            <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'evento/index'; ?>" role="button">Volver</a>
-        </div>
-        <br>
+    <div class="contenedor">
         <div class="row">
-            <form name="form1" id="form1" method="post" action="<?php echo BASE_URL . 'evento/encontrar'; ?>">
-            <div class="col-md-6">
-                <label>Nombre</label>
-                <input type="text" name="txtNombre" id="txtNombre" value="">
-                <button type="submit" value="Buscar">Buscar</button>
-                    
-            </div>
-            </form>
-        </div>
+            <div class="col-sm-10 col-lg-offset-1">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Padrinos</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <h3><?php echo $this->titulo ?></h3>
+                        </div><br>
 
+                        <div class="col-sm-12">
+                            <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'padrino/index'; ?>" role="button">Volver</a>
+                        </div>
+                        <br>
+                        <div class="row">
+                        <div class="col-md-8  col-md-offset-2">
+                            <form name="form1" id="form1" method="post" action="<?php echo BASE_URL . 'padrino/encontrar'; ?>">
+                                <div class="col-md-12 text-center">
+                                    <label class="label-custom">Documento</label>
+                                    <input type="text" name="txtNombre" id="txtNombre" value="">
+                                    <button class="btn btn-sm btn-success" type="submit">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
