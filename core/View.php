@@ -42,50 +42,58 @@ class View {
         $subempresas = array(
             array(
                 'id' => 'ver',
-                'titulo' => 'Ver Empresas',
+                'titulo' => '<span class="glyphicon glyphicon-eye-open"></span> Empresas',
                 'enlace' => BASE_URL . 'empresa/index',
                 'sub' => '',
-            ), array(
+            ), 
+        );
+        if($_SESSION['autentificado'] == 'Si')
+        {
+            $subempresas[]=array(
                 'id' => 'gestion',
-                'titulo' => 'Gestion',
+                'titulo' => '<span class="glyphicon glyphicon-list-alt"></span> Gestion',
                 'enlace' => BASE_URL . 'empresa/gestion',
                 'sub' => '',
-            ),
-        );
+            );
+        }
 
         $subagenda = array(
             array(
                 'id' => 'ver',
-                'titulo' => 'Ver Agenda',
+                'titulo' => '<span class="glyphicon glyphicon-eye-open"></span> Agenda',
                 'enlace' => BASE_URL . 'agenda/index',
                 'sub' => '',
             ),
             array(
+                'id' => 'ultimo',
+                'titulo' => '<span class="glyphicon glyphicon-search"></span> Consulta',
+                'enlace' => BASE_URL . 'agenda/buscar',
+                'sub' => '',
+            ),
+
+        );
+        if($_SESSION['autentificado'] == 'Si')
+        {
+            $subagenda[]=            array(
                 'id' => 'gestion',
-                'titulo' => 'Gestion',
+                'titulo' => '<span class="glyphicon glyphicon-list-alt"></span> Gestion',
                 'enlace' => BASE_URL . 'agenda/gestion',
                 'sub' => '',
-            ),
-            array(
-                'id' => 'ultimo',
-                'titulo' => 'Ultimo Minuto',
-                'enlace' => BASE_URL . 'agenda/minuto',
-                'sub' => '',
-            ),
-        );
-
-        if ($_SESSION['autentificado'] == 'Si') {
+            );
+        }
+   
+        if($_SESSION['autentificado'] == 'Si') {
 
             $subadministrador = array(
                 array(
                     'id' => 'parametros',
-                    'titulo' => 'Parametros Generales',
+                    'titulo' => '<span class="glyphicon glyphicon-cog"></span> Parametros Generales',
                     'enlace' => BASE_URL . 'paramentros/index',
                     'sub' => '',
                 ),
                 array(
                     'id' => 'padrinos',
-                    'titulo' => 'Padrinos',
+                    'titulo' => '<span class="glyphicon glyphicon-thumbs-up"></span> Padrinos',
                     'enlace' => BASE_URL . 'padrino/index',
                     'sub' => '',
                 ),
@@ -93,37 +101,37 @@ class View {
             $menu = array(
                 array(
                     'id' => 'inicio',
-                    'titulo' => 'Inicio',
+                    'titulo' => '<span class="glyphicon glyphicon-home"></span> Inicio',
                     'enlace' => BASE_URL . 'inicio/index',
                     'sub' => '',
                 ),
                 array(
                     'id' => 'consolidado',
-                    'titulo' => 'Consolidado',
+                    'titulo' => '<span class="glyphicon glyphicon-stats"></span> Consolidado',
                     'enlace' => BASE_URL . 'inicio/consolidado',
                     'sub' => '',
                 ),
                 array(
                     'id' => 'empresas',
-                    'titulo' => 'Empresas',
+                    'titulo' => '<span class="glyphicon glyphicon-briefcase"></span> Empresas',
                     'enlace' => BASE_URL . 'empresas/index',
                     'sub' => $subempresas,
                 ),
                 array(
                     'id' => 'agenda',
-                    'titulo' => 'Agenda',
+                    'titulo' => '<span class="glyphicon glyphicon-calendar"></span> Agenda',
                     'enlace' => BASE_URL . 'inicio/agenda',
                     'sub' => $subagenda,
                 ),
                 array(
                     'id' => 'negociacion',
-                    'titulo' => 'Negociacion',
+                    'titulo' => '<span class="glyphicon glyphicon-usd"></span> Negociacion',
                     'enlace' => BASE_URL . 'negociacion/index',
                     'sub' => '',
                 ),
                 array(
                     'id' => 'administrador',
-                    'titulo' => 'Administrador',
+                    'titulo' => '<span class="glyphicon glyphicon-cog"></span> Administrador',
                     'enlace' => BASE_URL . 'administrador/index',
                     'sub' => $subadministrador,
                 ),
@@ -134,31 +142,31 @@ class View {
             $menu = array(
                 array(
                     'id' => 'inicio',
-                    'titulo' => 'Inicio',
+                    'titulo' => '<span class="glyphicon glyphicon-home"></span> Inicio',
                     'enlace' => BASE_URL . 'inicio/index',
                     'sub' => '',
                 ),
                 array(
                     'id' => 'consolidado',
-                    'titulo' => 'Consolidado',
+                    'titulo' => '<span class="glyphicon glyphicon-stats"></span> Consolidado',
                     'enlace' => BASE_URL . 'inicio/consolidado',
                     'sub' => '',
                 ),
                 array(
                     'id' => 'empresas',
-                    'titulo' => 'Empresas',
+                    'titulo' => '<span class="glyphicon glyphicon-briefcase"></span> Empresas',
                     'enlace' => BASE_URL . 'empresas/index',
                     'sub' => $subempresas,
                 ),
                 array(
                     'id' => 'agenda',
-                    'titulo' => 'Agenda',
+                    'titulo' => '<span class="glyphicon glyphicon-calendar"></span> Agenda',
                     'enlace' => BASE_URL . 'inicio/agenda',
                     'sub' => $subagenda,
                 ),
                 array(
                     'id' => 'negociacion',
-                    'titulo' => 'Negociacion',
+                    'titulo' => '<span class="glyphicon glyphicon-usd"></span> Negociacion',
                     'enlace' => BASE_URL . 'negociacion/index',
                     'sub' => '',
                 ),
@@ -171,20 +179,15 @@ class View {
         if ($_SESSION['autentificado'] == 'Si') {
             $subsesion = array(
                 array(
-                    'id' => 'perfil',
-                    'titulo' => 'Perfil',
-                    'enlace' => BASE_URL . 'sesion/perfil',
-                ),
-                array(
                     'id' => 'cerrar',
-                    'titulo' => 'Cerrar Sesión',
+                    'titulo' => '<span class="glyphicon glyphicon-off"></span> Cerrar Sesión',
                     'enlace' => BASE_URL . 'sesion/cerrar',
                 ),
             );
             $menu = array(
                 array(
                     'id' => 'sesion',
-                    'titulo' => $_SESSION['usuario'],
+                    'titulo' => '<span class="glyphicon glyphicon-user"></span> '.$_SESSION['usuario'],
                     'enlace' => BASE_URL . 'sesion/index',
                     'sub' => $subsesion,
                 ),
@@ -193,7 +196,7 @@ class View {
             $menu = array(
                 array(
                     'id' => 'sesion',
-                    'titulo' => 'Iniciar Sesion',
+                    'titulo' => '<span class="glyphicon glyphicon-user"></span> Iniciar Sesion',
                     'enlace' => BASE_URL . 'sesion/index',
                     'sub' => '',
                 ),
