@@ -238,5 +238,14 @@ fieldset[disabled] .btn-custom.active {
 
     color: white;
 }
+.label-custom-clear-green{
+    background-color:#c9e2b3;
+}
+.label-custom-clear-orange{
+    background-color: #f5e79e;
+}
+.label-custom-clear-red{
+    background-color: #f2dede ;
+}
 
 
