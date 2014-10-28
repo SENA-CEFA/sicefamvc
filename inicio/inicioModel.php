@@ -6,20 +6,24 @@ class inicioModel extends Model
         parent::__construct();
     }
 
-    function delete() {
+    function delete($arg = false) {
         
     }
 
-    function edit() {
+    function edit($arg = false) {
         
     }
 
-    function get() {
+    function get($arg = false) {
     
     }
 
-    function set() {
+    function set($arg = false) {
         
+    }
+    function consolidar(){
+        $data = $this->_db->query("SELECT Nombre FROM categorias");
+        return $data->fetchall();
     }
 
 }

@@ -20,16 +20,16 @@
                             <div class="table-bordered col-sm-12 label-custom-back text-left">
                                 <div class="col-sm-1"><label class="label-custom">Nit</label></div>
                                 <div class="col-sm-3"><label class="label-custom">Nombre</label></div>
-                                <div class="col-sm-2"><label class="label-custom">Representate Legal</label></div>
+                                <div class="col-sm-2"><label class="label-custom">Participación</label></div>
                                 <div class="col-sm-2"><label class="label-custom">Departamento</label></div>
-                                <div class="col-sm-2"><label class="label-custom">Sector Economico</label></div>
+                                <div class="col-sm-2"><label class="label-custom">Sector Ecónomico</label></div>
                                 <div class="col-sm-2"><label class="label-custom">Acciones</label></div>
                             </div>
                             <?php for ($i = 0; $i < count($this->datos); $i++): ?>
                                 <div class="table-bordered col-sm-12">
                                     <div class="col-sm-1"><?php echo $this->datos[$i] ['Nit']; ?></div>
                                     <div class="col-sm-3"><?php echo $this->datos[$i] ['Nombre']; ?></div>
-                                    <div class="col-sm-2"><?php echo $this->datos[$i] ['NombreRepLeg']; ?></div>
+                                    <div class="col-sm-2"><?php echo $this->datos[$i] ['TipoEmpresa']; ?></div>
                                     <div class="col-sm-2"><?php echo $this->datos[$i] ['Departamento']; ?></div>
                                     <div class="col-sm-2"><?php echo $this->datos[$i] ['SectorEconomico']; ?></div>
                                     <div class="col-sm-2">

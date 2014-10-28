@@ -11,6 +11,8 @@ class inicioController extends Controller {
         $this->_view->renderizar('inicio', 'default');
     }
     public function consolidado() {
+        $data = $this->loadModel('inicio');
+        $this->_view->datos = $data->consolidar();
         $this->_view->titulo = 'Consolidado';
         $this->_view->renderizar('consolidado', 'default');
     }

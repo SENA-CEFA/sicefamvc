@@ -39,7 +39,7 @@ class empresaModel extends Model
     }
 
     function lista() {
-        $data = $this->_db->query("SELECT Nit,Nombre,NombreRepLeg,Departamento,SectorEconomico FROM empresa");
+        $data = $this->_db->query("SELECT Nit,Nombre,TipoEmpresa,Departamento,SectorEconomico FROM empresa");
         return $data->fetchall();
     }
 

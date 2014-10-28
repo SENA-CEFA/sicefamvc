@@ -1,15 +1,3 @@
-<?php
-$_POST['cmborden'] = 5;
-if (isset($_POST['cmborden']) && $_POST['cmborden'] == 2) {
-    $clasecolumna = "col-md-6";
-} elseif (isset($_POST['cmborden']) && $_POST['cmborden'] == 4) {
-    $clasecolumna = "col-md-3";
-} elseif (isset($_POST['cmborden']) && $_POST['cmborden'] == 5) {
-    $clasecolumna = "col-md-5ths";
-} else {
-    $clasecolumna = "col-md-4";
-}
-?>
 <style type="text/css">
     .vert { /* wider than clip to position buttons to side */
         margin-top: 0em;
@@ -28,6 +16,32 @@ if (isset($_POST['cmborden']) && $_POST['cmborden'] == 2) {
     }
 
 </style>
+<?php
+$_POST['cmborden'] = 5;
+if (isset($_POST['cmborden']) && $_POST['cmborden'] == 2) {
+    $clasecolumna = "col-md-6";
+} elseif (isset($_POST['cmborden']) && $_POST['cmborden'] == 4) {
+    $clasecolumna = "col-md-3";
+} elseif (isset($_POST['cmborden']) && $_POST['cmborden'] == 5) {
+    $clasecolumna = "col-md-5ths";
+?>
+<style type="text/css">
+    #mesa .row{
+        font-size: 9px;
+    }
+        .vert .simply-scroll-clip {
+        height: 30px;
+    }
+    .vert .simply-scroll-list li {
+        height: 30px;
+    }
+</style>
+<?php
+} else {
+    $clasecolumna = "col-md-4";
+}
+?>
+
 <div class="container col-md-12">
     <div class="contenedor ">
         <div class="row">
@@ -449,7 +463,6 @@ if (isset($_POST['cmborden']) && $_POST['cmborden'] == 2) {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>        

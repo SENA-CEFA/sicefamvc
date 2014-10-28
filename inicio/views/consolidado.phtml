@@ -75,71 +75,32 @@
                         </script>
                         <div class="col-sm-12 table-bordered">
                             <ul id="scroller">
-                                <li>
-                                    <div>
-                                        <div class="col-sm-6">
-                                            <label class="label-custom">Categoria 1</label>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-center" size="10" value="1">                     
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-right" size="10" value="1"> 
-                                        </div>
+                                        <li>
+                                            <div>
+                                                <hr>
+                                            </div>
+                                        </li>
+                                <?php if (isset($this->datos) && count($this->datos)): ?>
+                                    <?php for ($i = 0; $i < count($this->datos); $i++): ?>
+                                        <li>
+                                            <div>
+                                                <div class="col-sm-6">
+                                                    <label class="label-custom text-uppercase"><?php echo $this->datos[$i] ['Nombre']; ?></label>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <input class="text-center" size="10" value="0">                     
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    $ <input class="text-right" size="10" value="0"> 
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <?php endfor; ?>
+                                <?php else: ?>
+                                    <div class="col-sm-12">            
+                                        <p><strong>No hay Datos!</strong></p> 
                                     </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <div class="col-sm-6">
-                                            <label class="label-custom">Categoria 2</label>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-center" size="10" value="1">                     
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-right" size="10" value="1"> 
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <div class="col-sm-6">
-                                            <label class="label-custom">Categoria 3</label>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-center" size="10" value="1">                     
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-right" size="10" value="1"> 
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <div class="col-sm-6">
-                                            <label class="label-custom">Categoria 4</label>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-center" size="10" value="1">                     
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-right" size="10" value="1"> 
-                                        </div>
-                                    </div>
-                                </li>                                
-                                <li>
-                                    <div>
-                                        <div class="col-sm-6">
-                                            <label class="label-custom">Categoria 5</label>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-center" size="10" value="1">                     
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input class="text-right" size="10" value="1"> 
-                                        </div>
-                                    </div>
-                                </li>                        
+                                <?php endif; ?>                  
                             </ul>  
                         </div>
 
@@ -149,7 +110,7 @@
                                 <label class="label-custom">Total Negociado</label>
                             </div>
                             <div class="col-sm-4">
-                                <input class="text-right" size="10" value="1">
+                                $ <input class="text-right" size="10" value="1">
                             </div>
                         </div>
                         <br>&nbsp;
@@ -158,7 +119,7 @@
                                 <input type="button" class="btn-custom" value="Descargar PDF">
                             </div>
                             <div class="col-sm-6">
-                               <input class="text-left" size="25" value="" placeholder="Correo" ><input type="button" class="btn-custom" value="Enviar">
+                                <input class="text-left" size="25" value="" placeholder="Correo" ><input type="button" class="btn-custom" value="Enviar">
                             </div>
                         </div>           
                     </div>
