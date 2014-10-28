@@ -11,7 +11,9 @@ class empresaController extends Controller {
         $this->_view->renderizar('repempresa', 'default');
     }
     public function gestion() {
-        $this->_view->titulo = 'Gestión Empresas';
-        $this->_view->renderizar('gesempresa', 'default');
+        $data = $this->loadModel('empresa');
+        $this->_view->datos = $data->lista();
+        $this->_view->titulo = 'Lista Empresas';
+        $this->_view->renderizar('empresa', 'default');
     }
 }

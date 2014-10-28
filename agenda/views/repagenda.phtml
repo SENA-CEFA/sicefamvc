@@ -1,9 +1,11 @@
 <?php
-$_POST['cmborden'] = 4;
+$_POST['cmborden'] = 5;
 if (isset($_POST['cmborden']) && $_POST['cmborden'] == 2) {
     $clasecolumna = "col-md-6";
 } elseif (isset($_POST['cmborden']) && $_POST['cmborden'] == 4) {
     $clasecolumna = "col-md-3";
+} elseif (isset($_POST['cmborden']) && $_POST['cmborden'] == 5) {
+    $clasecolumna = "col-md-5ths";
 } else {
     $clasecolumna = "col-md-4";
 }

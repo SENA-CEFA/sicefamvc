@@ -51,7 +51,7 @@ class View {
         {
             $subempresas[]=array(
                 'id' => 'gestion',
-                'titulo' => '<span class="glyphicon glyphicon-list-alt"></span> Gestion',
+                'titulo' => '<span class="glyphicon glyphicon-list-alt"></span> Registro',
                 'enlace' => BASE_URL . 'empresa/gestion',
                 'sub' => '',
             );
@@ -76,7 +76,7 @@ class View {
         {
             $subagenda[]=            array(
                 'id' => 'gestion',
-                'titulo' => '<span class="glyphicon glyphicon-list-alt"></span> Gestion',
+                'titulo' => '<span class="glyphicon glyphicon-list-alt"></span> Gestión',
                 'enlace' => BASE_URL . 'agenda/gestion',
                 'sub' => '',
             );
@@ -88,12 +88,12 @@ class View {
                 array(
                     'id' => 'parametros',
                     'titulo' => '<span class="glyphicon glyphicon-cog"></span> Parametros Generales',
-                    'enlace' => BASE_URL . 'paramentros/index',
+                    'enlace' => BASE_URL . 'parametros/index',
                     'sub' => '',
                 ),
                 array(
                     'id' => 'padrinos',
-                    'titulo' => '<span class="glyphicon glyphicon-thumbs-up"></span> Padrinos',
+                    'titulo' => '<span class="glyphicon glyphicon-thumbs-up"></span> Registro Padrinos',
                     'enlace' => BASE_URL . 'padrino/index',
                     'sub' => '',
                 ),
