@@ -17,28 +17,33 @@
 
 </style>
 <?php
-$_POST['cmborden'] = 5;
-if (isset($_POST['cmborden']) && $_POST['cmborden'] == 2) {
+$col = $this->datos[0] ['Cols'];
+$mes = $this->datos[0] ['Mesas'];
+if (isset($col) && $col == 2) {
     $clasecolumna = "col-md-6";
-} elseif (isset($_POST['cmborden']) && $_POST['cmborden'] == 4) {
+    $h = 2;
+} elseif (isset($col) && $col == 4) {
     $clasecolumna = "col-md-3";
-} elseif (isset($_POST['cmborden']) && $_POST['cmborden'] == 5) {
+    $h = 2;
+} elseif (isset($col) && $col == 5) {
     $clasecolumna = "col-md-5ths";
-?>
-<style type="text/css">
-    #mesa .row{
-        font-size: 9px;
-    }
+    $h = 3;
+    ?>
+    <style type="text/css">
+        #mesa .row{
+            font-size: 9.5px;
+        }
         .vert .simply-scroll-clip {
-        height: 30px;
-    }
-    .vert .simply-scroll-list li {
-        height: 30px;
-    }
-</style>
-<?php
+            height: 30px;
+        }
+        .vert .simply-scroll-list li {
+            height: 30px;
+        }
+    </style>
+    <?php
 } else {
     $clasecolumna = "col-md-4";
+        $h=2;
 }
 ?>
 
@@ -55,412 +60,80 @@ if (isset($_POST['cmborden']) && $_POST['cmborden'] == 2) {
                         <script type="text/javascript">
                             (function($) {
                                 $(function() {
-                                    $("#scroller1").simplyScroll({
-                                        orientation: 'vertical',
-                                        customClass: 'vert',
-                                        speed: 1,
-                                    });
-                                    $("#scroller2").simplyScroll({
-                                        orientation: 'vertical',
-                                        customClass: 'vert',
-                                        speed: 1,
-                                    });
-                                    $("#scroller3").simplyScroll({
-                                        orientation: 'vertical',
-                                        customClass: 'vert',
-                                        speed: 1,
-                                    });
-                                    $("#scroller4").simplyScroll({
-                                        orientation: 'vertical',
-                                        customClass: 'vert',
-                                        speed: 1,
-                                    });
-                                    $("#scroller5").simplyScroll({
-                                        orientation: 'vertical',
-                                        customClass: 'vert',
-                                        speed: 1,
-                                    });
-                                    $("#scroller6").simplyScroll({
-                                        orientation: 'vertical',
-                                        customClass: 'vert',
-                                        speed: 1,
-                                    });
+<?php for ($nm = 1; $nm <= $mes; $nm++) { ?>
+                                        $("#scroller<?php echo $nm ?>").simplyScroll({
+                                            orientation: 'vertical',
+                                            customClass: 'vert',
+                                            speed: 1,
+                                        });
+<?php } ?>
                                 });
                             })(jQuery);
                         </script>
                         <!-- Primera Mesa -->
-                        <div id="mesa" class="<?php echo $clasecolumna ?> table-bordered">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="row text-center label-custom-clear-orange">Mesa <h2>1</h2></div>
-                                </div>
-                                <div class="col-md-10 ">
-                                    <div class="row table-bordered label-custom-clear-green">
-                                        <div class="col-md-2">
-                                            <div class="row text-center"><strong>10:00 am</strong></div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <div class="col-md-12"><strong>Comprador</strong></div>
-                                                <div class="col-md-12"><strong>Vendedor</strong></div>
+                        <?php for ($m = 1; $m <= $mes; $m++) { ?>
+                            <div id="mesa" class="<?php echo $clasecolumna ?> table-bordered">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <div class="row text-center label-custom-clear-orange">Mesa <h<?php echo $h ?>><?php echo $m ?></h<?php echo $h ?>></div>
+                                    </div>
+                                    <div class="col-md-10 ">
+                                        <div class="row table-bordered label-custom-clear-green">
+                                            <div class="col-md-2">
+                                                <div class="row text-center"><strong>10:00 am</strong></div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="row">
+                                                    <div class="col-md-12"><strong>Comprador</strong></div>
+                                                    <div class="col-md-12"><strong>Vendedor</strong></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="row text-center"></div>
-                                </div>    
-                                <div class="col-md-10">
-                                    <div class="row">   
-                                        <ul id="scroller1">
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:20</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
+                                    <div class="col-md-2">
+                                        <div class="row text-center"></div>
+                                    </div>    
+                                    <div class="col-md-10">
+                                        <div class="row">   
+                                            <ul id="scroller<?php echo $m ?>">
+                                                <li class="table-bordered">
+                                                    <div class="col-md-2">
+                                                        <div class="row text-center">10:20</div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:40</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
+                                                    <div class="col-md-10">
+                                                        <div class="row">
+                                                            <div class="col-md-12">Comprador</div>
+                                                            <div class="col-md-12">Vendedor</div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">11:00</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
+                                                </li>
+                                                <li class="table-bordered">
+                                                    <div class="col-md-2">
+                                                        <div class="row text-center">10:40</div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div></div>
-                            </div>
-                        </div>
-                        <!-- Segunda Mesa -->
-                        <div id="mesa" class="<?php echo $clasecolumna ?> table-bordered">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="row text-center label-custom-clear-orange">Mesa <h2>2</h2></div>
-                                </div>
-                                <div class="col-md-10 ">
-                                    <div class="row table-bordered label-custom-clear-green">
-                                        <div class="col-md-2">
-                                            <div class="row text-center">Hora Actual</div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <div class="col-md-12">Comprador</div>
-                                                <div class="col-md-12">Vendedor</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="row text-center"></div>
-                                </div>    
-                                <div class="col-md-10">
-                                    <div class="row">   
-                                        <ul id="scroller2">
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:20</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
+                                                    <div class="col-md-10">
+                                                        <div class="row">
+                                                            <div class="col-md-12">Comprador</div>
+                                                            <div class="col-md-12">Vendedor</div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:40</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
+                                                </li>
+                                                <li class="table-bordered">
+                                                    <div class="col-md-2">
+                                                        <div class="row text-center">11:00</div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">11:00</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
+                                                    <div class="col-md-10">
+                                                        <div class="row">
+                                                            <div class="col-md-12">Comprador</div>
+                                                            <div class="col-md-12">Vendedor</div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div></div>
-                            </div>
-                        </div>
-                        <!-- tercera Mesa -->
-                        <div id="mesa" class="<?php echo $clasecolumna ?> table-bordered">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="row text-center label-custom-clear-orange">Mesa <h2>3</h2></div>
-                                </div>
-                                <div class="col-md-10 ">
-                                    <div class="row table-bordered label-custom-clear-green">
-                                        <div class="col-md-2">
-                                            <div class="row text-center">Hora Actual</div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <div class="col-md-12">Comprador</div>
-                                                <div class="col-md-12">Vendedor</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="row text-center"></div>
-                                </div>    
-                                <div class="col-md-10">
-                                    <div class="row">   
-                                        <ul id="scroller3">
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:20</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:40</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">11:00</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div></div>
-                            </div>
-                        </div>
-                        <!-- cuarta Mesa -->
-                        <div id="mesa" class="<?php echo $clasecolumna ?> table-bordered">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="row text-center label-custom-clear-orange">Mesa <h2>4</h2></div>
-                                </div>
-                                <div class="col-md-10 ">
-                                    <div class="row table-bordered label-custom-clear-green">
-                                        <div class="col-md-2">
-                                            <div class="row text-center">Hora Actual</div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <div class="col-md-12">Comprador</div>
-                                                <div class="col-md-12">Vendedor</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="row text-center"></div>
-                                </div>    
-                                <div class="col-md-10">
-                                    <div class="row">   
-                                        <ul id="scroller4">
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:20</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:40</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">11:00</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div></div>
-                            </div>
-                        </div>
-                        <!-- Quinta Mesa -->
-                        <div id="mesa" class="<?php echo $clasecolumna ?> table-bordered">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="row text-center label-custom-clear-orange">Mesa <h2>5</h2></div>
-                                </div>
-                                <div class="col-md-10 ">
-                                    <div class="row table-bordered label-custom-clear-green">
-                                        <div class="col-md-2">
-                                            <div class="row text-center">Hora Actual</div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <div class="col-md-12">Comprador</div>
-                                                <div class="col-md-12">Vendedor</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="row text-center"></div>
-                                </div>    
-                                <div class="col-md-10">
-                                    <div class="row">   
-                                        <ul id="scroller5">
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:20</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:40</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">11:00</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div></div>
-                            </div>
-                        </div>
-                        <!-- Sexta Mesa -->
-                        <div id="mesa" class="<?php echo $clasecolumna ?> table-bordered">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="row text-center label-custom-clear-orange">Mesa <h2>6</h2></div>
-                                </div>
-                                <div class="col-md-10 ">
-                                    <div class="row table-bordered label-custom-clear-red">
-                                        <div class="col-md-2">
-                                            <div class="row text-center">Hora Actual</div>
-                                        </div>
-                                        <div class="col-md-10">
-                                            <div class="row">
-                                                <div class="col-md-12">Comprador</div>
-                                                <div class="col-md-12">Vendedor</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="row text-center"></div>
-                                </div>    
-                                <div class="col-md-10">
-                                    <div class="row">   
-                                        <ul id="scroller6">
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:20</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">10:40</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="table-bordered">
-                                                <div class="col-md-2">
-                                                    <div class="row text-center">11:00</div>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">Comprador</div>
-                                                        <div class="col-md-12">Vendedor</div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div></div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

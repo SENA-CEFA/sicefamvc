@@ -7,6 +7,8 @@ class agendaController extends Controller {
     }
 
     public function index() {
+        $data = $this->loadModel('parametros');
+        $this->_view->datos = $data->get();
         $this->_view->titulo = 'Agenda';
         $this->_view->renderizar('repagenda', 'default');
     }
