@@ -9,58 +9,76 @@
                     <div class="panel-body">
                         <form name="form1" id="form1" method="post" action="">
                             <div class="row">
-                                <div class="col-md-2">
-                                    <select class="form-control">
-                                        <option>Mesa</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
+                                <div class="col-md-9">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <select class="form-control">
+                                                <option>Mesa</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select class="form-control">
+                                                <option>Hora</option>
+                                                <option>10:00 am</option>
+                                                <option>10:20 am</option>
+                                                <option>10:40 am</option>
+                                                <option>11:00 am</option>
+                                                <option>11:20 am</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select class="form-control">
+                                                <option value="">Estado</option>
+                                                <option value="Pendiente">Pendiente</option>
+                                                <option value="Activo">Activo</option>
+                                                <option value="Finalizado">Finalizado</option>
+                                                <option value="Cancelado">Cancelado</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <select class="form-control">
+                                                <option>Comprador</option>
+                                                <option>Comprador1</option>
+                                                <option>Comprador2</option>
+                                                <option>Comprador3</option>
+                                                <option>Comprador4</option>
+                                                <option>Comprador5</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select class="form-control">
+                                                <option>Vendedor</option>
+                                                <option>Vendedor1</option>
+                                                <option>Vendedor2</option>
+                                                <option>Vendedor3</option>
+                                                <option>Vendedor4</option>
+                                                <option>Vendedor5</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select class="form-control">
+                                                <option>Padrino</option>
+                                                <option>Padrino1</option>
+                                                <option>Padrino2</option>
+                                                <option>Padrino3</option>
+                                                <option>Padrino4</option>
+                                                <option>Padrino5</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <select class="form-control">
-                                        <option>Hora</option>
-                                        <option>10:00 am</option>
-                                        <option>10:20 am</option>
-                                        <option>10:40 am</option>
-                                        <option>11:00 am</option>
-                                        <option>11:20 am</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <select class="form-control">
-                                        <option>Comprador</option>
-                                        <option>Comprador1</option>
-                                        <option>Comprador2</option>
-                                        <option>Comprador3</option>
-                                        <option>Comprador4</option>
-                                        <option>Comprador5</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <select class="form-control">
-                                        <option>Vendedor</option>
-                                        <option>Vendedor1</option>
-                                        <option>Vendedor2</option>
-                                        <option>Vendedor3</option>
-                                        <option>Vendedor4</option>
-                                        <option>Vendedor5</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <select class="form-control">
-                                        <option>Padrino</option>
-                                        <option>Padrino1</option>
-                                        <option>Padrino2</option>
-                                        <option>Padrino3</option>
-                                        <option>Padrino4</option>
-                                        <option>Padrino5</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-2">
-                                    <button type="submit" class="btn btn-custom"><span class="glyphicon glyphicon-search"></span> Buscar</button>
+                                <div class="col-md-3">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-custom"><span class="glyphicon glyphicon-search"></span> Buscar</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -68,50 +86,29 @@
                         <div class="row label-custom-clear-green text-center">
                             <div class="col-md-1 table-bordered">Mesa</div>
                             <div class="col-md-1 table-bordered">Hora</div>
+                            <div class="col-md-1 table-bordered">Estado</div>
                             <div class="col-md-3 table-bordered">Comprador</div>
                             <div class="col-md-3 table-bordered">Vendedor</div>
                             <div class="col-md-2 table-bordered">Padrino</div>
-                            <div class="col-md-2 table-bordered">Acciones</div>
+                            <div class="col-md-1 table-bordered">Acciones</div>
                         </div>
+                        <?php for($i=1; $i<10; $i++) {?>
                         <div class="row">
                             <div class="col-md-1 table-bordered"><div class="row text-center">1</div></div>
                             <div class="col-md-1 table-bordered"><div class="row text-center">10:15 am</div></div>
-                            <div class="col-md-3 table-bordered">Comprador 1</div>
-                            <div class="col-md-3 table-bordered">Vendedor 1</div>
-                            <div class="col-md-2 table-bordered">Padrino 1</div>
-                            <div class="col-md-2 table-bordered">
+                            <div class="col-md-1 table-bordered"><div class="row text-center">Estado <?php echo $i ?></div></div>
+                            <div class="col-md-3 table-bordered">Comprador <?php echo $i ?></div>
+                            <div class="col-md-3 table-bordered">Vendedor <?php echo $i ?></div>
+                            <div class="col-md-2 table-bordered">Padrino <?php echo $i ?></div>
+                            <div class="col-md-1 table-bordered">
                                 <div class="row text-center">
-                                    <a class="col-sm-6 btn btn-xs btn-warning" href="<?php echo BASE_URL . 'agenda/editar/1' ?>" role="button">Editar</a>
-                                    <a class="col-sm-6 btn btn-xs btn-danger" href="<?php echo BASE_URL . 'agenda/borrar/1' ?>" role="button">Borrar</a>
+                                    <a class="col-sm-6 btn btn-xs btn-warning" title="Modificar Cita" href="<?php echo BASE_URL . 'agenda/editar/1' ?>" role="button"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="col-sm-6 btn btn-xs btn-danger" title="Cancelar Cita" href="<?php echo BASE_URL . 'agenda/borrar/1' ?>" role="button"><span class="glyphicon glyphicon-remove-circle" ></span></a>
                                 </div>
                             </div>
-                        </div>                    
-                        <div class="row">
-                            <div class="col-md-1 table-bordered"><div class="row text-center">1</div></div>
-                            <div class="col-md-1 table-bordered"><div class="row text-center">10:15 am</div></div>
-                            <div class="col-md-3 table-bordered">Comprador 1</div>
-                            <div class="col-md-3 table-bordered">Vendedor 1</div>
-                            <div class="col-md-2 table-bordered">Padrino 1</div>
-                            <div class="col-md-2 table-bordered">
-                                <div class="row text-center">
-                                    <a class="col-sm-6 btn btn-xs btn-warning" href="<?php echo BASE_URL . 'agenda/editar/1' ?>" role="button">Editar</a>
-                                    <a class="col-sm-6 btn btn-xs btn-danger" href="<?php echo BASE_URL . 'agenda/borrar/1' ?>" role="button">Borrar</a>
-                                </div>
-                            </div>
-                        </div>                      
-                        <div class="row">
-                            <div class="col-md-1 table-bordered"><div class="row text-center">1</div></div>
-                            <div class="col-md-1 table-bordered"><div class="row text-center">10:15 am</div></div>
-                            <div class="col-md-3 table-bordered">Comprador 1</div>
-                            <div class="col-md-3 table-bordered">Vendedor 1</div>
-                            <div class="col-md-2 table-bordered">Padrino 1</div>
-                            <div class="col-md-2 table-bordered">
-                                <div class="row text-center">
-                                    <a class="col-sm-6 btn btn-xs btn-warning" href="<?php echo BASE_URL . 'agenda/editar/1' ?>" role="button">Editar</a>
-                                    <a class="col-sm-6 btn btn-xs btn-danger" href="<?php echo BASE_URL . 'agenda/borrar/1' ?>" role="button">Borrar</a>
-                                </div>
-                            </div>
-                        </div>  
+                        </div>
+                        <?php } ?>
+                        
                     </div>
                 </div>
             </div>
