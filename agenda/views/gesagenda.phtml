@@ -1,0 +1,126 @@
+<style type="text/css">
+    .vert .simply-scroll-clip {
+        height: 400px;
+    }
+    #caja{
+        height: 130px; 
+    }
+    #scroll {
+        height: 400px;
+        overflow-y:scroll;
+    }
+
+</style>
+<div class="container">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col-sm-10 col-lg-offset-1">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Gestionar Agenda</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-3">
+                                <button class="btn btn-lg btn-custom btn-block" type="submit">Agenda Previa</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn btn-lg btn-danger btn-block" type="submit">Eliminar Agenda</button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12"><h4>Gestionar Agenda Ultimo Minuto</h4></div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="row col-md-10 col-md-offset-1">
+                                <div class="table-bordered col-md-6 text-center label-custom-back">
+                                    <div class="col-md-12">
+                                        <label class="label-custom">Empresas Vendedoras</label>
+                                    </div>
+
+                                </div>
+                                <div class="table-bordered col-md-6 text-center label-custom-back">
+                                    <div class="col-md-12">
+                                        <label class="label-custom">Empresas Compradoras</label>
+                                    </div>
+
+                                </div>
+                                <!-- Primera Columna -->
+
+                                <div id="scroll" class="col-md-6 table-bordered">
+                                    <?php for ($i = 1; $i <= 10; $i++) { ?>
+                                        <div id="caja" class="row table-bordered">
+                                            <div class="col-sm-12">
+                                                <input type="radio" name="ven">
+                                                <label class="label-custom">Empresa Vendedora <?php echo $i ?></label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="col-sm-12">Categoria 1</div>
+                                                <div class="col-sm-12">Categoria 2</div>
+                                                <div class="col-sm-12">Categoria 3</div>
+                                                <div class="col-sm-12">Categoria 4</div>
+                                                <div class="col-sm-12">Categoria 5</div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="col-sm-12">Producto 1</div>
+                                                <div class="col-sm-12">Producto 2</div>
+                                                <div class="col-sm-12">Producto 3</div>
+                                                <div class="col-sm-12">Producto 4</div>
+                                                <div class="col-sm-12">Producto 5</div>
+                                            </div> 
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <!-- Segunda Columna -->
+                                <div id="scroll" class="col-sm-6 table-bordered">
+                                    <?php for ($j = 1; $j <= 10; $j++) { ?> 
+                                        <div id="caja" class="row table-bordered">
+                                            <div class="col-sm-12">
+                                                <input type="radio" name="com">
+                                                <label class="label-custom">Empresa Compradora <?php echo $j ?></label>
+                                            </div>
+                                            <div class="col-sm-12"><h6><strong>Sector Comercial</strong></h6></div>
+                                            <div class="col-sm-3">
+                                                <div class="col-sm-12">Requiere</div>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="col-sm-12">Categoria 1</div>
+                                                <div class="col-sm-12">Categoria 2</div>
+                                                <div class="col-sm-12">Categoria 3</div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="row">
+                                    <div  class="col-md-3 text-right label-custom"><strong>Nro Mesa</strong></div>
+                                    <div  class="col-md-3 "><input name="txtMesas"  class="text-center" type="text" size="10px" value="1"></div>
+                                    <div  class="col-md-3 text-right label-custom"><strong>Hora Cita</strong></div>
+                                    <div  class="col-md-3 "><input name="txtInicioTH" class="text-center" type="text" size="1" value="10">
+                                        <strong>:</strong> <input name="txtInicioTM" class="text-center" type="text" size="1" value="40">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-4">
+                            <button class="btn btn-lg btn-custom btn-block" type="submit">Guardar Cita</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>        
+
+</div>
+
+

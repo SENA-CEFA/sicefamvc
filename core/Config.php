@@ -7,7 +7,7 @@ define('DEFAULT_CONTROLLER', 'inicio');
 define('DEFAULT_LAYOUT', 'default');
 
 define('APP_NAME', "<label style='color:red'>Expo</label>rurales");
-define('APP_COMPANY', ' - Equipo ADSI 597864 - Exporurales');
+define('APP_COMPANY', ' - SENA Equipo ADSI 597864 - Exporurales');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
