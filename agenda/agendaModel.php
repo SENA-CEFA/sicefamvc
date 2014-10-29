@@ -6,20 +6,30 @@ class agendaModel extends Model
         parent::__construct();
     }
 
-    function delete() {
+    function delete($arg = false) {
         
     }
 
-    function edit() {
+    function edit($arg = false) {
         
     }
 
-    function get() {
+    function get($arg = false) {
     
     }
 
-    function set() {
+    function set($arg = false) {
         
+    }
+    function cprogramada(){
+        $sql = $this->_db->query("SELECT Id FROM cita");
+        $num = $sql->fetchall();
+        return count($num);        
+    }
+    function cfinalizada(){
+        $sql = $this->_db->query("SELECT Id FROM cita WHERE Estado='F'");
+        $num = $sql->fetchall();
+        return count($num);        
     }
 
 }

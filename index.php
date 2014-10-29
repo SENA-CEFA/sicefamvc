@@ -10,7 +10,7 @@ if (!$_SESSION) {
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', realpath(dirname(__FILE__)) . DS);
 define('APP_PATH', ROOT . 'core' . DS);
-
+define('LIB', APP_PATH . 'library' . DS);
 //incluimos el archivo de configuracion general
 require_once APP_PATH . 'Config.php';
 require_once APP_PATH . 'Request.php';

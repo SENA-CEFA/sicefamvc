@@ -1,7 +1,7 @@
 <?php
 
-class empresaModel extends Model
-{
+class empresaModel extends Model {
+
     public function __construct() {
         parent::__construct();
     }
@@ -17,7 +17,7 @@ class empresaModel extends Model
 
     function edit($arg = false) {
         if ($_POST && $arg) {
-            $count = $this->_db->exec("UPDATE empresa SET Nombre='" . $_POST['txtNombre'] . "', NombreRepLeg='" . $_POST['txtNombreRepLeg'] . "', Departamento='" . $_POST['txtDepartamento'] ."' WHERE Nit=" . $arg);
+            $count = $this->_db->exec("UPDATE empresa SET Nombre='" . $_POST['txtNombre'] . "', NombreRepLeg='" . $_POST['txtNombreRepLeg'] . "', Departamento='" . $_POST['txtDepartamento'] . "' WHERE Nit=" . $arg);
             return $count;
         } else {
             return 0;
@@ -43,13 +43,23 @@ class empresaModel extends Model
         return $data->fetchall();
     }
 
-
     public function buscardocumento() {
-        $sql = $this->_db->query("SELECT Nit FROM empresa where Nit LIKE '%".$_POST['txtNit']."%'");
+        $sql = $this->_db->query("SELECT Nit FROM empresa where Nit LIKE '%" . $_POST['txtNit'] . "%'");
         return $sql->fetchall();
     }
 
-}
+    public function numcompra() {
+        $sql = $this->_db->query("SELECT Nit FROM empresa WHERE TipoEmpresa='Comprador'");
+        $num = $sql->fetchall();
+        return count($num);
+    }
 
+    public function numvende() {
+        $sql = $this->_db->query("SELECT Nit FROM empresa WHERE TipoEmpresa='Vendedor'");
+        $num = $sql->fetchall();
+        return count($num);
+    }
+
+}
 
 ?>

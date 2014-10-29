@@ -20,13 +20,13 @@
                                 <label class="label-custom">Empresas Vendedoras</label>
                             </div>
                             <div class="col-sm-2">
-                                <input class="text-center" size="10" value="1">                     
+                                <input class="text-center" size="10" value="<?php echo $this->vende ?>">                     
                             </div>
                             <div class="col-sm-4 text-right">
                                 <label class="label-custom">Empresas Compradoras</label>
                             </div>
                             <div class="col-sm-2">
-                                <input class="text-center" size="10" value="1">                        
+                                <input class="text-center" size="10" value="<?php echo $this->compra ?>">                        
                             </div>
                         </div>
                         <hr>
@@ -35,13 +35,13 @@
                                 <label class="label-custom">Citas Programadas</label>
                             </div>
                             <div class="col-sm-2">
-                                <input class="text-center" size="10" value="1">                        
+                                <input class="text-center" size="10" value="<?php echo $this->programada ?>">                        
                             </div>
                             <div class="col-sm-4 text-right">
                                 <label class="label-custom">Contactos Realizados</label>
                             </div>
                             <div class="col-sm-2">
-                                <input class="text-center" size="10" value="1">                        
+                                <input class="text-center" size="10" value="<?php echo $this->finalizada ?>">                        
                             </div>
                         </div>
                         <hr>
@@ -119,7 +119,9 @@
                                 <input type="button" class="btn-custom" value="Descargar PDF">
                             </div>
                             <div class="col-sm-6">
-                                <input class="text-left" size="25" value="" placeholder="Correo" ><input type="button" class="btn-custom" value="Enviar">
+                                <form name="form1" id="form1" method="post" action="<?php echo BASE_URL . 'inicio/correo'; ?>">
+                                      <input name="txtCorreo" id="txtCorreo" class="text-left" size="25" value="" placeholder="Correo" ><button type="submit" class="btn-custom">Enviar</button>
+                                </form>
                             </div>
                         </div>           
                     </div>

@@ -3,11 +3,9 @@
 abstract class Controller
 {
     protected $_view;
-    private $_cont;
     
     public function __construct($v) {
         $this->_view = new View($v);
-        $this->_cont=$v;
     }
     
     abstract public function index();
@@ -15,7 +13,7 @@ abstract class Controller
     protected function loadModel($modelo)
     {
         $nombremodelo = $modelo . 'Model';
-        $rutaModelo = ROOT . $this->_cont . DS . $nombremodelo . '.php';
+        $rutaModelo = ROOT . $modelo . DS . $nombremodelo . '.php';
         
         if(is_readable($rutaModelo)){
             require_once $rutaModelo;
@@ -29,7 +27,7 @@ abstract class Controller
     
     protected function getLibrary($libreria)
     {
-        $rutaLibreria = ROOT . $this->_cont . DS . $libreria . '.php';
+        $rutaLibreria = LIB . $libreria . '.php';
         
         if(is_readable($rutaLibreria)){
             require_once $rutaLibreria;
