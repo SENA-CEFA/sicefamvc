@@ -22,7 +22,7 @@ class inicioModel extends Model
         
     }
     function consolidar(){
-        $data = $this->_db->query("SELECT Nombre FROM categorias");
+        $data = $this->_db->query("SELECT Id, Nombre FROM categorias");
         return $data->fetchall();
     }
 

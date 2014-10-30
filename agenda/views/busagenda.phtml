@@ -7,112 +7,113 @@
                         <h3 class="panel-title">Consulta Agenda</h3>
                     </div>
                     <div class="panel-body">
-                        <form name="form1" id="form1" method="post" action="">
+
+                        <div class="col-md-12">
+                            <form name="form1" id="form1" method="post" action="">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="cmbMesa">
+                                            <option value="">Mesa</option>
+                                            <?php for ($i = 1; $i <= $this->param[0]['Mesas']; $i++) { ?>
+                                                <option value="<?php echo $i ?>">Mesa <?php echo $i ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-control"  name="cmbHora">
+                                            <option value="">Hora</option>
+                                            <?php for ($i = 0; $i < count($this->horas); $i++) { ?>
+                                                <option value="<?php echo $this->horas[$i]['Hora'] ?>"><?php echo $this->horas[$i]['Hora'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="cmbEstado">
+                                            <option value="">Estado</option>
+                                            <option value="Pendiente">Pendiente</option>
+                                            <option value="Activa">Activa</option>
+                                            <option value="Finalizada">Finalizada</option>
+                                            <option value="Cancelada">Cancelada</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-custom"><span class="glyphicon glyphicon-search"></span> Buscar</button>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="cmbComprador">
+                                            <option value="">Comprador</option>
+                                            <?php for ($i = 0; $i < count($this->compra); $i++) { ?>
+                                                <option value="<?php echo $this->compra[$i]['Nit'] ?>"><?php echo $this->compra[$i]['Nombre'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="cmbPadrinoCompra">
+                                            <option value="">Padrino Comprador</option>
+                                            <?php for ($i = 0; $i < count($this->padrino); $i++) { ?>
+                                                <option value="<?php echo $this->padrino[$i]['Documento'] ?>"><?php echo $this->padrino[$i]['Nombre'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="cmbVendedor">
+                                            <option value="">Vendedor</option>
+                                            <?php for ($i = 0; $i < count($this->vende); $i++) { ?>
+                                                <option value="<?php echo $this->vende[$i]['Nit'] ?>"><?php echo $this->vende[$i]['Nombre'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="cmbPadrinoVende">
+                                            <option value="">Padrino Vendedor</option>
+                                            <?php for ($i = 0; $i < count($this->padrino); $i++) { ?>
+                                                <option value="<?php echo $this->padrino[$i]['Documento'] ?>"><?php echo $this->padrino[$i]['Nombre'] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="col-md-12">
+                            <br>
                             <div class="row">
-                                <div class="col-md-9">
+
+                                <div class="row label-custom-clear-green text-center">
+                                    <div class="col-md-1 table-bordered">Mesa</div>
+                                    <div class="col-md-1 table-bordered">Hora</div>
+                                    <div class="col-md-1 table-bordered">Estado</div>
+                                    <div class="col-md-4 table-bordered">Comprador</div>
+                                    <div class="col-md-4 table-bordered">Vendedor</div>
+                                    <div class="col-md-1 table-bordered">Acciones</div>
+                                </div>
+                                <?php for ($i = 0; $i < count($this->datos); $i++) { ?>
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <select class="form-control">
-                                                <option>Mesa</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <select class="form-control">
-                                                <option>Hora</option>
-                                                <option>10:00 am</option>
-                                                <option>10:20 am</option>
-                                                <option>10:40 am</option>
-                                                <option>11:00 am</option>
-                                                <option>11:20 am</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <select class="form-control">
-                                                <option value="">Estado</option>
-                                                <option value="Pendiente">Pendiente</option>
-                                                <option value="Activo">Activo</option>
-                                                <option value="Finalizado">Finalizado</option>
-                                                <option value="Cancelado">Cancelado</option>
-                                            </select>
+                                        <div class="col-md-1 table-bordered"><div class="row text-center"><?php echo $this->datos[$i]['Mesa'] ?></div></div>
+                                        <div class="col-md-1 table-bordered"><div class="row text-center"><?php echo $this->datos[$i]['Hora'] ?></div></div>
+                                        <div class="col-md-1 table-bordered"><div class="row text-center"><?php echo $this->datos[$i]['Estado'] ?></div></div>
+                                        <div class="col-md-4 table-bordered"><?php echo $this->datos[$i]['NomC'] ?></div>
+                                        <div class="col-md-4 table-bordered"><?php echo $this->datos[$i]['NomV'] ?></div>
+                                        <div class="col-md-1 table-bordered">
+                                            <div class="row text-center">
+                                                <a class="col-sm-6 btn btn-xs btn-warning" title="Modificar Cita" href="<?php echo BASE_URL . 'agenda/editar/'.$this->datos[$i]['Id'] ?>" role="button"><span class="glyphicon glyphicon-edit"></span></a>
+                                                <a class="col-sm-6 btn btn-xs btn-danger" title="Cancelar Cita" href="<?php echo BASE_URL . 'agenda/borrar/'.$this->datos[$i]['Id'] ?>" role="button"><span class="glyphicon glyphicon-remove-circle" ></span></a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <select class="form-control">
-                                                <option>Comprador</option>
-                                                <option>Comprador1</option>
-                                                <option>Comprador2</option>
-                                                <option>Comprador3</option>
-                                                <option>Comprador4</option>
-                                                <option>Comprador5</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <select class="form-control">
-                                                <option>Vendedor</option>
-                                                <option>Vendedor1</option>
-                                                <option>Vendedor2</option>
-                                                <option>Vendedor3</option>
-                                                <option>Vendedor4</option>
-                                                <option>Vendedor5</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <select class="form-control">
-                                                <option>Padrino</option>
-                                                <option>Padrino1</option>
-                                                <option>Padrino2</option>
-                                                <option>Padrino3</option>
-                                                <option>Padrino4</option>
-                                                <option>Padrino5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn btn-custom"><span class="glyphicon glyphicon-search"></span> Buscar</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <hr>
-                        <div class="row label-custom-clear-green text-center">
-                            <div class="col-md-1 table-bordered">Mesa</div>
-                            <div class="col-md-1 table-bordered">Hora</div>
-                            <div class="col-md-1 table-bordered">Estado</div>
-                            <div class="col-md-3 table-bordered">Comprador</div>
-                            <div class="col-md-3 table-bordered">Vendedor</div>
-                            <div class="col-md-2 table-bordered">Padrino</div>
-                            <div class="col-md-1 table-bordered">Acciones</div>
-                        </div>
-                        <?php for($i=1; $i<10; $i++) {?>
-                        <div class="row">
-                            <div class="col-md-1 table-bordered"><div class="row text-center">1</div></div>
-                            <div class="col-md-1 table-bordered"><div class="row text-center">10:15 am</div></div>
-                            <div class="col-md-1 table-bordered"><div class="row text-center">Estado <?php echo $i ?></div></div>
-                            <div class="col-md-3 table-bordered">Comprador <?php echo $i ?></div>
-                            <div class="col-md-3 table-bordered">Vendedor <?php echo $i ?></div>
-                            <div class="col-md-2 table-bordered">Padrino <?php echo $i ?></div>
-                            <div class="col-md-1 table-bordered">
-                                <div class="row text-center">
-                                    <a class="col-sm-6 btn btn-xs btn-warning" title="Modificar Cita" href="<?php echo BASE_URL . 'agenda/editar/1' ?>" role="button"><span class="glyphicon glyphicon-edit"></span></a>
-                                    <a class="col-sm-6 btn btn-xs btn-danger" title="Cancelar Cita" href="<?php echo BASE_URL . 'agenda/borrar/1' ?>" role="button"><span class="glyphicon glyphicon-remove-circle" ></span></a>
-                                </div>
+                                <?php } ?>
+
                             </div>
                         </div>
-                        <?php } ?>
-                        
                     </div>
                 </div>
             </div>
-        </div>
-    </div>        
+        </div>        
+    </div>
 </div>
-

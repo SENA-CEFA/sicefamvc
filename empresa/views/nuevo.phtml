@@ -8,33 +8,33 @@
                     </div>
                     <div class="panel-body">
 
-                        <form class="" name="form1" id="form1" action="<?php echo BASE_URL . 'evento/insertar/' ?>" method="POST">
+                        <form class="" name="form1" id="form1" action="<?php echo BASE_URL . 'empresa/insertar/' ?>" method="POST">
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="">NIT de la empresa</label>
-                                    <input class="" name="txtNIT" id="txtNIT" type="text" value="">
+                                    <label class="col-md-6">NIT de la empresa</label>
+                                    <input class="col-md-6" name="txtNIT" id="txtNIT" type="text" value="">
                                     <br/><br/>
-                                    <label class="">Nombre de la empresa</label>
-                                    <input class="" name="txtNombre" id="txtNombre" type="text" value="">
+                                    <label class="col-md-6">Nombre de la empresa</label>
+                                    <input class="col-md-6" name="txtNombre" id="txtNombre" type="text" value="">
                                     <br/><br/><br/>
-                                    <label class="">Tipo de empresa</label>
-                                    <select class="" name="cmbTipoe" id="cmbTipo">
+                                    <label class="col-md-6">Tipo de empresa</label>
+                                    <select class="col-md-6" name="cmbTipoe" id="cmbTipo">
                                         <option value="0"> - - - seleccione - - - </option>
                                         <option value="1">Comprador</option>
                                         <option value="2">Vendedor</option>
                                     </select>
                                     <br/><br/>
-                                    <label class="">Direccion empresa</label>
-                                    <input class="" type='text' name="txtDireccion" id="txtDireccion" value="">                                
+                                    <label class="col-md-6">Direccion empresa</label>
+                                    <input class="col-md-6" type='text' name="txtDireccion" id="txtDireccion" value="">                                
                                     <br/><br/>
 
-                                    <label class="">Identificacion del propietario</label>
-                                    <input class="" name="txtIdp" id="txtIdp" type='text' value="">
+                                    <label class="col-md-6">Identificacion del propietario</label>
+                                    <input class="col-md-6" name="txtIdp" id="txtIdp" type='text' value="">
                                     <br/><br/><br/>
 
-                                    <label class="">Nombres del propietario</label>
-                                    <input name="txtNombrep" id="txtNombrep" type="text" class="" value="">
+                                    <label class="col-md-6">Nombres del propietario</label>
+                                    <input class="col-md-6" name="txtNombrep" id="txtNombrep" type="text" class="" value="">
                                     <br/><br/>
 
 
@@ -42,23 +42,23 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label class="">Celular</label>
-                                    <input name="numCel" id="numCel" type="number" class="" value="">
+                                    <label class="col-md-6">Celular</label>
+                                    <input class="col-md-6" name="numCel" id="numCel" type="number" class="" value="">
 
                                     <br/><br/>
 
-                                    <label class="">Telefono</label>
-                                    <input name="numTel" id="numTel" type="number" class="" value="">
+                                    <label class="col-md-6">Telefono</label>
+                                    <input class="col-md-6" name="numTel" id="numTel" type="number" class="" value="">
 
                                     <br/><br/>
 
-                                    <label class="">Correo</label>
-                                    <input name="txtEmail" id="txtEmail" type="email" class="" value="">
+                                    <label class="col-md-6">Correo</label>
+                                    <input class="col-md-6" name="txtEmail" id="txtEmail" type="email" class="" value="">
 
                                     <br/><br/>
 
-                                    <label class="">Departamento</label>
-                                    <select class=""><option> - - - seleccione - - -</option>
+                                    <label class="col-md-6">Departamento</label>
+                                    <select class="col-md-6"><option> - - - seleccione - - -</option>
                                         <option value="1">Amazonas</option>
                                         <option value="2">Antioquia</option>
                                         <option value="3">Arauca</option>
@@ -96,13 +96,13 @@
 
                                     <br/><br/>
 
-                                    <label class="">Municipio</label>
-                                    <input name="txtMunicipio" id="txtMunicipio" type="text" class="" value="">
+                                    <label class="col-md-6">Municipio</label>
+                                    <input class="col-md-6" name="txtMunicipio" id="txtMunicipio" type="text" class="" value="">
 
                                     <br/><br/>
 
-                                    <label class="">Sector economico y/o comercial</label>
-                                    <select class="">
+                                    <label class="col-md-6">Sector economico y/o comercial</label>
+                                    <select class="col-md-6">
                                         <option value="0"> - - - seleccione - - -</option>
                                         <option value="1">Agroindustria</option>
                                         <option value="2">Hotelería y Turismo</option>
@@ -123,8 +123,8 @@
 
                                     <br/><br/><br/>
 
-                                    <label class="">Padrino</label>
-                                    <select class="">
+                                    <label class="col-md-6">Padrino</label>
+                                    <select class="col-md-6">
                                         <option value="0"> - - - seleccione - - -</option>
                                         <option value="1">Padrino 1</option>
                                         <option value="2">Padrino 2</option>
@@ -134,18 +134,20 @@
 
                                 </div>
                             </div>
-                        </form>
 
                         <hr class="btn-custom"/>
-
-                        <form class="" id="form5" name="form5" action="#" method="POST">
 
                             <h4 class="panel-title">Asistentes</h4>
                             <hr class="btn-default" style="width: 90%"/>
                             <label class="">Asistente 1</label>
                             <input class="" name="encargado1" id="encargado1" type="text">
 
-                            <button class="btn btn-success glyphicon glyphicon-plus">  otro encagado</button>
+                            <a class="btn btn-success glyphicon glyphicon-plus" href="#"> otro encagado</a>
+                            
+                            
+                            <div>
+                                <button class="btn-custom"> Registrar</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -155,5 +157,4 @@
     </div>        
 
 </div>
-
 

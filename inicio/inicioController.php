@@ -13,8 +13,8 @@ class inicioController extends Controller {
 
     public function consolidado() {
         $empresa = $this->loadModel('empresa');
-        $this->_view->vende = $empresa->numvende();
-        $this->_view->compra = $empresa->numcompra();
+        $this->_view->vende = count($empresa->numvende());
+        $this->_view->compra = count($empresa->numcompra());
         $agenda = $this->loadModel('agenda');
         $this->_view->programada = $agenda->cprogramada();
         $this->_view->finalizada = $agenda->cfinalizada();

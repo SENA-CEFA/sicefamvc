@@ -2,7 +2,7 @@
 
 //aqui va la configuracion general del mvc
 
-define('BASE_URL', 'http://localhost/exporurales/');
+define('BASE_URL', 'http://192.168.0.15/exporurales/');
 define('DEFAULT_CONTROLLER', 'inicio');
 define('DEFAULT_LAYOUT', 'default');
 

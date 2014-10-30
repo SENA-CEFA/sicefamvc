@@ -47,7 +47,7 @@ if (isset($col) && $col == 2) {
 }
 ?>
 
-<div class="container col-md-12">
+    <div class="container col-md-12">
     <div class="contenedor ">
         <div class="row">
             <div class="col-md-12">
@@ -60,13 +60,13 @@ if (isset($col) && $col == 2) {
                         <script type="text/javascript">
                             (function($) {
                                 $(function() {
-<?php for ($nm = 1; $nm <= $mes; $nm++) { ?>
+                                    <?php for ($nm = 1; $nm <= $mes; $nm++) { ?>
                                         $("#scroller<?php echo $nm ?>").simplyScroll({
                                             orientation: 'vertical',
                                             customClass: 'vert',
                                             speed: 1,
                                         });
-<?php } ?>
+                                    <?php } ?>
                                 });
                             })(jQuery);
                         </script>

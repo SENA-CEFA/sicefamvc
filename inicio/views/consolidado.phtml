@@ -17,17 +17,18 @@
                     <div class="panel-body">
                         <div class="col-sm-12">
                             <div class="col-sm-4 text-right">
-                                <label class="label-custom">Empresas Vendedoras</label>
-                            </div>
-                            <div class="col-sm-2">
-                                <input class="text-center" size="10" value="<?php echo $this->vende ?>">                     
-                            </div>
-                            <div class="col-sm-4 text-right">
                                 <label class="label-custom">Empresas Compradoras</label>
                             </div>
                             <div class="col-sm-2">
                                 <input class="text-center" size="10" value="<?php echo $this->compra ?>">                        
                             </div>
+                            <div class="col-sm-4 text-right">
+                                <label class="label-custom">Empresas Vendedoras</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input class="text-center" size="10" value="<?php echo $this->vende ?>">                     
+                            </div>
+
                         </div>
                         <hr>
                         <div class="col-sm-12">
@@ -75,17 +76,17 @@
                         </script>
                         <div class="col-sm-12 table-bordered">
                             <ul id="scroller">
-                                        <li>
-                                            <div>
-                                                <hr>
-                                            </div>
-                                        </li>
+                                <li>
+                                    <div>
+                                        <hr>
+                                    </div>
+                                </li>
                                 <?php if (isset($this->datos) && count($this->datos)): ?>
                                     <?php for ($i = 0; $i < count($this->datos); $i++): ?>
                                         <li>
-                                            <div>
+                                            <div class="row table-bordered">
                                                 <div class="col-sm-6">
-                                                    <label class="label-custom text-uppercase"><?php echo $this->datos[$i] ['Nombre']; ?></label>
+                                                    <label class="label-custom text-uppercase"><h5><strong><?php echo $this->datos[$i] ['Nombre']; ?></strong></h5></label>
                                                 </div>
                                                 <div class="col-sm-3">
                                                     <input class="text-center" size="10" value="0">                     
@@ -105,12 +106,14 @@
                         </div>
 
                         <br>&nbsp;
-                        <div class="col-sm-12 text-center">
-                            <div class="col-sm-8">
-                                <label class="label-custom">Total Negociado</label>
-                            </div>
-                            <div class="col-sm-4">
-                                $ <input class="text-right" size="10" value="0">
+                        <div class="row">
+                            <div class="col-sm-12 text-center">
+                                <div class="col-sm-8">
+                                    <label class="label-custom">Total Negociado</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    $ <input class="text-right" size="10" value="0">
+                                </div>
                             </div>
                         </div>
                         <br>&nbsp;
@@ -120,7 +123,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <form name="form1" id="form1" method="post" action="<?php echo BASE_URL . 'inicio/correo'; ?>">
-                                      <input name="txtCorreo" id="txtCorreo" class="text-left" size="25" value="" placeholder="Correo" ><button type="submit" class="btn-custom">Enviar</button>
+                                    <input name="txtCorreo" id="txtCorreo" class="text-left" size="25" value="" placeholder="Correo" ><button type="submit" class="btn-custom">Enviar</button>
                                 </form>
                             </div>
                         </div>           
