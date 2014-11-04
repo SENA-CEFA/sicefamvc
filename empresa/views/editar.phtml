@@ -1,0 +1,170 @@
+<div class="container">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col-sm-10 col-lg-offset-1">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Registro Empresas Participantes</h3>
+                    </div>
+                    <div class="panel-body">
+                       
+                            <form  name="form1" id="form1" method="POST" action="<?php echo BASE_URL . 'empresa/modificar/' . $this->id; ?>">
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <label class="col-md-6">Tipo Empresa</label>
+                                                <select class="col-md-6" name="cmbTipoe" id="cmbTipoe" >
+                                                    <option value=""> <?php echo $this->datos[0] ['TipoEmpresa']; ?> </option>
+                                                    <option value="Comprador">Comprador</option>
+                                                    <option value="Vendedor">Vendedor</option>
+                                                </select>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label class="col-md-6">NIT De La Empresa</label>
+                                                <input class="col-md-6" name="txtNIT" id="txtNIT" type="text" value="<?php echo $this->datos[0] ['Nit']; ?>">
+                                            </div><br>
+                                            <div class="row">
+                                                <label class="col-md-6">Nombre De La Empresa</label>
+                                                <input class="col-md-6" name="txtNombre" id="txtNombre" type="text" value="<?php echo $this->datos[0] ['Nombre']; ?>">
+                                            </div><br>
+                                            <div class="row">
+                                                <label class="col-md-6">Direccion Empresa</label>
+                                                <input class="col-md-6" type='text' name="txtDireccion" id="txtDireccion" value="<?php echo $this->datos[0] ['Direccion']; ?>">                                
+                                            </div><br>
+                                            <div class="row">
+                                                <label class="col-md-6">Identificacion Del Propietario</label>
+                                                <input class="col-md-6" name="txtIdp" id="txtIdp" type='text' value="<?php echo $this->datos[0] ['DocumentoRepLeg']; ?>">
+                                            </div><br>
+                                            <div class="row">
+                                                <label class="col-md-6">Nombre Del Propietario</label>
+                                                <input class="col-md-6" name="txtNombrep" id="txtNombrep" type="text" class="" value="<?php echo $this->datos[0] ['NombreRepLeg']; ?>">
+                                            </div>
+
+
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="row">
+                                                <label class="col-md-6">Celular</label>
+                                                <input class="col-md-6" name="numCel" id="numCel" type="number" class="" value="<?php echo $this->datos[0] ['TelefonoCelular']; ?>">
+
+                                            </div><br>
+                                            <div class="row">
+
+                                                <label class="col-md-6">Telefono</label>
+                                                <input class="col-md-6" name="numTel" id="numTel" type="number" class="" value="<?php echo $this->datos[0] ['TelefonoFijo']; ?>">
+
+                                            </div><br>
+                                            <div class="row">
+
+                                                <label class="col-md-6">Correo</label>
+                                                <input class="col-md-6" name="txtEmail" id="txtEmail" type="email" class="" value="<?php echo $this->datos[0] ['Correo']; ?>">
+
+                                            </div><br>
+                                            <div class="row">
+
+                                                <label class="col-md-6">Departamento</label>
+                                                <select class="col-md-6" name="seldpto">
+                                                    <option><?php echo $this->datos[0] ['Departamento']; ?></option>
+                                                    <option value="Amazonas">Amazonas</option>
+                                                    <option value="Antioquia">Antioquia</option>
+                                                    <option value="Arauca">Arauca</option>
+                                                    <option value="Atlantico">Atlantico</option>
+                                                    <option value="Bolivar">Bolivar</option>
+                                                    <option value="Boyacá">Boyacá</option>
+                                                    <option value="Caldas">Caldas</option>
+                                                    <option value="Caquetá">Caquetá</option>
+                                                    <option value="Casanare">Casanare</option>
+                                                    <option value="Cauca">Cauca</option>
+                                                    <option value="Cesar">Cesar</option>
+                                                    <option value="Chocó">Chocó</option>
+                                                    <option value="Córdoba">Córdoba</option>
+                                                    <option value="Cundinamarca">Cundinamarca</option>
+                                                    <option value="Guainía">Guainía</option>
+                                                    <option value="Guaviare">Guaviare</option>
+                                                    <option value="Huila">Huila</option>
+                                                    <option value="La Guajira">La Guajira</option>
+                                                    <option value="Magdalena">Magdalena</option>
+                                                    <option value="Meta">Meta</option>
+                                                    <option value="Nariño">Nariño</option>
+                                                    <option value="Norte de Santander">Norte de Santander</option>
+                                                    <option value="Putumayo">Putumayo</option>
+                                                    <option value="Quindio">Quindio</option>
+                                                    <option value="Risaralda">Risaralda</option>
+                                                    <option value="San Andres y Providencia">San Andres y Providencia</option>
+                                                    <option value="Santander">Santander</option>
+                                                    <option value="Sucre">Sucre</option>
+                                                    <option value="Tolima">Tolima</option>
+                                                    <option value="Valle del Cauca">Valle del Cauca</option>
+                                                    <option value="Vaupés">Vaupés</option>
+                                                    <option value="Vichada">Vichada</option>
+                                                    <option value="Bogotá D.C">Bogotá D.C</option>
+                                                </select>
+
+                                            </div><br>
+                                            <div class="row">
+
+                                                <label class="col-md-6">Municipio</label>
+                                                <input class="col-md-6" name="txtMunicipio" id="txtMunicipio" type="text" class="" value="<?php echo $this->datos[0] ['Municipio']; ?>">
+
+                                            </div><br>
+                                            <div class="row">
+
+                                                <label class="col-md-6">Sector economico y/o comercial</label>
+                                                <select class="col-md-6" name="selca">
+                                                    <option value=""><?php echo $this->datos[0] ['SectorEconomico']; ?></option>
+                                                    <option value="Agroindustria">Agroindustria</option>
+                                                    <option value="Hotelería y Turismo">Hotelería y Turismo</option>
+                                                    <option value="Comercio al Por Menor">Comercio al Por Menor</option>
+                                                    <option value="Comercio al Por Mayor">Comercio al Por Mayor</option>
+                                                    <option value="Gastronomía">Gastronomía</option>
+                                                    <option value="Construcción">Construcción</option>
+                                                    <option value="Sector Financiero">Sector Financiero</option>
+                                                    <option value="Sector Gobierno">Sector Gobierno</option>
+                                                    <option value="Industria">Industria</option>
+                                                    <option value="Minería Energía">Minería Energía</option>
+                                                    <option value="Servicios">Servicios</option>
+                                                    <option value="Sector Solidario (Cooperativas)">Sector Solidario (Cooperativas)</option>
+                                                    <option value="Farmacéuticos">Farmacéuticos</option>
+                                                    <option value="Transporte Carga o Pasajeros">Transporte Carga o Pasajeros</option>
+                                                    <option value="Otro">Otro</option>
+                                                </select>
+
+                                            </div><br>
+                                            <div class="row">
+
+                                                <label class="col-md-6">Padrino</label>
+                                                <select class="col-md-6" name="selpadri">
+                                                    <option value=""><?php echo $this->datos[0] ['Padrino']; ?></option>
+                                                    <?php for ($i = 0; $i < count($this->padrino); $i++) { ?>
+                                                        <option value="<?php echo $this->padrino[$i]['Documento'] ?>"><?php echo $this->padrino[$i]['Nombre'] ?></option>
+                                                    <?php } ?>
+                                                </select>
+
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <hr class="btn-custom"/>
+                                            <button class=" btn btn-success" type="submit">Guardar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        
+
+                    </div>
+                </div>
+            </div>        
+
+        </div>
+    </div>
+</div>
+
+

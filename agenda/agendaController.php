@@ -9,6 +9,9 @@ class agendaController extends Controller {
     public function index() {
         $data = $this->loadModel('parametros');
         $this->_view->datos = $data->get();
+        $this->_view->horas = $data->horas();
+        $data = $this->loadModel('agenda');
+        $this->_view->citas = $data->reporte();
         $this->_view->titulo = 'Agenda';
         $this->_view->renderizar('repagenda', 'default');
     }
@@ -31,9 +34,12 @@ class agendaController extends Controller {
     public function gestion() {
         $empresa = $this->loadModel('empresa');
         $arg = '';
-        if ($_POST && $_POST['cmbCategoria'] != '') {
-            $arg = $_POST['cmbCategoria'];
+        $categoria = filter_input(INPUT_POST, 'cmbCategoria');
+        if ($categoria != '') {
+            $arg = $categoria;
         }
+        $param = $this->loadModel('parametros');
+        $this->_view->param = $param->get();
         $this->_view->vende = $empresa->vende($arg);
         $this->_view->compra = $empresa->compra($arg);
         $this->_view->intencion = $empresa->intencion();
@@ -64,8 +70,8 @@ class agendaController extends Controller {
         $cont = $data->edit($arg);
         if ($cont > 0) {
             echo "<script>alert('Cita Modificada')</script>";
-            $_POST['cmbPadrinoCompra']='';
-            $_POST['cmbPadrinoVende']='';
+            $_POST['cmbPadrinoCompra'] = '';
+            $_POST['cmbPadrinoVende'] = '';
             $this->buscar();
         } else {
             echo "<script>alert('No se puedo Modificar, intentelo de nuevo')</script>";
@@ -100,11 +106,64 @@ class agendaController extends Controller {
     }
 
     public function encontrar() {
+        
+    }
+
+    public function accion() {
+        $enviar = filter_input(INPUT_POST, 'enviar');
+        if ($enviar) {
+            if ($enviar == 'rapida') {
+                $postmesa = filter_input(INPUT_POST, 'cmbMesa');
+                if ($postmesa != '') {
+                    $data = $this->loadModel('agenda');
+                    $disp = $data->rapido();
+                    if ($disp != 0) {
+                        echo "<script>alert('Registro Exitoso')</script>";
+                        $this->gestion();
+                    } else {
+                        echo "<script>alert('No se pudo realiza el registro, por favor revise disponibilidad')</script>";
+                        $this->gestion();
+                    }
+                } else {
+                    echo "<script>alert('Debe Seleccionar una Mesa')</script>";
+                    $this->gestion();
+                }
+            } elseif ($enviar == 'disponibilidad') {
+                $param = $this->loadModel('parametros');
+                $this->_view->param = $param->get();
+                $this->_view->horas = $param->horas();
+                $empresa = $this->loadModel('empresa');
+                $v = $_POST['ven'];
+                $c = $_POST['com'];
+                $this->_view->vende = $empresa->nombrevende($v[0]);
+                $this->_view->compra = $empresa->nombrecompra($c[0]);
+                $data = $this->loadModel('agenda');
+                $disp = $data->nodisponible();
+                if ($disp == 0) {
+                    echo "<script>alert('Ya Existe una Cita registrada para Comprador y Vendedor')</script>";
+                    $this->gestion();
+                } else {
+                    $this->_view->nodisponible = $disp;
+
+                    $this->_view->titulo = 'Disponibilidad';
+                    $this->_view->renderizar('disponible', 'default');
+                }
+            }
+        } else {
+            $this->gestion();
+        }
+    }
+
+    public function guardar() {
         $data = $this->loadModel('agenda');
-        //$this->_view->datos = $data->get($arg);
-        //$this->_view->id = $arg;
-        $this->_view->titulo = 'Detalle de Cita';
-        $this->_view->renderizar('encontrar', 'default');
+        $cont = $data->guardar();
+        if ($cont > 0) {
+            echo "<script>alert('Cita Guardada')</script>";
+            $this->gestion();
+        } else {
+            echo "<script>alert('No se puedo Guardar la Cita o ya esta Registrada, verifique e intentelo de nuevo')</script>";
+            $this->gestion();
+        }
     }
 
 }

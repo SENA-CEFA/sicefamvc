@@ -3,9 +3,19 @@
         <div class="row">
             <div class="col-sm-10 col-lg-offset-1">
                 <div class="panel panel-custom">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Login de Comprador</h3>
+                    <br>
+                    <div class="row ">
+                    <div class="col-md-8 col-md-offset-2 label-custom-clear-green btn">
+                        <div class="row">
+                            <div class="col-md-3">Mesa</div><div class="col-md-3">Hora</div><div class="col-md-6">Comprador: <strong class="text-uppercase"><?php echo $this->datos[0]['Nom1'] ?></strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3"><strong><?php echo $this->datos[0]['Mesa'] ?></strong></div><div class="col-md-3"><strong><?php echo $this->datos[0]['Hora'] ?></strong></div><div class="col-md-6">Vendedor: <strong class="text-uppercase"><?php echo $this->datos[0]['Nom2'] ?></strong></div>
+                        </div>
+                    </div>                        
+                        
                     </div>
+
                     <div class="panel-body">
                         <div class="col-md-6 col-md-offset-3">
 
@@ -38,7 +48,7 @@
                                                 callbacks: {
                                                     start: function() {
                                                         $('.message').html('');
-                                                        setTimeout("redireccionar()", 1090000);
+                                                        setTimeout("redireccionar()", 1115640);
                                                     }
                                                 }
                                             });
@@ -47,9 +57,9 @@
                                     </script>
                                 </div>
                             </div>
-
-                            <div class="text-center">
-                                <div id="sesioncomprador">
+ <br>
+                            <div class="row text-center">
+                                <div>
                                     <div >
                                         <button class="btn btn-success btn-lg"data-toggle="modal" data-target="#miventana1" href="#">Finalizar Cita</button>
                                         <div class="modal fade bs-example-modal-sm " id="miventana1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -69,8 +79,9 @@
                                         </div>
                                     </div>
                                 </div>
+                               
                                 <br>
-                                <div id="sesioncomprador">
+                                <div>
                                     <div id="">
                                         <a class="btn btn-danger " data-toggle="modal" data-target="#miventana2" href="#" role="button" style="margin-left: 10px">Cancelar Cita</a>
                                         <div class="modal fade" id="miventana2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -83,7 +94,7 @@
 
                                                     <div class="modal-footer discurso-enfatizado">
                                                         <a class="btn btn-sm btn-success " data-dismiss="modal" href="#" role="button">No</a>
-                                                        <a class="btn btn-sm btn-success " href="<?php echo BASE_URL . 'negociacion/index'; ?>" role="button">Sí</a>
+                                                        <a class="btn btn-sm btn-success " href="<?php echo BASE_URL . 'negociacion/cancelar'; ?>" role="button">Sí</a>
                                                     </div>
                                                 </div>
                                             </div>          

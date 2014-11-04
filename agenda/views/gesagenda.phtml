@@ -3,7 +3,6 @@
         height: 400px;
         overflow-y:scroll;
     }
-
 </style>
 <div class="container col-md-12">
     <div class="contenedor">
@@ -14,12 +13,12 @@
                         <h3 class="panel-title">Gestionar Agenda Ultimo Minuto</h3>
                     </div>
                     <div class="panel-body">
-                        <form name="form1" method="post" action=""> 
+                        <form name="form1" method="post" action="<?php echo BASE_URL . 'agenda/accion' ?>"> 
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3 text-center">
-                                    <h4><label>Filtrar por Categoria</label>
+                                    <h4><label class="label-custom">Filtrar por Categoria</label>
                                         <select name="cmbCategoria" onchange="form1.submit()">
-                                            <option value="">Categoria</option>
+                                            <option value="">--</option>
                                             <?php
                                             for ($i = 0; $i < count($this->categorias); $i++):
                                                 $sel = '';
@@ -54,7 +53,7 @@
                                                 <div class="col-sm-12">
 
                                                     <label class="label-custom  text-uppercase">
-                                                        <input type="checkbox" name="com" value="<?php echo $this->compra[$i]['Nit'] ?>">
+                                                        <input type="radio" name="com[]" value="<?php echo $this->compra[$i]['Nit'] ?>" required>
                                                         <?php echo $this->compra[$i]['Nombre'] ?></label>
                                                 </div>
                                                 <div class="col-sm-12"><h6><strong><?php echo $this->compra[$i]['SectorEconomico'] ?></strong></h6></div>
@@ -62,7 +61,7 @@
 
                                                     <div class="col-sm-12">
                                                         <?php for ($j = 0; $j < count($this->intencion[$this->compra[$i]['Nit']]); $j++) { ?>
-                                                            <div class="col-sm-12 text-lowercase">- <?php echo $this->intencion[$this->compra[$i]['Nit']][$j]['Nombre'] ?></div>
+                                                            <div class="col-sm-12 text-uppercase">- <?php echo $this->intencion[$this->compra[$i]['Nit']][$j]['Nombre'] ?></div>
                                                         <?php } ?>
                                                     </div>
                                                 </div>
@@ -76,13 +75,13 @@
                                             <div id="caja" class="row table-bordered">
                                                 <div class="col-sm-12">
                                                     <label class="label-custom text-uppercase">
-                                                        <input type="checkbox" name="ven" value="<?php echo $this->vende[$i]['Nit'] ?>">
+                                                        <input type="checkbox" name="ven[]" value="<?php echo $this->vende[$i]['Nit'] ?>">
                                                         <?php echo $this->vende[$i]['Nombre'] ?></label>
                                                 </div>
                                                 <?php for ($j = 0; $j < count($this->productos[$this->vende[$i]['Nit']]); $j++) { ?>
                                                     <div class="row">
                                                         <div class="col-sm-6">
-                                                            <div class="col-sm-12 text-lowercase">- <?php echo $this->productos[$this->vende[$i]['Nit']][$j]['NomCat'] ?></div>
+                                                            <div class="col-sm-12 text-uppercase">- <?php echo $this->productos[$this->vende[$i]['Nit']][$j]['NomCat'] ?></div>
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="col-sm-12 text-lowercase">- <?php echo $this->productos[$this->vende[$i]['Nit']][$j]['NomPro'] ?></div>
@@ -94,36 +93,48 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-4">
-                                    <button class="btn btn-lg btn-warning btn-block" type="submit">Cita rapida</button>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-4">
-                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Verificar Disponibilidad</button>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-10 col-md-offset-1">
-                                    <div class="row">
-                                        <div  class="col-md-3 text-right label-custom"><strong>Nro Mesa</strong></div>
-                                        <div  class="col-md-3 "><input name="txtMesas"  class="text-center" type="text" size="10px" value="1"></div>
-                                        <div  class="col-md-3 text-right label-custom"><strong>Hora Cita</strong></div>
-                                        <div  class="col-md-3 "><input name="txtInicioTH" class="text-center" type="text" size="1" value="10">
-                                            <strong>:</strong> <input name="txtInicioTM" class="text-center" type="text" size="1" value="40">
-                                        </div>
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="col-md-3">
+                                            <select class="" id="cmbMesa" name="cmbMesa">
+                                            <option value="">--Mesa--</option>
+                                            <?php for ($i = 1; $i <= $this->param[0]['Mesas']; $i++) { ?>
+                                                <option value="<?php echo $i ?>">Mesa <?php echo $i ?></option>
+                                            <?php } ?>
+                                        </select></div>
+                                        <div class="col-md-9">
+
+                                            <button name="enviar" id="valida1" value="rapida" class="btn btn-lg btn-warning btn-block" type="submit">Cita rapida</button></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button name="enviar" id="valida2" value="disponibilidad" class="btn btn-lg btn-primary btn-block" type="submit">Verificar Disponibilidad</button>
                                     </div>
                                 </div>
                             </div>
                             <br>
-                            <div class="row">
-                                <div class="col-md-4 col-md-offset-4">
-                                    <button class="btn btn-lg btn-custom btn-block" type="submit">Guardar Cita</button>
-                                </div>
-                            </div>
+                            <script lang="javascript/text" >
+                                $('#valida1').click(function() {
+                                    //Se verifica si alguno de los checks esta seleccionado
+                                    if ($('input[name="ven[]"]').is(':checked')) {
+                                        return true;
+                                    }
+                                    else {
+                                        alert('Debe seleccionar una Mesa, un Comprador y por lo menos un Vendedor');
+                                        return false;
+                                    }
+                                })
+                                $('#valida2').click(function() {
+                                    //Se verifica si alguno de los checks esta seleccionado
+                                    if ($('input[name="ven[]"]').is(':checked')) {
+                                        return true;
+                                    }
+                                    else {
+                                        alert('Se debe seleccionar solo un Comprador y un Vendedor');
+                                        return false;
+                                    }
+                                });
+                                ;</script>
                         </form>
                     </div>
                 </div>

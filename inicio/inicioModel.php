@@ -22,7 +22,8 @@ class inicioModel extends Model
         
     }
     function consolidar(){
-        $data = $this->_db->query("SELECT Id, Nombre FROM categorias");
+        $data = $this->_db->query("SELECT categorias.Id, categorias.Nombre, COUNT(pesos) AS cantidad, SUM(pesos) AS valor FROM categorias LEFT JOIN NEGOCIO ON categorias.Id=negocio.categoria
+GROUP BY categorias.Id");
         return $data->fetchall();
     }
 

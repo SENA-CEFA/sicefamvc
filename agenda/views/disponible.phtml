@@ -1,0 +1,96 @@
+<div class="container">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Citas</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="form1" method="post" action="<?php echo BASE_URL . 'agenda/guardar' ?>"
+                              <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12 label-custom-clear-green btn">
+                                        <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'agenda/gestion'; ?>" role="button">Volver</a>
+                                    </div>
+                                    <br>
+                                    <div class="col-md-12 label-custom-clear-green btn">
+                                        <div class="row">
+                                            <div class="row col-md-6">
+                                                <spam class="glyphicon glyphicon-usd text-success"></spam> Comprador: 
+                                                <strong class="text-uppercase"><input type="hidden" name="txtCompra" value="<?php echo $_POST['com'][0] ?>"><?php echo $this->compra[0]['Nombre'] ?></strong>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <spam class="glyphicon glyphicon-briefcase text-primary"></spam> Vendedor: 
+                                                <strong class="text-uppercase"><input type="hidden" name="txtVende" value="<?php echo $_POST['ven'][0] ?>"><?php echo $this->vende[0]['Nombre'] ?></strong>
+                                               </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row table-bordered text-center table-responsive">
+                                    <table class="table-bordered table-hover" width='100%'>
+                                        <?php for ($i = 1; $i <= $this->param[0]['Mesas']; $i++) { ?>
+                                            <tr>    
+                                                <td class="row text-center label-custom-clear-orange">
+                                                    <div >Mesa</div>
+                                                    <div><?php echo $i ?></div>
+                                                </td>
+                                                <?php for ($j = 0; $j < count($this->horas); $j++) { ?>
+                                                    <td>
+                                                        <div class="col-md-10">
+
+                                                            <div class="row">
+
+                                                                <?php echo $this->horas[$j]['Hora'] ?>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <?php
+                                                                if (isset($this->nodisponible[$i][$j + 1])) {
+                                                                    if ($this->nodisponible[$i][$j + 1] == 1) {
+                                                                        ?>
+                                                                        <spam class="glyphicon glyphicon-ban-circle text-danger"></spam>
+                                                                    <?php } elseif ($this->nodisponible[$i][$j + 1] == 2) {
+                                                                        ?>
+                                                                        <spam class="glyphicon glyphicon-usd text-success"></spam>
+                                                                    <?php } elseif ($this->nodisponible[$i][$j + 1] == 3) {
+                                                                        ?>
+                                                                        <spam class="glyphicon glyphicon-briefcase text-primary"></spam>
+                                                                    <?php } elseif ($this->nodisponible[$i][$j + 1] == 4) {
+                                                                        ?>
+                                                                        <spam class="glyphicon glyphicon-time text-primary"></spam>
+                                                                    <?php } elseif ($this->nodisponible[$i][$j + 1] == 5) {
+                                                                        ?>
+                                                                        <spam class="glyphicon glyphicon-time text-success"></spam>
+                                                                        <?php
+                                                                    }
+                                                                } else {
+                                                                    ?>
+                                                                    <input type="radio" name="ci" value="<?php echo $i . $j ?>" >
+                                                                    <input name="mesa<?php echo $i . $j ?>" type="hidden" value="<?php echo $i ?>">
+                                                                    <input name="hora<?php echo $i . $j ?>" type="hidden" value="<?php echo $this->horas[$j]['Hora'] ?>">
+                                                                <?php } ?>
+
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                <?php } ?>  
+                                            </tr>
+                                        <?php } ?>
+                                    </table>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-4">
+                                        <button  name="enviar" value="guardar" class="btn btn-lg btn-custom btn-block" type="submit">Guardar Cita</button>
+                                    </div>
+                                </div>                       
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

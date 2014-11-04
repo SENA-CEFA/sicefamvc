@@ -1,28 +1,38 @@
 <div class="container">
-    <div class="contenedor">
+    <div class="contenedor col-md-8 col-md-offset-2">
         <div class="row">
-            <div class="col-sm-10 col-lg-offset-1">
+            <div class="col-sm-8 col-lg-offset-2">
                 <div class="panel panel-custom">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Login de Comprador</h3>
+                    <div class="panel-heading" id="psesion">
+                        <h3 class="panel-title"><?php echo $this->titulo ?></h3>
                     </div>
-                    <div class="panel-body">
-                        <div id="sesioncomprador" class=" col-md-4 col-md-offset-4">
-                        <form class="form-signin" role="form" action="<?php echo BASE_URL . 'negociacion/timer'; ?>" method="POST">
-                            <h5 class="form-signin-heading">Atender Cita</h5>
-                            <input name="txtNIT" id="txtNIT" type="number" class="form-control" placeholder="NIT de la empresa" required autofocus>
-                            <input name="txtCEDULA" id="txtCEDULA" type="number" class="form-control" placeholder="Cedula Asistente" required>
-                            <?php if (isset($this->mensaje)) { ?>
-                                <div class="alert alert-danger" role="alert">
-                                    <strong>Atencion! </strong> <?php echo $this->mensaje; ?> 
-                                </div>
-                            <?php } ?>
-                            <br>
-                            <button class="btn btn-lg btn-success btn-block" type="submit" >Ingresar</button>
-                            <hr>
-                            <a class="btn btn-sm btn-default btn-block" href="<?php echo BASE_URL . 'inicio/index'; ?>" role="button">Cancelar</a>
-                        </form>
+                    <div class="panel-body ">
+                        <div id="sesioncomprador" class=" col-md-10 col-md-offset-1">
+                            <form class="form-signin contenedor" role="form" action="<?php echo BASE_URL . 'negociacion/ingresar'; ?>" method="POST">
+
+                                <h5 class="form-signin-heading ">Atender Cita</h5>
+                                <img class="img-responsive" src="<?php echo $_layoutParams['ruta_img']; ?>logo2.jpg" alt="" />
+                                <input name="txtNIT" id="txtNIT" type="number" class="form-control" placeholder="NIT de la empresa" required autofocus>
+                                <input name="txtCEDULA" id="txtCEDULA" type="number" class="form-control" placeholder="Cedula Asistente" required>
+                                <select name="cmbHora" id="selhora" class="form-control">
+                                    <option value=""></option>
+                                    <?php for ($i = 0; $i < count($this->horas); $i++) { ?>
+                                        <option value="<?php echo $this->horas[$i]['Hora'] ?>"><?php echo $this->horas[$i]['Hora'] ?></option>
+                                    <?php } ?>
+                                </select>
+                                <?php if (isset($this->mensaje)) { ?>
+                                    <div class="alert alert-danger" role="alert">
+                                        <strong>Atencion! </strong> <?php echo $this->mensaje; ?> 
+                                    </div>
+                                <?php } ?>
+                                <br>
+                                <button class="btn btn-lg btn-success btn-block" type="submit" >Ingresar</button>
+                                <hr>
+                                <a class="btn btn-sm btn-default btn-block" href="<?php echo BASE_URL . 'inicio/index'; ?>" role="button">Cancelar</a>
+                            </form>
+                            
                         </div>
+
                     </div>
                 </div>
             </div>
