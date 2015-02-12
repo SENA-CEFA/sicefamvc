@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="<?php echo $_layoutParams['ruta_img']; ?>favicon.ico">
+
+        <title><?php echo $this->titulo; ?></title>
+
+        <link href="<?php echo $_layoutParams['ruta_css']; ?>estilos.css" rel="stylesheet">
+        <script src="<?php echo $_layoutParams['ruta_jquery']; ?>jquery-2.1.1.js"></script>
+        <link href="<?php echo $_layoutParams['ruta_bootstrap']; ?>css/bootstrap.min.css" rel="stylesheet">
+        <link href="<?php echo $_layoutParams['ruta_bootstrap']; ?>css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <script src="<?php echo $_layoutParams['ruta_bootstrap']; ?>js/bootstrap.min.js"></script>
+        <script src="<?php echo $_layoutParams['ruta_bootstrap']; ?>js/moment.js"></script> 
+        <script src="<?php echo $_layoutParams['ruta_bootstrap']; ?>js/bootstrap-datetimepicker.js"></script>        
+        <script type="text/javascript" src="<?php echo $_layoutParams['ruta_js']; ?>jquery.simplyscroll.js"></script>
+        <link rel="stylesheet" href="<?php echo $_layoutParams['ruta_css']; ?>jquery.simplyscroll.css" media="all" type="text/css">        
+        <script type="text/javascript" src="<?php echo $_layoutParams['ruta_js']; ?>flipclock.js"></script>
+        <script type="text/javascript" src="<?php echo $_layoutParams['ruta_js']; ?>nt.js"></script>
+        <link rel="stylesheet" href="<?php echo $_layoutParams['ruta_css']; ?>flipclock.css" media="all" type="text/css">    </head>
+
+    <body>
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><?php echo APP_NAME ?></a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <?php if (isset($this->menu)): ?>
+                            <?php for ($i = 0; $i < count($this->menu); $i++): ?>
+                                <?php if ($this->menu[$i]['sub'] != '') { ?>
+                                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo $this->menu[$i]['enlace']; ?>"><?php echo $this->menu[$i]['titulo']; ?><span class="caret"></span></a>                                          
+                                        <ul class="dropdown-menu" role="menu">
+                                            <?php for ($j = 0; $j < count($this->menu[$i]['sub']); $j++): ?>
+                                                <li ><a href="<?php echo $this->menu[$i]['sub'][$j]['enlace']; ?>"><?php echo $this->menu[$i]['sub'][$j]['titulo']; ?></a>
+
+                                                <?php endfor; ?>
+                                        </ul>
+                                        <?php
+                                    }
+                                    else {
+                                        ?>
+                                    <li><a href="<?php echo $this->menu[$i]['enlace']; ?>"><?php echo $this->menu[$i]['titulo']; ?></a>
+                                        <?php
+                                    }
+                                    ?>                           
+                                </li>
+
+                            <?php endfor; ?>
+                        <?php endif; ?>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <?php if (isset($_layoutParams['menu_user'])): ?>
+                            <?php for ($i = 0; $i < count($_layoutParams['menu_user']); $i++): ?>
+                                <?php if ($_layoutParams['menu_user'][$i]['sub'] != '') { ?>
+                                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="<?php echo $_layoutParams['menu_user'][$i]['enlace']; ?>"><?php echo $_layoutParams['menu_user'][$i]['titulo']; ?><span class="caret"></span></a>                                          
+                                        <ul class="dropdown-menu" role="menu">
+                                            <?php for ($j = 0; $j < count($_layoutParams['menu_user'][$i]['sub']); $j++): ?>
+                                                <li ><a href="<?php echo $_layoutParams['menu_user'][$i]['sub'][$j]['enlace']; ?>"><?php echo $_layoutParams['menu_user'][$i]['sub'][$j]['titulo']; ?></a>
+
+                                                <?php endfor; ?>
+                                        </ul>
+                                        <?php
+                                    }
+                                    else {
+                                        ?>
+                                    <li><a href="<?php echo $_layoutParams['menu_user'][$i]['enlace']; ?>"><?php echo $_layoutParams['menu_user'][$i]['titulo']; ?></a>
+                                        <?php
+                                    }
+                                    ?>                           
+                                </li>
+
+                            <?php endfor; ?>
+                        <?php endif; ?>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>

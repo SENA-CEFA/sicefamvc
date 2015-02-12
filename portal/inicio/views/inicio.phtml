@@ -1,0 +1,227 @@
+<style type="text/css">
+    .vert .simply-scroll-clip {
+        height: 250px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-success">
+                <div class="panel-heading">Ofertas del día</div>
+                <div class="panel-body">
+                    <script type="text/javascript">
+                        (function ($) {
+                            $(function () {
+                                $("#scroller1").simplyScroll({
+                                    orientation: 'vertical',
+                                    customClass: 'vert',
+                                    speed: 1,
+                                });
+                            });
+                        })(jQuery);
+                    </script>
+                    <div class="row">
+                        <ul id="scroller1">
+                            <?php for ($i = 0; $i < 10; $i++) { ?>
+                                <li>
+                                    <div class="col-md-12">
+                                        <div><h5 class="label-orange text-uppercase text-left">Producto <?php echo $i ?></h5></div>
+                                        <div class="text-right"><h5><strong>$<?php echo $i ?>.000</strong></h5></div>
+                                    </div>
+                                </li>
+                            <?php } ?> 
+                        </ul>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-success">
+                <div class="panel-body">
+                    <div class="bs-example" data-example-id="carousel-with-captions">
+                        <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-captions" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-captions" data-slide-to="2"></li>
+                                <li data-target="#carousel-example-captions" data-slide-to="3"></li>
+                                <li data-target="#carousel-example-captions" data-slide-to="4"></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="<?php echo $_layoutParams['ruta_img']; ?>up1.jpg" alt="Unidad 1">
+                                    <div class="carousel-caption">
+                                        <h3>Unidad 1</h3>
+                                        <p>Nota 1</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="<?php echo $_layoutParams['ruta_img']; ?>up2.jpg" alt="Unidad 2">
+                                    <div class="carousel-caption">
+                                        <h3>Unidad 2</h3>
+                                        <p>Nota 2</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="<?php echo $_layoutParams['ruta_img']; ?>up3.jpg" alt="Unidad 3">
+                                    <div class="carousel-caption">
+                                        <h3>Unidad 3</h3>
+                                        <p>Nota 3</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="<?php echo $_layoutParams['ruta_img']; ?>up4.jpg" alt="Unidad 4">
+                                    <div class="carousel-caption">
+                                        <h3>Unidad 4</h3>
+                                        <p>Nota 4</p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="<?php echo $_layoutParams['ruta_img']; ?>up5.jpg" alt="Unidad 5">
+                                    <div class="carousel-caption">
+                                        <h3>Unidad 5</h3>
+                                        <p>Nota 5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div><!-- /example -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="panel panel-success">
+                <div class="panel-heading">Información de interes</div>
+                <div class="panel-body">
+                    Info 1  -- $660.000
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="label-orange">Sicefa y el Centro de Formación Agroindustrial</h3>
+                    <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2503.4617022564894!2d-75.36157748447157!3d2.6120133279821505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2s!4v1423750155182" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="label-orange">Sicefa y la estrategia Sena-Empresa</h3>
+                    <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Er9g9qyutDI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">Aplicacion 1</div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <a href="#" class="thumbnail">
+                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up1.jpg" alt="...">
+                        </a>
+                    </div>
+                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">Aplicacion 2</div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <a href="#" class="thumbnail">
+                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up2.jpg" alt="...">
+                        </a>
+                    </div>
+                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">Aplicacion 3</div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <a href="#" class="thumbnail">
+                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up3.jpg" alt="...">
+                        </a>
+                    </div>
+                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">Aplicacion 4</div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <a href="#" class="thumbnail">
+                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up4.jpg" alt="...">
+                        </a>
+                    </div>
+                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">Aplicacion 5</div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <a href="#" class="thumbnail">
+                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up5.jpg" alt="...">
+                        </a>
+                    </div>
+                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">Aplicacion 6</div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <a href="#" class="thumbnail">
+                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up1.jpg" alt="...">
+                        </a>
+                    </div>
+                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
