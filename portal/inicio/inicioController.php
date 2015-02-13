@@ -11,10 +11,6 @@ class inicioController extends Controller {
         $this->_view->renderizar('inicio', DEFAULT_LAYOUT); 
     }
 
-    public function emprecefa() {
-        $this->_view->titulo = 'Emprecefa';
-        $this->_view->renderizar('emprecefa', DEFAULT_LAYOUT);    
-    }
 /*
     public function rutinarios() {
         $data = $this->loadModel('inicio');
