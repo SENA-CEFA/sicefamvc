@@ -85,6 +85,16 @@ class inicioModel extends Model {
                 'enlace' => '',
                 'sub' => $subapp,
             ),
+            array(
+                'titulo' => '<span class="glyphicon glyphicon-inbox"></span> PQRSF',
+                'enlace' => BASE_URL . 'portal/pqrsf/index',
+                'sub' => '',
+            ),
+            array(
+                'titulo' => '<span class="glyphicon glyphicon-wrench"></span> Desarrolladores',
+                'enlace' => BASE_URL . 'portal/desarrolladores/index',
+                'sub' => '',
+            ),
         );
         return $menu;
     }
