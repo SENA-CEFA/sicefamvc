@@ -22,7 +22,7 @@ class inicioModel extends Model {
         
     }
 
-    function creamenu() {
+function creamenu() {
         $subturnos = array(
             array(
                 'titulo' => 'Rutinarios',
@@ -45,7 +45,12 @@ class inicioModel extends Model {
                 'titulo' => 'GoodPig',
                 'enlace' => BASE_URL . 'goodpig/inicio/index',
                 'sub' => '',
-            )
+            ),
+            array(
+                'titulo' => 'Punto de Venta',
+                'enlace' => BASE_URL . 'puntodeventa/inicio/index',
+                'sub' => '',
+            ),
         );
         $subemprecefa = array(
             array(
