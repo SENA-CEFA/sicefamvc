@@ -1,5 +1,4 @@
 <?php
-
 class inicioModel extends Model
 {
     public function __construct() {

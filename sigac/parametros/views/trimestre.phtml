@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="panel panel-warning sombra">
+                <div class="panel-heading"><h4 class="label-orange">Trimestres Academicos</h4></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn  btn-sm btn-success" href="<?php echo BASE_URL . 'sigac/parametros/viewtrimestre'; ?>" >Agregar</a>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12  ">
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-condensed table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr class="warning">
+                                            <th>Id</th>
+                                            <th>Trimestre</th>
+                                            <th>Año</th>
+                                            <th>Fecha Inicio</th>
+                                            <th>Fecha Final</th>
+                                            <th class="">Acciones</th>
+                                        </tr>        
+                                    </thead>
+                                    <tbody>
+                                        <?php for ($i = 0; $i < count($this->trimestres); $i++) {
+                                            ?>
+                                            <tr>                         
+
+                                                <td class="text-center"><?php echo $this->trimestres[$i]['tresId'] ?></td>
+                                                <td><?php echo $this->trimestres[$i]['tresNombre'] ?></td>
+                                                <td class="text-center"><?php echo $this->trimestres[$i]['tresAnual'] ?></td>
+                                                <td class="text-center"><?php echo Funcionesphp::MySQLDateToDate($this->trimestres[$i]['tresFechaInicio']) ?></td>
+                                                <td class="text-center"><?php echo Funcionesphp::MySQLDateToDate($this->trimestres[$i]['tresFechaFin']) ?></td>
+                                                <td class="text-center">
+                                                    <a class="btn btn-sm btn-warning" href="<?php echo BASE_URL . 'sigac/parametros/viewtrimestre/' . $this->trimestres[$i]['tresId']; ?>" >Modificar</a>
+                                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#miventana<?php echo $i ?>" >Eliminar</button>
+                                                    <div class="modal bs-example-modal-sm" id="miventana<?php echo $i ?>" tabindex="-1" role="dialog" >
+                                                        <div class="modal-dialog  ">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header label-orange text-left">Mensaje de confirmación
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                    <h4>¿Esta Seguro de Eliminar el Registro <?php echo $this->trimestres[$i]['tresId'] ?>?</h4>
+                                                                </div>
+
+                                                                <div class="modal-footer discurso-enfatizado">
+                                                                    <a class="btn btn-sm btn-success col-lg-1 " href="<?php echo BASE_URL . 'sigac/parametros/deltrimestre/'.$this->trimestres[$i]['tresId']; ?>" role="button">Sí</a>
+                                                                    <a class="btn btn-sm btn-danger col-lg-1 " data-dismiss="modal" href="#" role="button">No</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>          
+                                                    </div>
+                                                </td>              
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

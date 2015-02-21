@@ -24,8 +24,6 @@ class View {
             'ruta_css' => BASE_URL . 'public/' . $layout . '/css/',
             'ruta_img' => BASE_URL . 'public/' . $layout . '/img/',
             'ruta_js' => BASE_URL . 'public/' . $layout . '/js/',
-            'ruta_bootstrap' => BASE_URL . 'public/bootstrap/',
-            'ruta_jquery' => BASE_URL . 'public/jquery/',
             'menu_user' => $men2,
             'app'=>$this->_app,
         );

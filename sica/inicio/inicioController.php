@@ -1,5 +1,4 @@
 <?php
-
 class inicioController extends Controller {
 
     public function __construct() {

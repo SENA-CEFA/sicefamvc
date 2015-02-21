@@ -1,5 +1,4 @@
 <?php
-
 class sesionController extends Controller {
 
     public function __construct() {

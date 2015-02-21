@@ -5,15 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="ADSI" content="">
-        <link rel="icon" href="<?php echo $_layoutParams['ruta_img']; ?>favicon.ico">
+        <?php Funcionesphp::noCache() ?>
+        <?php echo ICON ?>
         <title><?php echo $this->titulo; ?></title>
-
-        <script src="<?php echo $_layoutParams['ruta_jquery']; ?>jquery-2.1.1.js"></script>
-        <link href="<?php echo $_layoutParams['ruta_bootstrap']; ?>css/bootstrap.min.css" rel="stylesheet">
-        <script src="<?php echo $_layoutParams['ruta_bootstrap']; ?>js/bootstrap.min.js"></script>
+        <?php echo FW_JQUERY ?>
+        <?php echo FW_BOOTSTRAP ?>
+        <?php echo LIB_SIMPLYSCROLL ?>
+        <?php echo LIB_DATATABLE ?>
+        <?PHP ECHO LIB_VALIDATOR ?>
+        <?php echo JS_PAGE ?>
+        <?php echo CSS_GENERAL ?>
         <link href="<?php echo $_layoutParams['ruta_css']; ?>estilos.css" rel="stylesheet">
-        <script src="<?php echo $_layoutParams['ruta_js']; ?>jquery.simplyscroll.js"></script>
-        <link rel="stylesheet" href="<?php echo $_layoutParams['ruta_css']; ?>jquery.simplyscroll.css" media="all" type="text/css">
+        <script src="<?php echo $_layoutParams['ruta_js']; ?>parametros.js"></script>
+
     </head>
     <body>
         <div class="container">
@@ -90,6 +94,5 @@
                 </div><!--/.nav-collapse -->
             </div>
         </div>
-
-    </div>
+        <div title="Click para Cerrar" id="carga">Cargando...</div>
 

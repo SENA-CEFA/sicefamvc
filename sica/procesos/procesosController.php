@@ -1,6 +1,5 @@
 <?php
-
-class inicioController extends Controller {
+class procesosController extends Controller {
 
     public function __construct() {
         parent::__construct("inicio");

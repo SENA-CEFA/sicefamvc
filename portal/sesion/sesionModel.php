@@ -1,17 +1,8 @@
 <?php
-
 class sesionModel extends Model {
 
     public function __construct() {
         parent::__construct();
-    }
-
-    function delete($arg=false) {
-        
-    }
-
-    function edit($arg=false) {
-        
     }
 
     function get($arg=false) {
@@ -31,10 +22,6 @@ class sesionModel extends Model {
             $_SESSION['documento'] = '';
             $_SESSION['usuario'] = '';
         }
-    }
-
-    function set() {
-        
     }
 
 }

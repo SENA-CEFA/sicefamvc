@@ -18,6 +18,7 @@ require_once APP_PATH . 'Controller.php';
 require_once APP_PATH . 'Database.php';
 require_once APP_PATH . 'Model.php';
 require_once APP_PATH . 'View.php';
+require_once APP_PATH . 'Menu.php';
 
 //aqui se instancia el request y se llama al metodo run
 try {
