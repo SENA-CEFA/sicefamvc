@@ -19,12 +19,16 @@ class parametrosController extends Controller {
     }
 
     public function viewtrimestre($argum = false) {
+
         $this->_view->titulo = 'Trimestres Academicos';
         $this->_view->titulopanel = 'Agregar Trimestre Academico';
-        if ($argum[0] != "") {
+        if ($argum != "") {
             $data = $this->loadModel('sigac', 'parametros');
-            $this->_view->untrimestre = $data->onetrimestre($argum[0]);
+            $this->_view->untrimestre = $data->onetrimestre($argum);
             $this->_view->titulopanel = 'Modificar Trimestre Academico';
+        }else
+        {
+            $this->_view->untrimestre = array(5);
         }
         $this->_view->renderizar('viewtrimestre', 'sigac');
     }
