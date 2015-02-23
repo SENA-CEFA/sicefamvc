@@ -40,6 +40,13 @@ $valid = "<link href='" . COMMON . "formvalidation/dist/css/bootstrapValidator.c
         . "<script src='" . COMMON . "formvalidation/dist/js/language/es_CL.js'></script>"
         . "<script src='" . COMMON . "js/validar.js'></script>";
 define('LIB_VALIDATOR', $valid);
+$alert = "<link href='" . COMMON . "jalerts/jquery.alerts.css' rel='stylesheet'>"
+        . "<script src='" . COMMON . "jalerts/jquery.ui.draggable.js'></script>"
+        . "<script src='" . COMMON . "jalerts/jquery.alerts.mod.js'></script>";
+define('LIB_JALERTS', $alert);
+
+
+
 $jsv = "<script src='" . COMMON . "js/page.js'></script>";
 define('JS_PAGE', $jsv);
 $boot = "<link href='" . COMMON . "css/general.css' rel='stylesheet'>";

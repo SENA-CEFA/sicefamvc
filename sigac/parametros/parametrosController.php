@@ -59,11 +59,10 @@ class parametrosController extends Controller {
             $count = $dbtrim->deletetrimestre($argum);
             if ($count > 0) {
                 echo "<script>alert('Registro Eliminado')</script>";
-                $this->trimestre();
             } else {
                 echo "<script>alert('El Registro NO fue Eliminado, Intente de Nuevo')</script>";
-                $this->viewtrimestre($id);
             }
+            $this->trimestre();
         }
     }
 

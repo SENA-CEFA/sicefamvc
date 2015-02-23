@@ -93,18 +93,6 @@ class Menu extends Model {
         return $menu;
     }
 
-    function set($arg = false) {
-        
-    }
-
-    function delete($arg = false) {
-        
-    }
-
-    function edit($arg = false) {
-        
-    }
-
 }
 
 ?>

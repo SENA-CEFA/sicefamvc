@@ -19,7 +19,7 @@ $(document).ready(function () {
                         message: 'El campo debe tener entre 3 y 30 caracteres'
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z\0-9_\-.]+$/,
+                        regexp: /^[a-zA-Z\ñ\Ñ\0-9_\-.]+$/,
                         message: 'El campo no pueden contener caracteres especiales'
                     }
                 }
@@ -108,6 +108,16 @@ $(document).ready(function () {
                     date: {
                         format: 'DD/MM/YYYY',
                         message: 'La fecha no es válida'
+                    }
+                }
+            },
+            txtEmail: {
+                validators: {
+                    notEmpty: {
+                        message: 'Este campo es requerido'
+                    },
+                    emailAddress: {
+                        message: 'Debe digitar un correo válido'
                     }
                 }
             },
