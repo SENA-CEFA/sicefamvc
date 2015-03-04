@@ -8,7 +8,7 @@ abstract class Controller {
     public function __construct($a, $c) {
         $this->_view = new View($a, $c);
         $men = new Menu;
-        $this->_view->menu = $men->get();
+        $this->_view->menu = $men->menurol();
     }
 
     abstract public function index();

@@ -6,16 +6,17 @@ class Menu extends Model {
         parent::__construct();
     }
 
-    function get($arg = false) {
+           
+    function menurol($arg = false) {
         $subturnos = array(
             array(
-                'titulo' => 'Rutinarios',
-                'enlace' => BASE_URL . 'portal/turnos/rutinarios',
+                'titulo' => 'Emprecefa',
+                'enlace' => BASE_URL . 'portal/turnos/emprecefa',
                 'sub' => '',
             ),
             array(
-                'titulo' => 'Especiales',
-                'enlace' => BASE_URL . 'portal/turnos/especiales',
+                'titulo' => 'Recolección',
+                'enlace' => BASE_URL . 'portal/turnos/recoleccion',
                 'sub' => '',
             )
         );
@@ -58,6 +59,18 @@ class Menu extends Model {
                 'sub' => '',
             ),
         );
+        $subpqrsf = array(
+            array(
+                'titulo' => 'Consulta tu Solicitud',
+                'enlace' => BASE_URL . 'portal/pqrsf/consulta',
+                'sub' => '',
+            ),
+            array(
+                'titulo' => 'Nueva Solicitud',
+                'enlace' => BASE_URL . 'portal/pqrsf/index',
+                'sub' => '',
+            )
+        );
         $menu = array(
             array(
                 'titulo' => '<span class="glyphicon glyphicon-home"></span> Inicio',
@@ -82,7 +95,7 @@ class Menu extends Model {
             array(
                 'titulo' => '<span class="glyphicon glyphicon-inbox"></span> PQRSF',
                 'enlace' => BASE_URL . 'portal/pqrsf/index',
-                'sub' => '',
+                'sub' => $subpqrsf,
             ),
             array(
                 'titulo' => '<span class="glyphicon glyphicon-wrench"></span> Desarrolladores',

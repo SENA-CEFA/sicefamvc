@@ -41,6 +41,21 @@ $(document).ready(function () {
                     }
                 }
             },
+            txtDocumento: {
+                validators: {
+                    notEmpty: {
+                        message: 'Este campo es requerido'
+                    },
+                    integer: {
+                        message: 'El valor no es entero'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 11,
+                        message: 'El Numero de documento debe tener entre 6 y 11 caracteres'
+                    },
+                }
+            },
             txtUsuario: {
                 message: 'The username is not valid',
                 validators: {
@@ -111,7 +126,7 @@ $(document).ready(function () {
                     }
                 }
             },
-            txtEmail: {
+            txtCorreo: {
                 validators: {
                     notEmpty: {
                         message: 'Este campo es requerido'

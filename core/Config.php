@@ -44,13 +44,14 @@ $alert = "<link href='" . COMMON . "jalerts/jquery.alerts.css' rel='stylesheet'>
         . "<script src='" . COMMON . "jalerts/jquery.ui.draggable.js'></script>"
         . "<script src='" . COMMON . "jalerts/jquery.alerts.mod.js'></script>";
 define('LIB_JALERTS', $alert);
-
-
+$jqy = "<script src='" . COMMON . "js/ajax.js'></script>";
+define('LIB_AJAX', $jqy);
 
 $jsv = "<script src='" . COMMON . "js/page.js'></script>";
 define('JS_PAGE', $jsv);
 $boot = "<link href='" . COMMON . "css/general.css' rel='stylesheet'>";
 define('CSS_GENERAL', $boot);
+
 
 class Funcionesphp {
 
@@ -79,4 +80,12 @@ class Funcionesphp {
         header("Pragma: no-cache");
     }
 
+    public static function fechaservidor() {
+        $men = new Menu;
+        return $men->fechaactual();
+    }
+    public static function horaservidor() {
+        $men = new Menu;
+        return $men->horaactual();
+    }
 }

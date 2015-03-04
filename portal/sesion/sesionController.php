@@ -19,7 +19,7 @@ class sesionController extends Controller {
         if ($_SESSION['autentificado'] == 'Si') {
             $this->_view = new View('inicio');
             $this->_view->titulo = 'Pagina de Inicio';
-            $this->_view->renderizar('inicio', 'default');
+            $this->_view->renderizar('inicio', 'sicefa');
         } else {
             $this->_view->titulo = 'Inicio de Sesion';
             $this->_view->mensaje = 'Correo o Clave Incorrecta, Intente de Nuevo';

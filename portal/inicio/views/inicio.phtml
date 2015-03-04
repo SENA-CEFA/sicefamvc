@@ -1,14 +1,15 @@
 <style type="text/css">
     .vert .simply-scroll-clip {
-        height: 250px;
+        height: 200px;
     }
 </style>
 <div class="container">
     <div class="row">
         <div class="col-md-3">
             <div class="panel panel-success sombra">
-                <div class="panel-heading">Ofertas del día</div>
+                <div class="panel-heading">Ofertas Punto de Venta</div>
                 <div class="panel-body">
+                        
                     <script type="text/javascript">
                         (function ($) {
                             $(function () {
@@ -22,7 +23,7 @@
                     </script>
                     <div class="row">
                         <ul id="scroller1">
-                            <?php for ($i = 0; $i < 10; $i++) { ?>
+                            <?php for ($i = 1; $i <= 10; $i++) { ?>
                                 <li>
                                     <div class="col-md-12">
                                         <div><h5 class="label-orange text-uppercase text-left">Producto <?php echo $i ?></h5></div>
@@ -32,6 +33,8 @@
                             <?php } ?> 
                         </ul>  
                     </div>
+                    <br />
+                    <div><a class="btn btn-sm btn-success">Ver todas las ofertas...</a></div>
                 </div>
             </div>
         </div>
@@ -118,17 +121,18 @@
         <div class="col-md-8">
             <div class="panel panel-default sombra">
                 <div class="panel-body">
-                    <h3 class="label-orange">Sicefa y el Centro de Formación Agroindustrial</h3>
-                    <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code.</p>
-                    <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. </p>
-                </div>
+                    <h4 class="label-orange">SICEFA y el Centro de Formación Agroindustrial</h4>
+                    <p>SICEFA ofrece al centro de formación agroindustrial “La Angostura”, un conjunto de aplicaciones web 2.0, que permiten gestionar eficientemente la información académica, técnica y administrativa de las áreas productivas de la finca, así como también permite gestionar otras áreas que aportan significativamente al control y buen manejo de los bienes y talento humano del CEFA.</p>
+                    <p>SICEFA Nació como proyecto formativo del programa Tecnológico en Análisis y Desarrollo de sistemas de Información (ADSI), el cual ha evolucionado en su concepción, funcionalidad y metodología de desarrollo desde el primer curso que inicio el proyecto en 2009; Hoy podemos decir que tenemos una herramienta madura en cuanto al conocimiento de las áreas implicadas y que cuenta con estandares de calidad en el desarrollo usando herramientas actuales de gran acogida.</p></div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="panel panel-success sombra">
-                <div class="panel-heading">Nuestro Centro en Maps</div>
+                <div class="panel-heading">Nuestro Centro en Google Maps</div>
                 <div class="panel-body">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2503.4617022564894!2d-75.36157748447157!3d2.6120133279821505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2s!4v1423750155182" width="100%" height="100%" frameborder="0" style="border:0"></iframe>
+                    <br />
+                    <div><a class="btn btn-sm btn-success">Conoce nuestro centro...</a></div>
                 </div>
             </div>
         </div>
@@ -137,101 +141,41 @@
         <div class="col-md-8">
             <div class="panel panel-success sombra">
                 <div class="panel-body">
-                    <h3 class="label-orange">Sicefa y la Estrategia Sena-Empresa</h3>
-                    <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. </p>                 
-                    <p>Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with code. </p>
-                </div>
+                    <h4 class="label-orange">SICEFA y la Estrategia Sena-Empresa</h4>
+                    <p>SICEFA ofrece a la estrategia de Sena empresa una mejor administración en cuanto al  modelo de simulación empresarial que se está ejecutando en el  CEFA, esto se hace con el fin  que los aprendices   puedan vivenciar de manera real todas las situaciones que se pueden presentar en los procesos: administrativos, 
+                        productivos, financieros y de comercialización de una empresa;  para fortalecer lo antes mencionado SICEFA da al aprendiz una buena administración en la cual los aprendices encargados de SENA EMPRESA puedan llevar un mejor orden en cuanto sus reportes, turnos encargados, bodegas, inventarios, administración de personal, movimientos entre unidades, punto de venta y área de contabilidad, dependiendo de su unidad o área encargada
+                    </p></div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="panel panel-success sombra">
                 <div class="panel-heading">Video Introductorio</div>
                 <div class="panel-body">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Er9g9qyutDI?rel=0&showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/M37yMgyKkgA?rel=0&showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
+    <div class="alert alert-success sombra text-center" role="alert">
+        <strong> APLICACIONES</strong>
+    </div>
+
     <div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-success sombra">
-                <div class="panel-heading">Aplicacion 1</div>
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <a class="thumbnail">
-                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up1.jpg" alt="...">
-                        </a>
+        <?php for ($i = 0; $i < count($this->aplicativos); $i++) {
+            ?>
+            <div class="col-md-4">
+                <div class="panel panel-success sombra">
+                    <div class="panel-heading initialism"><?php echo $this->aplicativos[$i]['avosNombre'] ?></div>
+                    <div class="panel-body">
+                        <div class="col-md-12">
+                            <a class="thumbnail">
+                                <img src="<?php echo $_layoutParams['ruta_img']; ?><?php echo $this->aplicativos[$i]['avosRuta'] ?>.png" alt="...">
+                            </a>
+                        </div>
+                        <div class="text-center"><?php echo $this->aplicativos[$i]['avosDescripcion'] ?></div>
                     </div>
-                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-success sombra">
-                <div class="panel-heading">Aplicacion 2</div>
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <a class="thumbnail">
-                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up2.jpg" alt="...">
-                        </a>
-                    </div>
-                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-success sombra">
-                <div class="panel-heading">Aplicacion 3</div>
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <a class="thumbnail">
-                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up3.jpg" alt="...">
-                        </a>
-                    </div>
-                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-<div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-success sombra">
-                <div class="panel-heading">Aplicacion 4</div>
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <a class="thumbnail">
-                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up4.jpg" alt="...">
-                        </a>
-                    </div>
-                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-success sombra">
-                <div class="panel-heading">Aplicacion 5</div>
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <a class="thumbnail">
-                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up5.jpg" alt="...">
-                        </a>
-                    </div>
-                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-success sombra  ">
-                <div class="panel-heading">Aplicacion 6</div>
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <a class="thumbnail">
-                            <img src="<?php echo $_layoutParams['ruta_img']; ?>up1.jpg" alt="...">
-                        </a>
-                    </div>
-                    <div>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</div>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </div>

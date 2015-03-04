@@ -5,16 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="ADSI" content="">
-        <?php Funcionesphp::noCache() ?>
+        
         <?php echo ICON ?>
         <title><?php echo $this->titulo; ?></title>
         <?php echo FW_JQUERY ?>
         <?php echo FW_BOOTSTRAP ?>
         <?php echo LIB_DATATABLE ?>
         <?php echo LIB_SIMPLYSCROLL ?>
+        <?PHP echo LIB_VALIDATOR ?>
         <?php echo JS_PAGE ?>
         <?php echo CSS_GENERAL ?>
-
+        <script src="<?php echo $_layoutParams['ruta_js']; ?>scripts.js"></script>
+        <link href="<?php echo $_layoutParams['ruta_css']; ?>estilos.css" rel="stylesheet">
     </head>
     <body onload="Javascript:history.go(1);" onunload="Javascript:history.go(1);">
         <div class="container">
