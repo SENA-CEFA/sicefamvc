@@ -1,0 +1,142 @@
+<meta http-equiv="refresh" content="30" />
+<style type="text/css">
+    .vert .simply-scroll-clip {
+        height: 200px;
+    }
+    .vert .simply-scroll-list li {
+        height: 40px;
+    }
+</style>
+<div class="container">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col-sm-10 col-lg-offset-1">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Informe Consolidado Rueda de Negocios</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="formpdf" id="formpdf" method="post" action="<?php echo BASE_URL . 'inicio/resumen'; ?>">
+                            <div class="col-sm-12">
+                                <div class="col-sm-4 text-right">
+                                    <label class="label-custom">Empresas Compradoras</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input name="txtVende" class="text-center" size="10" value="<?php echo $this->compra ?>">                        
+                                </div>
+                                <div class="col-sm-4 text-right">
+                                    <label class="label-custom">Empresas Vendedoras</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input name="txtCompra" class="text-center" size="10" value="<?php echo $this->vende ?>">                     
+                                </div>
+
+                            </div>
+                            <hr>
+                            <div class="col-sm-12">
+                                <div class="col-sm-4 text-right">
+                                    <label class="label-custom">Citas Programadas</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input name="txtProgram" class="text-center" size="10" value="<?php echo $this->programada ?>">                        
+                                </div>
+                                <div class="col-sm-4 text-right">
+                                    <label class="label-custom">Contactos Realizados</label>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input name="txtFinal" class="text-center" size="10" value="<?php echo $this->finalizada ?>">                        
+                                </div>
+                            </div>
+                            <hr>
+                            <br>
+
+                            <div class="col-sm-12 text-center">
+                                <label class="label-custom">NEGOCIOS LLEVADOS A FELIZ TERMINO</label>
+                            </div>
+
+                            <div class="table-bordered col-sm-12 text-center label-custom-back">
+                                <div class="col-sm-4">
+                                    <label class="label-custom">Categoria</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="label-custom">Cantidad</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="label-custom">Valor</label>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                (function($) {
+                                    $(function() {
+                                        $("#scroller").simplyScroll({
+                                            orientation: 'vertical',
+                                            customClass: 'vert',
+                                            speed: 1,
+                                        });
+                                    });
+                                })(jQuery);
+                            </script>
+                            <div class="col-sm-12 table-bordered">
+                                <ul id="scroller">
+                                    <li>
+                                        <div>
+                                            <hr>
+                                        </div>
+                                    </li>
+                                    <?php if (isset($this->datos) && count($this->datos)): 
+                                    $total=0; ?>
+                                        <?php for ($i = 0; $i < count($this->datos); $i++): 
+                                            $total=$total+$this->datos[$i] ['valor'];
+                                            ?>
+                                    
+                                            <li>
+                                                <div class="row table-bordered">
+                                                    <div class="col-sm-6">
+                                                        <label class="label-custom text-uppercase"><h5><strong>
+                                                                    <input type="hidden" name="txtCategoria[]" value="<?php echo $this->datos[$i] ['Nombre']; ?>">
+                                                            <?php echo $this->datos[$i] ['Nombre']; ?></strong></h5></label>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <input name="txtCantidad[]" class="text-center" size="10" value="<?php echo $this->datos[$i] ['cantidad']; ?>">                     
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        $ <input name="txtValor[]" class="text-right" size="10" value="<?php echo $this->datos[$i] ['valor']; ?>"> 
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        <?php endfor; ?>
+                                    <?php else: ?>
+                                        <div class="col-sm-12">            
+                                            <p><strong>No hay Datos!</strong></p> 
+                                        </div>
+                                    <?php endif; ?>                  
+                                </ul>  
+                            </div>
+                            <br>&nbsp;
+                            <div class="row">
+                                <div class="col-sm-12 text-center">
+                                    <div class="col-sm-8">
+                                        <label class="label-custom">Total Negociado</label>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        $ <input name="txtTotal" class="text-right" size="10" value="<?php echo $total ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>&nbsp;
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" name="enviar" class="btn-custom" value="pdf">Descargar PDF</button>
+                            </div>
+                            <hr>
+                            <div class="col-sm-12 text-center">
+                                <input name="txtCorreo" id="txtCorreo" class="text-left" size="25" value="" placeholder="Correo" >
+                                <button type="submit" name="enviar" class="btn-custom" value="correo">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+    </div>
+</div>

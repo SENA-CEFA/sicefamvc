@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col-sm-10 col-lg-offset-1">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Padrinos</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-sm-12">
+                            <h3><?php echo $this->titulo ?></h3>
+                        </div><br>
+
+                        <div class="col-sm-12">
+                            <a class="btn btn-sm btn-primary " href="<?php echo BASE_URL . 'padrino/index'; ?>" role="button">Volver</a>
+
+
+                            <div class="modal fade" id="miventana1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                                            <h4>Esta seguro que desea agregar</h4>
+                                        </div>
+
+                                        <div class="modal-footer discurso-enfatizado">
+                                            <a class="btn btn-sm btn-success " data-dismiss="modal" href="#" role="button">No</a>
+                                            <button class="btn btn-sm btn-success " type="button" onclick="document.form1.submit()"  >Sí</button>
+                                        </div>
+                                    </div>
+                                </div>          
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col-md-8  col-md-offset-2">
+                            <form name="form1" id="form1" action="<?php echo BASE_URL . 'padrino/insertar/' ?>" method="POST">
+                                <div class="col-md-12">
+                                    <div class="col-md-12">
+                                        <div class="col-md-4 label-custom">Documento</div>
+                                        <div class="col-md-8"><input name="txtDocumento" id="txtDocumento" type="text" class="col-md-12" value=""></div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-4 label-custom">Nombre</div>
+                                        <div class="col-md-8"><input name="txtNombre" id="txtNombre" type="text" class="col-md-12" value=""></div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-4 label-custom">Telefono</div>
+                                        <div class="col-md-8"><input name="txtTelefono" id="txtTelefono" type="text" class="col-md-12" value=""></div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-4 label-custom">Correo</div>
+                                        <div class="col-md-8"><input name="txtCorreo" id="txtCorreo" type="text" class="col-md-12" value=""></div>
+                                    </div>
+                                </div>   
+                            </form>  
+                            <div class="col-md-12 text-center">
+                                <br>
+                                <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#miventana1">Guardar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
+

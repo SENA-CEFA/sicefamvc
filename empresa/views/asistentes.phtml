@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="contenedor">
+        <div class="row">
+            <div class="col-sm-10 col-lg-offset-1">
+                <div class="panel panel-custom">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Registro Asistentes</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <form class="" name="form1" id="form1" action="<?php echo BASE_URL . 'empresa/insertar/' ?>" method="POST">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="col-md-4">Cédula</label>
+                                    <input class="col-md-5" name="txtCC" id="txtCC" type="text" value="">
+                                    <br/><br/>
+
+                                    <label class="col-md-4">NIT de empresa</label>
+                                    <input class="" name="txtNIT" id="txtNIT" type="text" value="">
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="col-md-3">Nombre</label>
+                                    <input class="col-md-9" name="txtNombre" id="txtNombre" type="text" value="">
+
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn-success">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <hr class="btn-custom"/>
+
+                        <?php if (isset($this->datos) && count($this->datos)): ?>
+                            <div class="table-bordered col-sm-12 label-custom-back text-left">
+                                <div class="col-sm-2"><label class="label-custom">NIT</label></div>
+                                <div class="col-sm-3"><label class="label-custom">Cedula</label></div>
+                                <div class="col-sm-2"><label class="label-custom">Nombre</label></div>
+                                
+                            </div>
+                            <?php for ($i = 0; $i < count($this->datos); $i++): ?>
+                                <div class="table-bordered col-sm-12">
+                                    <div class="col-sm-2"><?php echo $this->datos[$i] ['Empresa']; ?></div>
+                                    <div class="col-sm-3"><?php echo $this->datos[$i] ['Cedula']; ?></div>
+                                    <div class="col-sm-2"><?php echo $this->datos[$i] ['Nombre']; ?></div>
+                                </div>
+                            <?php endfor; ?>
+                        <?php else: ?>
+                            <div class="col-sm-12">            
+                                <p><strong>No hay Padrinos!</strong></p> 
+                            </div>
+                        <?php endif; ?>                
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>        
+
+</div>
