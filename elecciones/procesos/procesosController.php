@@ -17,7 +17,6 @@ class procesosController extends Controller {
     }
 
     public function buscapersona($argum = false) {
-        $this->_view->id = $argum;
         $data = $this->loadModel('sis', 'procesos');
         $this->_view->datospersona = $data->onepersona($argum);
         if (count($this->_view->datospersona) > 0) {

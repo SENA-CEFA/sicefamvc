@@ -5,9 +5,9 @@ $(document).ready(function () {
             cargadivconsulta('datos', 'buscapersona/' + $("#txtDocumento").val());
         }
     });
+    
     $("#resetBtn").click(function () {
         $("#datos").hide();
     });
-    
-    
+       
 });

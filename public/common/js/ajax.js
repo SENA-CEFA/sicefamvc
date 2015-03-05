@@ -1,18 +1,17 @@
 
 
-function cargadivconsulta(id, url, img) {
-    var documento = $("#txtDocumento").val();
+function cargadivconsulta(id, url) {
  $("#"+id).show();
     $.ajax({
         type: "POST",
         url: url,
-        data: "documento=" + documento,
+        data: "",
         success: function (html) {
             if (html == 'true') {
                 $("#"+id).html(html);
             }
             else {
-                $("#"+id).html(html);
+                $("#"+id).html('No se encontro la pagina.');
             }
         },
         beforeSend: function ()

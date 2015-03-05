@@ -5,43 +5,21 @@ class procesosModel extends Model {
     public function __construct() {
         parent::__construct();
     }
-
-    function delete($arg = false) {
-        
-    }
-
-    function edit($arg = false) {
-        
-    }
-
-    function set($arg = false) {
-        
-    }
-
-    function fecha($arg = false) {
-        $sql = $this->_db->query("SELECT Id,Fecha FROM turnos");
-        return $sql->fetchall();
-    }
-    function titulaciones($arg = false) {
-        $sql = $this->_db->query("SELECT Id, Nombre AS nomtitulaciones,Ficha AS fichatitulaciones FROM titulaciones ");
+function titulaciones($arg = false) {
+        $sql = $this->_db->query("SELECT tnesFicha, pmasNombre FROM titulaciones INNER JOIN programas ON titulaciones.tnesIdPrograma=programas.pmasId");
         return $sql->fetchall();
     }
     function turnos($arg = false) {
-        $sql = $this->_db->query("SELECT Id,Nombre FROM tipo_turno");
+        $sql = $this->_db->query("SELECT trnoId,trnoNombre FROM tipo_turno");
         return $sql->fetchall();
     }
     function areas($arg = false) {
-        $sql = $this->_db->query("SELECT Id,Nombre FROM areas");
+        $sql = $this->_db->query("SELECT uvasId,uvasNombre FROM unidadesproductivas");
         return $sql->fetchall();
     }
 
     function get($arg = false) {
-        if (isset($_POST['cmbTitulacion'])) {
-            $ficha = $_POST['cmbTitulacion'];
-        } else {
-            $ficha = 0;
-        }
-        $sql = $this->_db->query("SELECT usuarios.Id AS Id,titulaciones.Nombre AS Nomtitu,usuarios.Identificacion AS ideapren,usuarios.Nombre AS Nomapren FROM titulaciones INNER JOIN usuarios ON usuarios.Titulacion=titulaciones.id WHERE usuarios.Titulacion=" . $ficha);
+        $sql = $this->_db->query("SELECT programas.pmasNombre,personalemprecefa.pefaId, datopersonales.dlesId,datopersonales.dlesNombre,datopersonales.dlesDocumento FROM datopersonales INNER JOIN vinculaciones   ON vinculaciones.vnesIdDatoPers=datopersonales.dlesId INNER JOIN aprendices ON vinculaciones.vnesId=aprendices.acesIdvinculacion INNER JOIN titulaciones ON titulaciones.tnesFicha=aprendices.acesIdFicha INNER JOIN programas ON titulaciones.tnesIdPrograma=programas.pmasId INNER JOIN personalemprecefa ON personalemprecefa.pefaIdVinculacion=vinculaciones.vnesId WHERE titulaciones.tnesFicha=". $arg);
         return $sql->fetchall();
     }
 function asistencia($arg = false) {
@@ -55,10 +33,10 @@ function asistencia($arg = false) {
         } else {
             $fecha = 0;
         }
-        $sql = $this->_db->query("SELECT  usuarios.Nombre AS nombreaprendiz FROM usuarios INNER JOIN turnos ON usuarios.Id=turnos.IdAprendiz WHERE turnos.Area='" . $area ."' AND turnos.Fecha='" . $fecha ."' AND turnos.Estado='A'");
+        $sql = $this->_db->query("SELECT datopersonales.dlesNombre FROM datopersonales INNER JOIN vinculaciones ON vinculaciones.vnesIdDatoPers=datopersonales.dlesId INNER JOIN personalemprecefa ON personalemprecefa.pefaIdVinculacion=vinculaciones.vnesId INNER JOIN turnos ON turnos.tnosId=personalemprecefa.pefaId WHERE turnos.tnosIdUnidProd='" . $area ."' AND turnos.tnosFecha='" . $fecha ."' AND turnos.tnosEstado='A'");
         return $sql->fetchall();
     }
-    function guardarturno($arg = false){
+    function guardarturno(){
         if (isset($_POST['cmbTipoTurno'])) {
             $tipoturno = $_POST['cmbTipoTurno'];
         } else {
@@ -71,7 +49,7 @@ function asistencia($arg = false) {
         }
         
         if ($_POST) {
-            $count = $this->_db->exec("INSERT INTO turnos (IdAprendiz,Fecha, TipoTurno, Area, Estado) VALUES ('" . $_POST['txtId'] . "','" . $_POST['txtFecha1'] . "', '" . $tipoturno . "','" . $area . "', 'A')");
+            $count = $this->_db->exec("INSERT INTO turnos (tnosIdPersoEmpre,tnosFecha, tnosIdTipoTurno, tnosIdUnidProd, tnosEstado) VALUES ('" . $_POST['txtId'] . "','" . $_POST['txtFecha1'] . "', '" . $tipoturno . "','" . $area . "', 'A')");
             return $count;
         } else {
             return 0;

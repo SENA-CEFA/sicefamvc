@@ -12,14 +12,14 @@
                                 <select id="cmbTitulacion" name="cmbTitulacion" >
                                     <option disabled="disabled" value="" selected="">---Seleccione---</option>
                                     <?php for ($j = 0; $j < count($this->titulaciones); $j++): ?>
-                                        <option value="<?php echo $this->titulaciones[$j] ['Id']; ?>" ><?php echo $this->titulaciones[$j] ['nomtitulaciones']; ?>,<?php echo $this->titulaciones[$j] ['fichatitulaciones']; ?></option>
+                                        <option value="<?php echo $this->titulaciones[$j] ['tnesFicha']; ?>" ><?php echo $this->titulaciones[$j] ['pmasNombre']; ?>,<?php echo $this->titulaciones[$j] ['tnesFicha']; ?></option>
                                     <?php endfor; ?>
                                 </select>
                             </div>
                             
                             <div class="col-md-4">
                                 <label>Fecha</label>
-                                <input id="cmbfecha" type="date" name="cmbfecha" value="<?php echo Funcionesphp::fechaservidor();?>" >
+                                <input id="cmbfecha" type="date" name="cmbfecha" value="" >
                                    
                             </div>
                             <div class="col-md-4">
@@ -27,7 +27,7 @@
                                 <select id="cmbarea" name="cmbarea" onchange=document.form1.submit()>
                                     <option disabled="disabled" value="" selected="">---Seleccione---</option>
                                     <?php for ($j = 0; $j < count($this->areas); $j++): ?>
-                                        <option value="<?php echo $this->areas[$j] ['Id']; ?>" ><?php echo $this->areas[$j] ['Nombre']; ?></option>
+                                        <option value="<?php echo $this->areas[$j] ['uvasId']; ?>" ><?php echo $this->areas[$j] ['uvasNombre']; ?></option>
                                     <?php endfor; ?>
                                 </select>
                             </div>
@@ -47,8 +47,8 @@
                                     <tbody>
                                         <?php for ($i = 0; $i < count($this->asistencia); $i++): ?>
                                             <tr>                         
-                                                <input type="hidden"name="txtId" id="txtId"value="<?php echo $this->datos[$i] ['Id']; ?>"/>
-                                                <td class="" ><?php echo $this->asistencia[$i] ['nombreaprendiz']; ?></td>
+                                                <input type="hidden"name="txtId" id="txtId"value="<?php echo $this->datos[$i] ['dlesId']; ?>"/>
+                                                <td class="" ><?php echo $this->asistencia[$i] ['dlesNombre']; ?></td>
                                                 <td><label class="">
                                                 <input  type="radio" name="asistencia" value="si" required="" />
                                                 <label>si</label>
@@ -116,7 +116,7 @@
                                     </div>
                                 </div>          
                             </div>
-                            <a class="btn btn-primary" href="">Atras</a>
+                            
 
                         </div>
                     </form>

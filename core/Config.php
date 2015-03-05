@@ -46,6 +46,8 @@ $alert = "<link href='" . COMMON . "jalerts/jquery.alerts.css' rel='stylesheet'>
 define('LIB_JALERTS', $alert);
 $jqy = "<script src='" . COMMON . "js/ajax.js'></script>";
 define('LIB_AJAX', $jqy);
+$jpt = "<script src='" . COMMON . "printpage/jquery.printPage.js'></script>";
+define('LIB_PRINT', $jpt);
 
 $jsv = "<script src='" . COMMON . "js/page.js'></script>";
 define('JS_PAGE', $jsv);
