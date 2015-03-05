@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8" collation="utf8_general_ci">sicefaoo</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="acciones" view="colnames">
+<left>940</left>
+<top>313</top>
+<width>139</width>
+<height>139</height>
+<sql_create_table>CREATE TABLE `acciones` (
+  `anesId` int(11) NOT NULL,
+  `anesNombre` varchar(50) NOT NULL,
+  `anesDescripcion` varchar(250) NOT NULL,
+  `anesEstado` varchar(50) NOT NULL,
+  PRIMARY KEY (`anesId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="aplicativos" view="colnames">
+<left>231</left>
+<top>321</top>
+<width>128</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `aplicativos` (
+  `avosId` int(11) NOT NULL,
+  `avosNombre` varchar(50) NOT NULL,
+  `avosRuta` varchar(50) NOT NULL,
+  `avosEstado` varchar(50) NOT NULL,
+  `avosDescripcion` text NOT NULL,
+  PRIMARY KEY (`avosId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="datopersonales" view="colnames">
+<left>20</left>
+<top>59</top>
+<width>184</width>
+<height>487</height>
+<sql_create_table>CREATE TABLE `datopersonales` (
+  `dlesId` int(11) NOT NULL AUTO_INCREMENT,
+  `dlesDocumento` bigint(2) NOT NULL,
+  `dlesTipoIdentificacion` varchar(100) NOT NULL,
+  `dlesFechExpeDocu` date NOT NULL,
+  `dlesMuniExpeDocu` varchar(100) NOT NULL,
+  `dlesNombre` varchar(50) NOT NULL,
+  `dlesPrimerApellido` varchar(50) NOT NULL,
+  `dlesSegundoApellido` varchar(50) NOT NULL,
+  `dlesFechaNacimiento` date NOT NULL,
+  `dlesMunicipioNacimiento` varchar(100) NOT NULL,
+  `dlesTipoSangre` varchar(50) NOT NULL,
+  `dlesGenero` varchar(50) NOT NULL,
+  `dlesEps` varchar(50) NOT NULL,
+  `dlesEstadoCivil` varchar(50) NOT NULL,
+  `dlesLibretaMilitar` varchar(20) NOT NULL,
+  `dlesEstrato` int(2) NOT NULL,
+  `dlesDireccion` varchar(50) NOT NULL,
+  `dlesMunicipioDireccion` varchar(250) NOT NULL,
+  `dlesTelefono1` varchar(20) NOT NULL,
+  `dlesTelefono2` varchar(20) NOT NULL,
+  `dlesTelefono3` varchar(20) NOT NULL,
+  `dlesCorreoMiSena` varchar(250) NOT NULL,
+  `dlesCorreoInstitucional` varchar(250) NOT NULL,
+  `dlesCorreoAlternativo` varchar(250) NOT NULL,
+  `dlesSitioWeb` varchar(250) NOT NULL,
+  PRIMARY KEY (`dlesId`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="modulos" view="colnames">
+<left>411</left>
+<top>323</top>
+<width>140</width>
+<height>157</height>
+<sql_create_table>CREATE TABLE `modulos` (
+  `mlosId` int(11) NOT NULL,
+  `mlosNombre` varchar(50) NOT NULL,
+  `mlosIcono` varchar(20) NOT NULL,
+  `mlosIdAplicativo` int(11) NOT NULL,
+  `mlosEstado` varchar(50) NOT NULL,
+  PRIMARY KEY (`mlosId`),
+  KEY `FK_modulos_aplicativos` (`mlosIdAplicativo`),
+  CONSTRAINT `FK_modulos_aplicativos` FOREIGN KEY (`mlosIdAplicativo`) REFERENCES `aplicativos` (`avosId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="rolesusuarios" view="colnames">
+<left>601</left>
+<top>81</top>
+<width>133</width>
+<height>134</height>
+<sql_create_table>CREATE TABLE `rolesusuarios` (
+  `riosId` int(11) NOT NULL,
+  `riosNombre` varchar(50) NOT NULL,
+  `riosDescripcion` varchar(250) NOT NULL,
+  `riosEstado` varchar(50) NOT NULL,
+  PRIMARY KEY (`riosId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="usuarios" view="colnames">
+<left>409</left>
+<top>99</top>
+<width>158</width>
+<height>173</height>
+<sql_create_table>CREATE TABLE `usuarios` (
+  `uiosId` int(11) NOT NULL,
+  `uiosIdVinculaciones` int(11) NOT NULL,
+  `uiosNombreUsuario` varchar(250) NOT NULL,
+  `uiosPassword` varchar(250) NOT NULL,
+  `uiosIdRol` int(11) NOT NULL,
+  `uiosEstado` varchar(50) NOT NULL,
+  PRIMARY KEY (`uiosId`),
+  KEY `FK_usuarios_usuariosroles` (`uiosIdRol`),
+  KEY `FK_usuarios_datospersonales` (`uiosIdVinculaciones`),
+  CONSTRAINT `FK_usuarios` FOREIGN KEY (`uiosIdVinculaciones`) REFERENCES `vinculaciones` (`vnesId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_usuarios_usuariosroles` FOREIGN KEY (`uiosIdRol`) REFERENCES `rolesusuarios` (`riosId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="vinculaciones" view="colnames">
+<left>234</left>
+<top>106</top>
+<width>137</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `vinculaciones` (
+  `vnesId` int(11) NOT NULL AUTO_INCREMENT,
+  `vnesIdDatoPers` int(11) NOT NULL,
+  `vnesIdTipoVinc` int(11) NOT NULL,
+  `vnesEstado` varchar(20) NOT NULL,
+  `vnesUid` varchar(20) NOT NULL,
+  PRIMARY KEY (`vnesId`),
+  KEY `FK_vinculaciones_datospersonale` (`vnesIdDatoPers`),
+  KEY `FK_vinculaciones_typovinculacion` (`vnesIdTipoVinc`),
+  CONSTRAINT `FK_vinculaciones_datospersonale` FOREIGN KEY (`vnesIdDatoPers`) REFERENCES `datopersonales` (`dlesId`),
+  CONSTRAINT `FK_vinculaciones_typovinculacion` FOREIGN KEY (`vnesIdTipoVinc`) REFERENCES `tipovinculaciones` (`tvesId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="permisos" view="colnames">
+<left>770</left>
+<top>165</top>
+<width>145</width>
+<height>141</height>
+<sql_create_table>CREATE TABLE `permisos` (
+  `psosId` int(11) NOT NULL,
+  `psosIdRol` int(11) NOT NULL,
+  `psosIdFormulario` int(11) NOT NULL,
+  `psosIdAccion` int(11) NOT NULL,
+  PRIMARY KEY (`psosId`),
+  KEY `FK_permisos_rolesusuarios` (`psosIdRol`),
+  KEY `FK_permisos_acciones` (`psosIdAccion`),
+  KEY `FK_permisos_formularios` (`psosIdFormulario`),
+  CONSTRAINT `FK_permisos_acciones` FOREIGN KEY (`psosIdAccion`) REFERENCES `acciones` (`anesId`),
+  CONSTRAINT `FK_permisos_formularios` FOREIGN KEY (`psosIdFormulario`) REFERENCES `formularios` (`fiosId`),
+  CONSTRAINT `FK_permisos_rolesusuarios` FOREIGN KEY (`psosIdRol`) REFERENCES `rolesusuarios` (`riosId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+<table name="formularios" view="colnames">
+<left>592</left>
+<top>303</top>
+<width>132</width>
+<height>173</height>
+<sql_create_table>CREATE TABLE `formularios` (
+  `fiosId` int(11) NOT NULL,
+  `fiosNombre` varchar(50) NOT NULL,
+  `fiosEstado` varchar(50) NOT NULL,
+  `fiosRuta` varchar(250) NOT NULL,
+  `fiosDescripcion` varchar(250) NOT NULL,
+  `fiosIdModulo` int(11) NOT NULL,
+  PRIMARY KEY (`fiosId`),
+  KEY `FK_formularios_modulos` (`fiosIdModulo`),
+  CONSTRAINT `FK_formularios_modulos` FOREIGN KEY (`fiosIdModulo`) REFERENCES `modulos` (`mlosId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>

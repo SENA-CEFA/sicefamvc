@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row col-md-4 col-md-offset-4 ">
+        <div class="panel panel-custom sombra">
+            <div id="psesion" class="panel-heading">
+                <h3 class="panel-title"><?php echo $this->titulo ?></h3>
+            </div>
+
+            <form class="form-signin" role="form" action="<?php echo BASE_URL . 'sesion/ingresar'; ?>" method="POST">
+                <div class="item text-center">
+                    <img alt="" src="<?php echo $_layoutParams['ruta_img']; ?>sicefa.png">
+                </div>
+                <h5 class="form-signin-heading">Datos de Acceso</h5>
+                <input name="txtEmail" id="txtEmail" type="text" class="form-control" placeholder="Usuario" required autofocus>
+                <input name="txtPass" id="txtPass" type="password" class="form-control" placeholder="Clave" required>
+                <?php if (isset($this->mensaje)) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Atencion! </strong> <?php echo $this->mensaje;?> 
+                    </div>
+                <?php } ?>
+                <button class="btn btn-lg btn-custom btn-block" type="submit">Ingresar</button>
+                <hr>
+                <a class="btn btn-sm btn-default btn-block" href="<?php echo BASE_URL . 'portal/inicio/index'; ?>" role="button">Cancelar</a>
+            </form>
+        </div>
+    </div>
+
+</div> <!-- /container -->

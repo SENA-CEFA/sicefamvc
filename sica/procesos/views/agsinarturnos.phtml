@@ -1,0 +1,41 @@
+<div class="container">
+<div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading"><h3 class="text-center"><strong>Asignar Turnos Emprecefa</strong></h3></div>
+                <div class="panel-body">
+                    <form id="form1" name="form1" class="" action="" method="post">
+                        <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <div class="col-md-7">
+                                        <label class=""> Seleccione Titulacion</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                    <select id="cmbTitulacion" class="form-control" name="cmbTitulacion" >
+                                        <option disabled="disabled" value="" selected="">Seleccione</option>
+                                        <?php
+                                        for ($j = 0; $j < count($this->titulaciones); $j++):
+                                            ?>
+                                            <option value="<?php echo $this->titulaciones[$j] ['tnesFicha']; ?>" ><?php echo $this->titulaciones[$j] ['pmasNombre']; ?>,<?php echo $this->titulaciones[$j] ['tnesFicha']; ?></option>
+                                        <?php endfor; ?>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3"></div>
+                                
+                            
+                        
+                        <div id="datos" class="col-md-12 row"></div>
+                        </form>
+                        </div>
+
+
+                        
+                    
+                </div>
+           
+            </div>
+        </div>
+    </div>
+</div>
+
