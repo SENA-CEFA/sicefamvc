@@ -1,3 +1,27 @@
+<?php
+if ($this->encuentra==1){
+?>
 <div class="row text-center">
-    <h3><?php echo $this->datospersona[0]['dlesNombre'] ?></h3>
+    <h3><?php echo $this->datospersona[0]['dlesNombre'] . " " . $this->datospersona[0]['dlesPrimerApellido'] . " " . $this->datospersona[0]['dlesSegundoApellido'] ?></h3>
 </div>
+<div class="form-group">
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary" id="btnGuardar">Habilitar</button>
+    </div>
+</div>
+<?php
+}
+else
+{
+    ?>
+<div class="row text-center">
+    <h3>No hay resultados</h3>
+</div>
+<div class="form-group">
+    <div class="text-center">
+        <a class="btn btn-success" href="<?php echo BASE_URL . 'sigac/parametros/trimestre'; ?>" >Registrar</a>
+    </div>
+</div>
+<?php
+}
+?>

@@ -15,13 +15,18 @@ class procesosController extends Controller {
         $this->_view->titulo = 'Habilitar Aprendiz para Votar';
         $this->_view->renderizar('habilita', 'elecciones');
     }
-    
-    public function buscapersona($argum = false){
+
+    public function buscapersona($argum = false) {
         $this->_view->id = $argum;
         $data = $this->loadModel('sis', 'procesos');
         $this->_view->datospersona = $data->onepersona($argum);
+        if (count($this->_view->datospersona) > 0) {
+            $this->_view->encuentra = '1';
+        } else {
+            $this->_view->datospersona=array(25);
+            $this->_view->encuentra = '0';
+        }
         $this->_view->renderizar('conspersona', 'blank');
-
     }
 
 }
