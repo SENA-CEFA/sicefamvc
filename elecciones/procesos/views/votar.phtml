@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading">Validar Documento</div>
+                <div class="panel-body">
+                    <form id="form1" name="form1" class="form-horizontal" action="<?php echo BASE_URL . 'elecciones/procesos/tarjeton'; ?>" method="post">
+
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Documento <sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-10"><input type="text" class="form-control" name="txtDocumento" id="txtDocumento" value="" required /></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div id="datos" class="col-md-12"></div>
+                            </div>                         
+                            <div class="form-group">
+                                <div class="text-center">
+
+                                    <button type="submit" class="btn btn-success" id="btnIngresar" name="btnIngresar" >Ingresar</button>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                    </form>
+                    <div class="col-md-12">
+                        <img width="100%" src="<?php echo $_layoutParams['ruta_img']; ?>pba.jpg" alt="...">
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+<script lang="javascript">
+
+</script>

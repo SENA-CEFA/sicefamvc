@@ -1,0 +1,138 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-12">
+            <div class="panel panel-warning sombra">
+                <div class="panel-heading"><h4 class="label-orange">Registrar el Recibido Del Prestamo </h4></div>
+                <div class="panel-body">
+                    <form id="form1" name="form1" class="form-horizontal" method="post" action="<?php echo BASE_URL . 'sigac/parametros/savetrimestre'; ?>">
+                        <input type="hidden"name="txtId" id="txtId" value="<?php echo $this->untrimestre[0]['tresId'] ?>" />
+
+                        <br>
+                        <br>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Numero Inventario  del Equipo <sup class="text-danger">*</sup></label>
+                                <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" />
+                                    </div>
+                                    <div class="col-md-2  text-center">
+                                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Tipo de Equipo u Elemento<sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"><input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" /></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Marca<sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"> <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" /></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Nombre De La Persona<sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"><input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" /></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Vinculación <sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"><input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" /></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Fecha de Salida  <sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"><input type="date" class="form-control" name="txtFecha2" id="txtFecha2"  value="<?php echo $this->untrimestre[0]['tresFechaFin'] ?>" />                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Fecha Limite  <sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"><input type="date" class="form-control" name="txtFecha2" id="txtFecha2"  value="<?php echo $this->untrimestre[0]['tresFechaFin'] ?>" /></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Estado<sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"><input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" /></div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Observaciones<sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"> <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" /></div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">Fecha  Entrega  <sup class="text-danger">*</sup></label>
+                                <div class="col-md-6">
+                                    <div class="col-md-12"> <input type="date" class="form-control" name="txtFecha2" id="txtFecha2"  value="<?php echo $this->untrimestre[0]['tresFechaFin'] ?>" /></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                             <div class="form-group">
+                                <div class="text-center">
+
+                                    <div class="modal bs-example-modal-sm" id="miventana<?php echo $i ?>" tabindex="-1" role="dialog" >
+                                        <div class="modal-dialog  ">
+                                            <div class="modal-content">
+                                                <div class="modal-header label-orange text-left">Mensaje de confirmación
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+
+                                                    <h4>Deseas Realizar Sanción ?</h4>
+                                                </div>
+
+                                                <div class="modal-footer discurso-enfatizado">
+                                                    <a class="btn btn-sm btn-success col-md-1 " href="<?php echo BASE_URL . 'pee-cefa/procesos/sanciones/' ?>" role="button">Sí</a>
+                                                    <a class="btn btn-sm btn-danger col-md-1 " data-dismiss="modal" href="#" role="button">No</a>
+                                                </div>
+                                            </div>
+                                        </div>          
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                            <div class="col-md-12 text-center" >
+                                <br>
+                                <br>
+                                <a class="btn btn-danger" href="<?php echo BASE_URL . 'pee-cefa/inicio/inicio'; ?>" >Cancelar</a>
+                                <button type="button" class="btn btn-info" id="resetBtn">Limpiar</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#miventana<?php echo $i ?>" >Guardar</button>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+            </form>     
+        </div>   
+    </div>
+
+

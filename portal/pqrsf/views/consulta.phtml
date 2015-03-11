@@ -1,0 +1,156 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-lg-10 alert alert-success sombra text-center" role="alert">
+            <strong>PQRSF</strong>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading initialism">PETICION</div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <h6 class="text-success">Solicitud de información por parte del cliente para aportar a la satisfacción de sus necesidades.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading initialism">QUEJA</div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <h6 class="text-success">Expresiones de desacuerdo de clientes de SICEFA, respecto a sus políticas y/o procedimientos.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading initialism">RECLAMO</div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <h6 class="text-success">Demuestra la existencia de un “defecto” en el servicio que afecta la satisfacción plena del cliente.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading initialism">SUGERENCIA</div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <h6 class="text-success">Ideas generadas por un cliente, enfocadas al mejoramiento del servicio o de la aplicación misma.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading initialism">FELICITACION</div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <h6 class="text-success">Es la manifestación de la satisfacción que se experimenta al recibir un servicio eficiente y eficaz.</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading">Consulta tu Solicitud</div>
+                <div class="panel-body">
+
+
+                        <form id="form1" name="form1" class="form-horizontal" method="post" action="<?php echo BASE_URL . 'sigac/parametros/savetrimestre'; ?>">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label"></label>
+                                    <div class="col-lg-4 text-left  ">
+                                        <input name="chkAnonimo" id="chkAnonimo" type="checkbox"> Anónimo
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Fecha<sup class="text-danger">*</sup></label>
+                                    <div class="col-lg-4">
+                                        <input type="date" class="form-control" name="txtFechaNV" id="txtFechaNV"  value="<?php echo Funcionesphp::fechaservidor() ?>" disabled />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Documento <sup class="text-danger">*</sup></label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" name="txtDocumento" id="txtDocumento" value=""/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Nombre <sup class="text-danger">*</sup></label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" name="txtNombre" id="txtNombre" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Celular <sup class="text-danger">*</sup></label>
+                                    <div class="col-lg-3">
+                                        <input type="text" class="form-control" name="txtCelular" id="txtCelular" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Correo <sup class="text-danger">*</sup></label>
+                                    <div class="col-lg-6">
+                                        <input type="text" class="form-control" name="txtCorreo" id="txtCorreo" value="" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Asunto <sup class="text-danger">*</sup></label>
+                                    <div class="col-lg-3">
+                                        <select name="cmbTipo" id="cmbTipo" class="form-control">
+                                            <option value="">--</option>
+                                            <option value="Peticion">Peticion</option>
+                                            <option value="Queja">Queja</option>
+                                            <option value="Reclamo">Reclamo</option>
+                                            <option value="Sugerencia">Sugerencia</option>
+                                            <option value="Felicitacion">Felicitacion</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Dirigido a: <sup class="text-danger">*</sup></label>
+                                    <div class="col-lg-3">
+                                        <select name="cmbTipo2" id="cmbTipo2" class="form-control">
+                                            <option value="">--</option>
+                                            <?php for ($i = 0; $i < count($this->aplicativos); $i++) { ?>
+                                            <option value="<?php echo $this->aplicativos[$i]['avosNombre'] ?>"><?php echo $this->aplicativos[$i]['avosNombre'] ?></option>
+                                            <?php } ?>
+                                            <option value="Otro">Otro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-4 control-label">Mensaje <sup class="text-danger">*</sup></label>
+                                    <div class="col-lg-6">
+                                        <textarea name="txaObservacionR" class="form-control" rows="4"></textarea>
+                                    </div>
+                                </div>                                
+
+
+                            </fieldset>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                                    <button type="button" class="btn btn-info" id="resetBtn">Limpiar</button>
+                                </div>
+                            </div>
+                        </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

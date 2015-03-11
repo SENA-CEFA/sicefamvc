@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="panel panel-warning sombra">
+                <div class="panel-heading"><h4 class="label-orange">Rubros</h4></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn  btn-sm btn-success" href="<?php echo BASE_URL . 'comfor/parametros/viewrubros'; ?>" >Agregar</a>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12  ">
+                            <div class="table-responsive">
+                                <table id="datatable" class="table table-condensed table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr class="warning">
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Descripción</th>
+                                            <th class="">Acciones</th>
+                                        </tr>        
+                                    </thead>
+                                    <tbody>
+                                        <?php for ($i = 0; $i < count($this->rubros); $i++) {
+                                            ?>
+                                            <tr>                         
+
+                                                <td class="text-center"><?php echo $this->rubros[$i]['rrosId'] ?></td>
+                                                <td><?php echo $this->rubros[$i]['rrosNombre'] ?></td>
+                                                 <td class="text-justify"><?php echo $this->rubros[$i]['rrosDescripcion'] ?></td>
+                                                <td class="text-center">
+                                                    <a class="btn btn-sm btn-warning" href="<?php echo BASE_URL . 'comfor/parametros/viewrubros/' . $this->rubros[$i]['rrosId']; ?>" ><span class="glyphicon glyphicon-edit"></span></a>
+                                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#miventana<?php echo $i ?>" ><span class="glyphicon glyphicon-remove"></span></button>
+                                                    <div class="modal bs-example-modal-sm" id="miventana<?php echo $i ?>" tabindex="-1" role="dialog" >
+                                                        <div class="modal-dialog  ">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header label-orange text-left">Mensaje de confirmación
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+
+                                                                    <h4>¿Esta Seguro de Eliminar el Registro <?php echo $this->rubros[$i]['rrosId'] ?>?</h4>
+                                                                </div>
+
+                                                                <div class="modal-footer discurso-enfatizado">
+                                                                    <a class="btn btn-sm btn-success col-lg-1 " href="<?php echo BASE_URL . 'comfor/parametros/deletrubros/'.$this->rubros[$i]['rrosId']; ?>" role="button">Sí</a>
+                                                                    <a class="btn btn-sm btn-danger col-lg-1 " data-dismiss="modal" href="#" role="button">No</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>          
+                                                    </div>
+                                                </td>              
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

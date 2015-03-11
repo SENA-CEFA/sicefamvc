@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="panel panel-warning sombra">
+                <div class="panel-heading"><h4 class="label-orange">Equipos Y Elementos No Entregados A la Fecha Limite</h4></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="row">
+                            <ul id="scroller1">
+                                <?php for ($i = 0; $i < 10; $i++) { ?>
+                                    <li>
+                                        <div class="col-md-6">
+                                            <div><h5 class="label-orange text-uppercase text-left">Equipo  <?php echo $i ?></h5></div>
+                                            <div class="text-right"><h5><strong>$<?php echo $i ?>.000</strong></h5></div>
+                                        </div>
+                   
+                                    </li>
+                                <?php } ?> 
+                            </ul>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

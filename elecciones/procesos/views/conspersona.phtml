@@ -1,0 +1,28 @@
+<?php
+if ($this->encuentra == 1) {
+    ?>
+    <div class="row text-center">
+        <h3><?php echo $this->datospersona[0]['dlesNombre'] . " " . $this->datospersona[0]['dlesPrimerApellido'] . " " . $this->datospersona[0]['dlesSegundoApellido'] ?></h3>
+        <input type="hidden" id="txtId" name="txtId" value="<?php echo $this->datospersona[0]['vnesId'] ?>">
+    </div>
+    <div class="form-group">
+        <div class="text-center">
+            <div class="col-md-5 text-right">Clave de Jurado</div>
+            <div class="col-md-2 te"><input type="password" class="form-control" id="txtPassword" name="txtPassword"></div>
+            <div class="col-md-5 text-left"><button type="submit" class="btn btn-primary" id="btnHabilitar">Habilitar</button></div>
+        </div>
+    </div>
+    <?php
+} else {
+    ?>
+    <div class="row text-center">
+        <h3>No hay resultados</h3>
+    </div>
+    <div class="form-group">
+        <div class="text-center">
+            <a class="btn btn-success" href="<?php echo BASE_URL . 'elecciones/procesos/habilitar'; ?>" >Registrar</a>
+        </div>
+    </div>
+    <?php
+}
+?>

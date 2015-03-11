@@ -1,0 +1,74 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-12">
+            <div class="panel panel-warning sombra">
+               <div class="panel-heading"><h4 class="label-orange">Registrar Traslados</h4></div>
+                <div class="panel-body">
+                    <form id="form1" name="form1" class="form-horizontal" method="post" action="<?php echo BASE_URL . 'sigac/parametros/savetrimestre'; ?>">
+                        <input type="hidden"name="txtId" id="txtId" value="<?php echo $this->untrimestre[0]['tresId'] ?>" />
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Id  de  Elementos o Equipos <sup class="text-danger">*</sup></label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" />
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="col-lg-4 control-label">Número de Inventario<sup class="text-danger">*</sup></label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" />
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="col-lg-4 control-label">Ambiente Donde Sale <sup class="text-danger">*</sup></label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" />
+                                </div>
+                             </div>
+                             <div class="form-group">
+                                <label class="col-lg-4 control-label">Ambiente Nuevo <sup class="text-danger">*</sup></label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Fecha del  Traslado <sup class="text-danger">*</sup></label>
+                                <div class="col-lg-4">
+                                    <input type="date" class="form-control" name="txtFecha1" id="txtFecha1"  value="<?php echo $this->untrimestre[0]['tresFechaInicio'] ?>" />
+                                </div>
+                            </div>
+
+                        
+                              <div class="form-group">
+                                <label class="col-lg-4 control-label">Observaciones <sup class="text-danger">*</sup></label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" />
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="col-lg-4 control-label">Nombre Quien Autoriza el Traslado <sup class="text-danger">*</sup></label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="" />
+                                </div>
+                            </div>
+                            
+
+                        </fieldset>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                                <a class="btn btn-danger" href="<?php echo BASE_URL . 'sigac/parametros/trimestre'; ?>" >Cancelar</a>
+                                <button type="button" class="btn btn-info" id="resetBtn">Limpiar</button>
+                            </div>
+                        </div>
+                    </form>     
+                </div>   
+            </div>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+

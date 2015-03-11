@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="col-md-12">
+        <div class="panel panel-success sombra">
+            <div class="panel-heading"><?php echo $this->titulopanel ?></div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <?php
+                    for ($i = 0; $i < count($this->candidatos) ; $i++) {
+                        ?>
+                        <div class="col-md-5ths">
+                            <a href="" data-toggle="modal" data-target="#miventana<?php echo $i ?>" >
+                                <div class="panel panel-success sombra">
+                                    <div class="panel-body">
+                                        <img width="100%" src="<?php echo $_layoutParams['ruta_img'].$this->candidatos[$i]['catoImagen'] ?>" alt="...">
+                                        <div class="text-center"><?php echo $this->candidatos[$i]['Nombre'] ?></div>
+                                        <div class="text-center"><h6><?php echo $this->candidatos[$i]['pmasNombre'] ?></h6></div>
+                                        <div class="text-center"><h3><?php echo $this->candidatos[$i]['catoNumero'] ?></h3></div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="modal bs-example-modal-sm" id="miventana<?php echo $i ?>" tabindex="-1" role="dialog" >
+                                <div class="modal-dialog  ">
+                                    <div class="modal-content">
+                                        <div class="modal-header label-orange text-left">Mensaje de confirmación
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <h4>¿Esta Seguro de Votar por el candidato Nro. <?php echo $this->candidatos[0]['catoNumero']?></h4>
+                                        </div>
+
+                                        <div class="modal-footer discurso-enfatizado">
+                                            <a class="btn btn-sm btn-success col-lg-1 " href="<?php echo BASE_URL . 'elecciones/procesos/registravoto/' . $this->candidatos[0]['catoId']; ?>" role="button">Sí</a>
+                                            <a class="btn btn-sm btn-danger col-lg-1 " data-dismiss="modal" href="#" role="button">No</a>
+                                        </div>
+                                    </div>
+                                </div>          
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                    <div class="col-md-5ths">
+                        <a href="" data-toggle="modal" data-target="#miventanablanco">
+                            <div class="panel panel-success sombra">
+                                <div class="panel-body">
+                                    <img width="100%" src="<?php echo $_layoutParams['ruta_img']; ?>foto.jpg" alt="...">
+                                    <div class="text-center">&nbsp;</div>
+                                    <div class="text-center">VOTO EN BLANCO</div>
+                                    <div class="text-center"><h3>#</h3></div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="modal bs-example-modal-sm" id="miventanablanco" tabindex="-1" role="dialog" >
+                            <div class="modal-dialog  ">
+                                <div class="modal-content">
+                                    <div class="modal-header label-orange text-left">Mensaje de confirmación
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <h4>¿Esta Seguro de Votar en Blanco?</h4>
+                                    </div>
+
+                                    <div class="modal-footer discurso-enfatizado">
+                                        <a class="btn btn-sm btn-success col-lg-1 " href="<?php echo BASE_URL . 'elecciones/procesos/registravoto/0'; ?>" role="button">Sí</a>
+                                        <a class="btn btn-sm btn-danger col-lg-1 " data-dismiss="modal" href="#" role="button">No</a>
+                                    </div>
+                                </div>
+                            </div>          
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <img width="100%" src="<?php echo $_layoutParams['ruta_img']; ?>pba.jpg" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

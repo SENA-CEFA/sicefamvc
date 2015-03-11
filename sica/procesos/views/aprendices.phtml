@@ -1,0 +1,116 @@
+<form id="form1" name="form1" class="form-horizontal" method="post" action="<?php echo BASE_URL . 'sica/procesos/guardar'; ?>">
+    <div class="row">
+        <div class="col-md-3">
+            <?php if (isset($this->datos) && count($this->datos)): ?>
+                <h2 class="text-center"><strong><?php echo $this->datos[0] ['pmasNombre']; ?></strong></h2>
+            <?php else: ?>
+
+                <h4 class="text-center text-danger"></h4>
+
+            <?php endif; ?> 
+
+        </div>  
+        <div class="col-md-4">
+            <label>Fecha</label>
+            <input class="form-control" type="date"  id="txtFecha1" name="txtFecha1" value="">
+        </div>
+        <div class="col-md-4">
+            <label>Tipo de Turno</label>
+            <select id="cmbTipoTurno" class="form-control" name="cmbTipoTurno">
+                <option disabled="disabled" value="" selected="">---Seleccione---</option>
+                <?php
+                for ($j = 0; $j < count($this->turnos); $j++):
+                    ?>
+                    <option value="<?php echo $this->turnos[$j] ['trnoId']; ?>" ><?php echo $this->turnos[$j] ['trnoNombre']; ?></option>
+                <?php endfor; ?>
+            </select>
+        </div>
+
+    </div>
+    <div class="col-md-12 ">
+        <div class="table-responsive">
+            <table id="datatable" class="table table-condensed table-striped table-bordered table-hover">
+                <thead>
+                    <tr class="success">
+                        <th>Nombre Del Aprendiz</th>
+                        <th>Identificación</th>
+                        <th>Area</th>
+                    </tr>        
+                </thead>
+                <tbody>
+                    <?php for ($i = 0; $i < count($this->datos); $i++): ?>
+                        <tr>                         
+                    <input type="hidden"name="txtId" id="txtId"value="<?php echo $this->datos[$i] ['pefaId']; ?>"/>
+                    <td class="" ><?php echo $this->datos[$i] ['dlesNombre']; ?></td>
+                    <td><?php echo $this->datos[$i] ['dlesDocumento']; ?></td>
+                    <td class="col-md-4"><div class="col-md-6">Seleccione Area </div><div class="col-md-6"><select id="cmbTipoUnidad" class="form-control" name="cmbTipoUnidad">
+                                <option disabled="disabled" value="" selected="">---Seleccione---</option>
+                                <?php for ($j = 0; $j < count($this->areas); $j++): ?>
+                                    <option value="<?php echo $this->areas[$j] ['uvasId']; ?>" ><?php echo $this->areas[$j] ['uvasNombre']; ?>,<?php echo $this->areas[$j] ['uvasId']; ?></option>
+                                <?php endfor; ?>
+                            </select></div>
+                    </td>
+                    </tr>
+                <?php endfor; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-12 ">
+        <div class="row col-md-12 text-center">
+            <div><br></div>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#miventana1" href="#">guardar</a>
+            <div class="modal fade bs-example-modal-sm " id="miventana1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                            <h3>Esta Seguro Que Desea guardar los turnos</h3>
+                        </div>
+
+                        <div class="modal-footer discurso-enfatizado">
+                            <a class="btn btn-sm btn-primary " data-dismiss="modal" href="#" role="button">No</a>
+                            <button type="submit" class="btn btn-primary" id="btnGuardar">si</button></div>
+                    </div>
+                </div>          
+            </div>
+
+            <a class="btn btn-primary" data-toggle="modal" data-target="#miventana2" href="#">Editar</a>
+            <div class="modal fade bs-example-modal-sm " id="miventana2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                            <h3>Esta Seguro Que Desea Editar los turnos</h3>
+                        </div>
+
+                        <div class="modal-footer discurso-enfatizado">
+                            <a class="btn btn-sm btn-primary " data-dismiss="modal" href="#" role="button">No</a>
+                            <a class="btn btn-sm btn-primary " href="#" role="button">Sí</a>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+            <a class="btn btn-primary" data-toggle="modal" data-target="#miventana3" href="#">Cancelar</a>
+            <div class="modal fade bs-example-modal-sm " id="miventana3" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                            <h3>Esta Seguro Que Desea cancelar los turnos</h3>
+                        </div>
+
+                        <div class="modal-footer discurso-enfatizado">
+                            <a class="btn btn-sm btn-primary " data-dismiss="modal" href="#" role="button">No</a>
+                            <a class="btn btn-sm btn-primary " href="#" role="button">Sí</a>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+
+
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,172 @@
+<style type="text/css">
+    .vert .simply-scroll-clip {
+        height: 200px;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading">Ofertas Punto de Venta</div>
+                <div class="panel-body">
+
+                    <script type="text/javascript">
+                        (function ($) {
+                            $(function () {
+                                $("#scroller1").simplyScroll({
+                                    orientation: 'vertical',
+                                    customClass: 'vert',
+                                    speed: 1,
+                                });
+                            });
+                        })(jQuery);
+                    </script>
+                    <div class="row">
+                        <ul id="scroller1">
+                            <?php for ($i = 1; $i <= 10; $i++) { ?>
+                                <li>
+                                    <div class="col-md-12">
+                                        <div><h5 class="label-orange text-uppercase text-left">Producto <?php echo $i ?></h5></div>
+                                        <div class="text-right"><h5><strong>$<?php echo $i ?>.000</strong></h5></div>
+                                    </div>
+                                </li>
+                            <?php } ?> 
+                        </ul>  
+                    </div>
+                    <br />
+                    <div><a class="btn btn-sm btn-success">Ver todas las ofertas...</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-success sombra">
+                <div class="panel-body">
+                    <div class="bs-example" data-example-id="carousel-with-captions">
+                        <div id="carousel-example-captions" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-captions" data-slide-to="0" class="active"></li>
+                                <?php for ($i = 1; $i <= 21; $i++) { ?>
+                                    <li data-target="#carousel-example-captions" data-slide-to="<?php echo $i ?>"></li>
+                                <?php } ?>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="<?php echo $_layoutParams['ruta_img']; ?>scf0.jpg" alt="">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                <?php for($i=1;$i<=21;$i++){ ?>
+                                <div class="item">
+                                    <img src="<?php echo $_layoutParams['ruta_img']; ?>scf<?php echo $i ?>.jpg" alt="">
+                                    <div class="carousel-caption">
+                                    </div>
+                                </div>
+                                <?php } ?>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-captions" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-captions" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div><!-- /example -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading">Información de Usuario</div>
+                <div class="panel-body">
+                    Nombre, Documento, ROl, Responsabilidasdes
+                </div>
+            </div>
+            <div class="panel panel-success sombra">
+                <div class="panel-heading">Información de interes</div>
+                <div class="panel-body">
+                    Info 1  -- $660.000
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default sombra">
+                <div class="panel-body">
+                    <h4 class="label-orange">SICEFA y el Centro de Formación Agroindustrial</h4>
+                    <p class="text-justify">SICEFA ofrece al centro de formación agroindustrial “La Angostura”, un conjunto de aplicaciones web 2.0, que permiten gestionar eficientemente la información académica, técnica y administrativa de las áreas productivas de la finca, así como también permite gestionar otras áreas que aportan significativamente al control y buen manejo de los bienes y talento humano del CEFA.</p>
+                    <p class="text-justify">SICEFA Nació como proyecto formativo del programa Tecnológico en Análisis y Desarrollo de sistemas de Información (ADSI), el cual ha evolucionado en su concepción, funcionalidad y metodología de desarrollo desde el primer curso que inicio el proyecto en 2009; Hoy podemos decir que tenemos una herramienta madura en cuanto al conocimiento de las áreas implicadas y que cuenta con estandares de calidad en el desarrollo usando herramientas actuales de gran acogida.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading">Nuestro Centro en Google Maps</div>
+                <div class="panel-body">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2503.4617022564894!2d-75.36157748447157!3d2.6120133279821505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2s!4v1423750155182" width="100%" frameborder="0" style="border:0"></iframe>
+                    <br />
+                    <div><a class="btn btn-sm btn-success">Conoce nuestro centro...</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-success sombra">
+                <div class="panel-body">
+                    <h4 class="label-orange">SICEFA y la Estrategia Sena-Empresa</h4>
+                    <p class="text-justify">La estrategia Sena-Empresa "Emprecefa", vincula a los aprendices a una experiencia empresarial, en la cual los involucrados adquieren capacidades, desestrezas y habilidades administrativas y operativas para su futuro profesional. Son variados los procesos que se manejan en una empresa real, por lo que se necesita un sistema de información completo tipo ERP (Enterprice Resource Planning -> Planeación de recursos empresariales), que integre las operaciones administrativas y de producción de bienes o servicios.</p>
+                    <p class="text-justify">
+                        SICEFA responde a dicha necesidad tecnologica y permite La planificación de los recursos de Emprecefa, manejando la producción, logística, inventario y contabilidad de forma modular. Ademas, SICEFA tambien interviene en los procesos administrativos, academicos y tecnicos de las unidades productivas del CEFA.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading">Video Introductorio</div>
+                <div class="panel-body">
+                    <iframe width="100%" src="https://www.youtube.com/embed/M37yMgyKkgA?rel=0&showinfo=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-success sombra text-center" role="alert">
+        <strong> APLICACIONES</strong>
+    </div>
+
+
+    <?php
+    $j = 0;
+    $cont = count($this->aplicativos);
+    for ($i = 0; $i < $cont; $i++) {
+        $j = $j + 1;
+        if ($i % 3 == 0 || $i == 0) {
+            echo "<div class='row'>";
+            $j = 1;
+        }
+        ?>
+        <div class="col-md-4">
+            <div class="panel panel-success sombra">
+                <div class="panel-heading initialism"><?php echo $this->aplicativos[$i]['avosNombre'] ?></div>
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <a class="thumbnail">
+                            <img src="<?php echo $_layoutParams['ruta_img']; ?><?php echo $this->aplicativos[$i]['avosRuta'] ?>.png" width="100%">
+                        </a>
+                    </div>
+                    <div class="text-center"><?php echo $this->aplicativos[$i]['avosDescripcion'] ?></div>
+                </div>
+            </div>
+        </div>
+        <?php
+        if ($j == 3 || $i == $cont - 1) {
+            echo "</div>";
+        }
+    }
+    ?>
+
+</div>
