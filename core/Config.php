@@ -45,13 +45,16 @@ $alert = "<link href='" . COMMON . "jalerts/jquery.alerts.css' rel='stylesheet'>
         . "<script src='" . COMMON . "jalerts/jquery.ui.draggable.js'></script>"
         . "<script src='" . COMMON . "jalerts/jquery.alerts.mod.js'></script>";
 define('LIB_JALERTS', $alert);
-$jqy = "<script src='" . COMMON . "js/ajax.js'></script>";
-define('LIB_AJAX', $jqy);
+
 $jpt = "<script src='" . COMMON . "printpage/jquery.printPage.js'></script>";
 define('LIB_PRINT', $jpt);
 
 $jsv = "<script src='" . COMMON . "js/page.js'></script>";
 define('JS_PAGE', $jsv);
+$jqy = "<script src='" . COMMON . "js/ajax.js'></script>";
+define('JS_AJAX', $jqy);
+$jcl = "<script src='" . COMMON . "js/clona.js'></script>";
+define('JS_CLON', $jcl);
 $boot = "<link href='" . COMMON . "css/general.css' rel='stylesheet'>";
 define('CSS_GENERAL', $boot);
 
@@ -86,8 +89,13 @@ class Funcionesphp {
         $men = new Menu;
         return $men->fechaactual();
     }
+
     public static function horaservidor() {
         $men = new Menu;
         return $men->horaactual();
     }
+    public static function lectorRSS(){
+        
+    }
+
 }

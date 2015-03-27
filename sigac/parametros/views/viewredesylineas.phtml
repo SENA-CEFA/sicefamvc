@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="panel panel-warning sombra">
+                <div class="panel-heading"><h4 class="label-orange"><?php echo $this->titulopanel ?></h4></div>
+                <div class="panel-body">
+                    <form id="form1" name="form1" class="form-horizontal" method="post" action="<?php echo BASE_URL . 'sigac/parametros/saveredesylineas'; ?>">
+                        <input type="hidden"name="txtId" id="txtId" value="<?php echo $this->unred[0]['rdesId'] ?>" />
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-lg-4 control-label">Red <sup class="text-danger">*</sup></label>
+                                <div class="col-lg-6">
+                                    <input type="text" class="form-control" name="txtNombreTipo" id="txtNombreTipo" value="<?php echo $this->unred[0]['rdesNombre'] ?>" required />
+                                </div>
+                            </div>
+                            <?php { ?>
+                            <div class="form-group">
+                                <div class="col-lg-2"></div>
+                                <div class="col-lg-8 text-center">
+                                    <table id="tabla" class="table table-condensed table-hover">
+                                        <thead>
+                                            <tr class="warning">
+                                                <th class="col-md-8 text-center">Linea</th>
+                                                <th class="col-md-1 text-center"><button class="btn btn-sm btn-info" type="button" id="agregar"><span class="glyphicon glyphicon-plus"></span></button></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="fila-base" style="display: none">
+                                                <td><input type="text" class="form-control" name="txtTabla1[]" id="txtTabla1[]" value="<?php echo $this->unred[0]['rdesNombre'] ?>" required /></td>
+                                                <td class="eliminar"><span class="btn btn-sm btn-danger glyphicon glyphicon-remove text-danger"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-lg-2"></div>
+                            </div>
+                            <?php }?>
+
+                        </fieldset>
+                        <div class="form-group">
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                                <a class="btn btn-danger" href="<?php echo BASE_URL . 'sigac/parametros/redesylineas'; ?>" >Cancelar</a>
+                                <button type="button" class="btn btn-info" id="resetBtn">Limpiar</button>
+                            </div>
+                        </div>
+                    </form>     
+                </div>   
+            </div>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

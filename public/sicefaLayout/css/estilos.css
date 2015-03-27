@@ -1,5 +1,12 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-body{
-background: #F2F2F2;
+body {
+  background: #cccccc url(http://localhost/sicefamvc/public/sicefaLayout/img/fondo.png) fixed;
+  background-size: 100% auto;
+}
+.tooltip-inner {
+    max-width: 500px !important;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px;
 }

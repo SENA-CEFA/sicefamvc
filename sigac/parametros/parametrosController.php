@@ -65,5 +65,29 @@ class parametrosController extends Controller {
             $this->trimestre();
         }
     }
+    
+        public function redesylineas() {
+        $this->_view->titulo = 'Redes y Lineas Tecnológicas';
+        $data = $this->loadModel('sigac', 'parametros');
+        $this->_view->redeslineas = $data->listredeslineas();
+        $this->_view->renderizar('redesylineas', 'sigac');
+    }
+    
+     public function viewredeslineas($argum = false) {
+
+        $this->_view->titulo = 'Redes y Lineas Tecnológicas';
+        $this->_view->titulopanel = 'Agregar Redes y Lineas Tecnológica';
+        if ($argum != "") {
+            $data = $this->loadModel('sigac', 'parametros');
+            $this->_view->unred = $data->onered($argum);
+            $this->_view->linea = $data->lineas($argum);
+            $this->_view->titulopanel = 'Modificar Redes y Lineas Tecnológica';
+        }else
+        {
+            $this->_view->unred = array(5);
+        }
+        $this->_view->renderizar('viewredesylineas', 'sigac');
+    }
+    
 
 }

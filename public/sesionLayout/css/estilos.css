@@ -2,6 +2,8 @@ body {
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #f5f5f5;
+    background: #cccccc url(http://localhost/sicefamvc/public/sesionLayout/img/fondo.png) fixed;
+    background-size: 100% auto;
 }
 
 .form-signin {

@@ -143,6 +143,16 @@ $(document).ready(function () {
                     }
                 }
             },
+            'txtTabla1[]': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Este campo es requerido'
+                            }
+                        }
+                    },
+            
+            
+            
             country: {
                 validators: {
                     notEmpty: {

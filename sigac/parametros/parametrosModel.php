@@ -31,11 +31,26 @@ class parametrosModel extends Model {
     function deletetrimestre($arg = false) {
         if ($arg != false) {
             $count = $this->_db->exec("UPDATE trimestres SET "
-                    . "tresEstado = 'I' WHERE tresId = '".$arg."' ;");
+                    . "tresEstado = 'I' WHERE tresId = '" . $arg . "' ;");
             return $count;
         } else {
             return 0;
         }
+    }
+
+    function listredeslineas() {
+        $sql = $this->_db->query("SELECT rdesId, rdesNombre, leasId, leasNombre FROM redes INNER JOIN lineas ON rdesId=leasIdRed WHERE rdesEstado='A' AND leasEstado='A' ORDER BY rdesId, leasId");
+        return $sql->fetchall();
+    }
+
+    function onered($arg = false) {
+        $sql = $this->_db->query("SELECT rdesId, rdesNombre FROM redes WHERE rdesEstado='A' AND rdesId=" . $arg);
+        return $sql->fetchall();
+    }
+
+    function lineas($arg = false) {
+        $sql = $this->_db->query("SELECT leasId, leasNombre FROM lineas WHERE leasId='A' AND leasIdRed=" . $arg);
+        return $sql->fetchall();
     }
 
 }

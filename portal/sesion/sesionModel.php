@@ -5,17 +5,20 @@ class sesionModel extends Model {
         parent::__construct();
     }
 
-    function get($arg=false) {
+    function get() {
         //$data = $this->_db->query("select * from directorio");
         //return $data->fetchall();   
-        $sql = $this->_db->prepare('select Id_Usuario, Nombre from usuarios where Usuario= ? and Clave= ?');
-        $sql->execute(array($_POST['txtEmail'], MD5($_POST['txtPass'])));
+        $sql = $this->_db->prepare("SELECT uiosIdVinculacion, CONCAT(dlesNombre,' ',dlesPrimerApellido) AS Nombre, uiosIdRol FROM usuarios 
+INNER JOIN vinculaciones ON uiosIdVinculacion=vnesId
+INNER JOIN datopersonales ON vnesIdDatoPers=dlesDocumento 
+WHERE vnesEstado='A' AND uiosEstado='A' AND uiosNombreUsuario= ? AND uiosPassword= ?");
+        $sql->execute(array($_POST['txtUsuario'], $_POST['txtPass']));
         $rs = $sql->fetchall();
         if (isset($rs) && count($rs)) {
             $_SESSION['autentificado'] = 'Si';
             $_SESSION['perfil'] = 'admin';
-            $_SESSION['documento'] = $rs[0]['Id_Usuario'];
-            $_SESSION['usuario'] = $rs[0]['Nombre'];
+            $_SESSION['documento'] = $rs[0]['uiosIdVinculacion'];
+            $_SESSION['usuario'] =  ucwords(strtolower($rs[0]['Nombre']));
         } else {
             $_SESSION['autentificado'] = 'No';
             $_SESSION['perfil'] = '';

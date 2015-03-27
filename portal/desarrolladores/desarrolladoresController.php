@@ -10,7 +10,10 @@ class desarrolladoresController extends Controller {
         $this->_view->renderizar('inicio', DEFAULT_LAYOUT); 
     }
 
-
+    public function busca($argum = false) {
+        $this->_view->dato=$argum;
+        $this->_view->renderizar('prueba', 'blank'); 
+    }
     /*
     public function rutinarios() {
         $data = $this->loadModel('inicio');
