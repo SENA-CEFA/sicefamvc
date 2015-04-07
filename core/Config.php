@@ -34,6 +34,10 @@ $sysc = "<link href='" . COMMON . "simplyscroll/jquery.simplyscroll.css' rel='st
 define('LIB_SIMPLYSCROLL', $sysc);
 $datab = "<link href='" . COMMON . "datatables/media/css/jquery.dataTables.min.css' rel='stylesheet'>"
         . "<script src='" . COMMON . "datatables/media/js/jquery.dataTables.min.js'></script>"
+        . "<link href='" . COMMON . "datatables/extensions/Responsive/css/dataTables.responsive.css' rel='stylesheet'>"
+        . "<script src='" . COMMON . "datatables/extensions/Responsive/js/dataTables.responsive.js'></script>"
+        . "<link href='" . COMMON . "datatables/extensions/TableTools/css/dataTables.tableTools.css' rel='stylesheet'>"
+        . "<script src='" . COMMON . "datatables/extensions/TableTools/js/dataTables.tableTools.js'></script>"
         . "<script src='" . COMMON . "js/datatable_es.js'></script>";
 define('LIB_DATATABLE', $datab);
 $valid = "<link href='" . COMMON . "formvalidation/dist/css/bootstrapValidator.css' rel='stylesheet'>"
@@ -94,7 +98,8 @@ class Funcionesphp {
         $men = new Menu;
         return $men->horaactual();
     }
-    public static function lectorRSS(){
+
+    public static function lectorRSS() {
         
     }
 

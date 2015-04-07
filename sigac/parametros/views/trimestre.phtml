@@ -1,4 +1,5 @@
-<div class="container"><div class="row">
+<div id="vista" class="container">
+    <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <div class="panel panel-warning sombra">
@@ -6,14 +7,14 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn  btn-sm btn-success" href="<?php echo BASE_URL . 'sigac/parametros/viewtrimestre'; ?>" >Agregar</a>
+                            <button id="btnAddTrimestre" class="btn btn-sm btn-success" >Agregar</button>
                         </div>
                     </div>
                     <br />
                     <div class="row">
                         <div class="col-md-12  ">
                             <div class="table-responsive">
-                                <table id="datatable" class="table table-condensed table-striped table-bordered table-hover">
+                                <table id="datatable" class="dt-responsive table table-condensed table-striped table-bordered table-hover" cellspacing="0" width="100%">
                                     <thead>
                                         <tr class="warning">
                                             <th>Id</th>
@@ -35,26 +36,8 @@
                                                 <td class="text-center"><?php echo Funcionesphp::MySQLDateToDate($this->trimestres[$i]['tresFechaInicio']) ?></td>
                                                 <td class="text-center"><?php echo Funcionesphp::MySQLDateToDate($this->trimestres[$i]['tresFechaFin']) ?></td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-sm btn-warning" href="<?php echo BASE_URL . 'sigac/parametros/viewtrimestre/' . $this->trimestres[$i]['tresId']; ?>" title="Modificar" ><span class="glyphicon glyphicon-edit"></span></a>
-                                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#miventana<?php echo $i ?>" title="Eliminar" ><span class="glyphicon glyphicon-remove"></span></button>
-                                                    <div class="modal bs-example-modal-sm" id="miventana<?php echo $i ?>" tabindex="-1" role="dialog" >
-                                                        <div class="modal-dialog  ">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header label-orange text-left">Mensaje de confirmación
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
-                                                                </div>
-                                                                <div class="modal-body">
-
-                                                                    <h4>¿Esta Seguro de Eliminar el Registro <?php echo $this->trimestres[$i]['tresId'] ?>?</h4>
-                                                                </div>
-
-                                                                <div class="modal-footer discurso-enfatizado">
-                                                                    <a class="btn btn-sm btn-success col-lg-1 " href="<?php echo BASE_URL . 'sigac/parametros/deltrimestre/' . $this->trimestres[$i]['tresId']; ?>" role="button">Sí</a>
-                                                                    <a class="btn btn-sm btn-danger col-lg-1 " data-dismiss="modal" href="#" role="button">No</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>          
-                                                    </div>
+                                                    <button id="btnEditTrimestre" class="btn btn-sm btn-warning" title="Modificar" value="<?php echo $this->trimestres[$i]['tresId']; ?>" ><span class="glyphicon glyphicon-edit"></span></button>
+                                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltrimestre" data-whatever="<?php echo $this->trimestres[$i]['tresId']; ?>"  title="Eliminar" ><span class="glyphicon glyphicon-remove"></span></button>
                                                 </td>              
                                             </tr>
                                         <?php } ?>
@@ -67,5 +50,23 @@
             </div>
         </div>
         <div class="col-md-1"></div>
+    </div>
+    <div class="modal bs-example-modal-sm" id="modaltrimestre" tabindex="-1" role="dialog" >
+        <div class="modal-dialog  ">
+            <div class="modal-content">
+                <div class="modal-header label-orange text-left">Mensaje de confirmación
+                    <button type="button" class="close" data-dismiss="modal" aria-hidenn="true">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <h4>¿?</h4>
+                </div>
+
+                <div class="modal-footer discurso-enfatizado">
+                    <a id="enviar" class="btn btn-sm btn-success col-lg-1 " href="#" role="button">Sí</a>
+                    <a class="btn btn-sm btn-danger col-lg-1 " data-dismiss="modal" href="#" role="button">No</a>
+                </div>
+            </div>
+        </div>          
     </div>
 </div>

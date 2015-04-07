@@ -15,7 +15,7 @@
         <?PHP echo LIB_VALIDATOR ?>
         <?PHP echo LIB_JALERTS ?>
         <?php echo JS_PAGE ?>
-        <?php echo JS_CLON ?>
+        <?php echo JS_AJAX ?>
         <?php echo CSS_GENERAL ?>
         <link href="<?php echo $_layoutParams['ruta_css']; ?>estilos.css" rel="stylesheet">
     </head>
@@ -94,5 +94,22 @@
                 </div><!--/.nav-collapse -->
             </div>
         </div>
+        <div class="container">
+        <?php if ($_SESSION['mensaje'] != '') {
+            ?> <div id="mensaje" class="row"> <div class="col-md-4"></div>
+                <div class="col-md-4 alert <?php echo $_SESSION['tipomensaje'] ?> alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong><?php echo $_SESSION['mensaje']; ?></strong></div>
+                <div class="col-md-4"></div>
+            </div>
+        <?php 
+        $_SESSION['mensaje']='';
+        $_SESSION['tipomensaje']='';
+        } ?>
+        </div>
+        
+        
+        
         <div title="Click para Cerrar" id="carga">Cargando...</div>
+
 

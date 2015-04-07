@@ -26,11 +26,10 @@ class parametrosController extends Controller {
             $data = $this->loadModel('sigac', 'parametros');
             $this->_view->untrimestre = $data->onetrimestre($argum);
             $this->_view->titulopanel = 'Modificar Trimestre Academico';
-        }else
-        {
+        } else {
             $this->_view->untrimestre = array(5);
         }
-        $this->_view->renderizar('viewtrimestre', 'sigac');
+        $this->_view->renderizar('viewtrimestre', 'blank');
     }
 
     public function savetrimestre() {
@@ -42,38 +41,45 @@ class parametrosController extends Controller {
         $dbtrim = $this->loadModel('sigac', 'parametros');
         $count = $dbtrim->edittrimestre();
         if ($count > 0) {
-            echo "<script>alert('Registro Guardado')</script>";
-            $this->trimestre();
+            $_SESSION['mensaje'] = 'Registro Guardado';
+            $_SESSION['tipomensaje'] = 'alert-success';
         } else {
-            echo "<script>alert('El Registro NO fue Guardado, Intente de Nuevo')</script>";
-            $this->viewtrimestre($id);
+            $_SESSION['mensaje'] = 'El Registro NO fue Guardado, Intente de Nuevo';
+            $_SESSION['tipomensaje'] = 'alert-danger';
         }
+        header('Location: trimestre');
+        exit();
     }
 
     public function deltrimestre($argum = false) {
         if ($argum == false) {
-            echo "<script>alert('No hay registro a Eliminar')</script>";
-            $this->trimestre();
+            $_SESSION['mensaje'] = 'No hay Registro a Eliminar';
+            $_SESSION['tipomensaje'] = 'alert-info';
+            header('Location: trimestre');
+            exit();
         } else {
             $dbtrim = $this->loadModel('sigac', 'parametros');
             $count = $dbtrim->deletetrimestre($argum);
             if ($count > 0) {
-                echo "<script>alert('Registro Eliminado')</script>";
+                $_SESSION['mensaje'] = 'Registro Eliminado';
+                $_SESSION['tipomensaje'] = 'alert-warning';
             } else {
-                echo "<script>alert('El Registro NO fue Eliminado, Intente de Nuevo')</script>";
+                $_SESSION['mensaje'] = 'El Registro NO fue Eliminado, Intente de Nuevo';
+                $_SESSION['tipomensaje'] = 'alert-danger';
             }
-            $this->trimestre();
+            header('Location: ../trimestre');
+            exit();
         }
     }
-    
-        public function redesylineas() {
+
+    public function redesylineas() {
         $this->_view->titulo = 'Redes y Lineas Tecnológicas';
         $data = $this->loadModel('sigac', 'parametros');
         $this->_view->redeslineas = $data->listredeslineas();
         $this->_view->renderizar('redesylineas', 'sigac');
     }
-    
-     public function viewredeslineas($argum = false) {
+
+    public function viewredeslineas($argum = false) {
 
         $this->_view->titulo = 'Redes y Lineas Tecnológicas';
         $this->_view->titulopanel = 'Agregar Redes y Lineas Tecnológica';
@@ -82,12 +88,10 @@ class parametrosController extends Controller {
             $this->_view->unred = $data->onered($argum);
             $this->_view->linea = $data->lineas($argum);
             $this->_view->titulopanel = 'Modificar Redes y Lineas Tecnológica';
-        }else
-        {
+        } else {
             $this->_view->unred = array(5);
         }
         $this->_view->renderizar('viewredesylineas', 'sigac');
     }
-    
 
 }

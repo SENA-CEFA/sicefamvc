@@ -1,3 +1,9 @@
+<?php
+$_SESSION['autentificado']='';
+$_SESSION['mensaje'] = '';
+$_SESSION['tipomensaje'] = '';
+$_SESSION['login'] = '';
+?>
 <div class="container">
     <div class="row col-md-4 col-md-offset-4 ">
         <div class="panel panel-success sombra">
@@ -13,7 +19,7 @@
                 <input name="txtPass" id="txtPass" type="password" class="form-control" placeholder="Clave" required>
                 <?php if (isset($this->mensaje)) { ?>
                     <div class="alert alert-danger" role="alert">
-                        <strong>Atencion! </strong> <?php echo $this->mensaje;?> 
+                        <strong>Atencion! </strong> <?php echo $this->mensaje; ?> 
                     </div>
                 <?php } ?>
                 <button class="btn btn-lg btn-success btn-block" type="submit">Ingresar</button>

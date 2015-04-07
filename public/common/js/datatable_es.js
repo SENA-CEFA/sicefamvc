@@ -1,5 +1,12 @@
 $(document).ready(function () {
+    $.fn.DataTable.TableTools.defaults.aButtons = ["copy", "xls", "pdf","print"];
     $('#datatable').dataTable({
+        dom: 'T<"clear">lfrtip',
+        tableTools: {
+            "sSwfPath": "../../public/common/datatables/extensions/TableTools/swf/copy_csv_xls_pdf.swf",
+            "sRowSelect": "multi",
+        },
+        oSelectorOpts: { filter: 'applied'},
         "oLanguage": {
             "oPaginate": {
                 "sPrevious": "Anterior",

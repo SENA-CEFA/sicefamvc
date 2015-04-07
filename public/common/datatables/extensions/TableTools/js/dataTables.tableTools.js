@@ -2807,7 +2807,7 @@ TableTools.buttonBase = {
 	"bFooter": true,
 	"bOpenRows": false,
 	"bSelectedOnly": false,
-	"oSelectorOpts": undefined, // See http://datatables.net/docs/DataTables/1.9.4/#$ for full options
+	"oSelectorOpts": { filter: 'applied'}, // See http://datatables.net/docs/DataTables/1.9.4/#$ for full options
 
 	// Callbacks
 	"fnMouseover": null,
@@ -2838,6 +2838,7 @@ TableTools.BUTTONS = {
 	"xls": $.extend( {}, TableTools.buttonBase, {
 		"sAction": "flash_save",
 		"sCharSet": "utf16le",
+                "sToolTip": "Convertir tabla al formato Excel",
 		"bBomInc": true,
 		"sButtonClass": "DTTT_button_xls",
 		"sButtonText": "Excel",
@@ -2849,6 +2850,7 @@ TableTools.BUTTONS = {
 	"copy": $.extend( {}, TableTools.buttonBase, {
 		"sAction": "flash_copy",
 		"sButtonClass": "DTTT_button_copy",
+                "sToolTip": "Copiar registros al portapales",
 		"sButtonText": "Copy",
 		"fnClick": function( nButton, oConfig, flash ) {
 			this.fnSetText( flash, this.fnGetTableData(oConfig) );
@@ -2858,8 +2860,8 @@ TableTools.BUTTONS = {
             if (oConfig.bHeader) lines--;
             if (this.s.dt.nTFoot !== null && oConfig.bFooter) lines--;
 			var plural = (lines==1) ? "" : "s";
-			this.fnInfo( '<h6>Table copied</h6>'+
-				'<p>Copied '+lines+' row'+plural+' to the clipboard.</p>',
+			this.fnInfo( '<h6>Copiar Tabla</h6>'+
+				'<p>Copiado '+lines+' registro'+plural+' al portapapeles.</p>',
 				1500
 			);
 		}
@@ -2872,7 +2874,8 @@ TableTools.BUTTONS = {
 		"sButtonClass": "DTTT_button_pdf",
 		"sButtonText": "PDF",
 		"sPdfOrientation": "portrait",
-		"sPdfSize": "A4",
+                "sToolTip": "Convertir tabla a PDF",
+		"sPdfSize": "letter",
 		"sPdfMessage": "",
 		"fnClick": function( nButton, oConfig, flash ) {
 			this.fnSetText( flash,
@@ -2888,11 +2891,11 @@ TableTools.BUTTONS = {
 	} ),
 
 	"print": $.extend( {}, TableTools.buttonBase, {
-		"sInfo": "<h6>Print view</h6><p>Please use your browser's print function to "+
-		  "print this table. Press escape when finished.</p>",
+		"sInfo": "<h6>Vista de Impresión</h6><p>Por favor use (Ctrl+P) para imprimir esta tabla."+
+		  " Presione ESC para finalizar.</p>",
 		"sMessage": null,
 		"bShowAll": true,
-		"sToolTip": "View print view",
+		"sToolTip": "Vista Previa de Impresión",
 		"sButtonClass": "DTTT_button_print",
 		"sButtonText": "Print",
 		"fnClick": function ( nButton, oConfig ) {

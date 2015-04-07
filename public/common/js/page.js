@@ -10,7 +10,7 @@ $(document).ready(function () {
     });
 //**************************************** ANIMACION OCULTA MENSAJE**********************************************************
     setTimeout(function () {
-        $("#muestrainfo").fadeOut(1500);
+        $("#mensaje").fadeOut(1500);
     }, 4000);
 
     if (history.forward(1)){

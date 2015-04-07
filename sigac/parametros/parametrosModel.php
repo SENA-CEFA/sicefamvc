@@ -22,6 +22,7 @@ class parametrosModel extends Model {
                     . "VALUES ('" . $_POST['txtId'] . "', '" . $_POST['txtNombreTipo'] . "', '" . $_POST['txtAnual'] . "', '" . $_POST['txtFecha1'] . "', '" . $_POST['txtFecha2'] . "', 'A')
                         ON DUPLICATE KEY UPDATE 
                         tresNombre = '" . $_POST['txtNombreTipo'] . "' , tresAnual = '" . $_POST['txtAnual'] . "' , tresFechaInicio = '" . $_POST['txtFecha1'] . "' , tresFechaFin = '" . $_POST['txtFecha2'] . "' ;");
+            
             return $count;
         } else {
             return 0;
